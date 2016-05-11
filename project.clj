@@ -14,6 +14,7 @@
                  [environ "1.0.2"]
                  [secretary "1.2.3"]
                  [reagent "0.5.1"]
+                 [re-frame "0.7.0"]
                  [reagent-utils "0.1.8"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]

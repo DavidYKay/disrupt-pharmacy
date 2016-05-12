@@ -1,5 +1,5 @@
 (defproject disrupt-pharmacy "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Virtual Pharmacy for Hacking Health Vancouver 2016"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -12,7 +12,9 @@
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.5.0"]
                  [environ "1.0.2"]
-                 [secretary "1.2.3"]
+                 ;;[secretary "1.2.3"]
+                 [bidi "1.20.3"]
+                 [kibu/pushy "0.3.2"]
                  [reagent "0.5.1"]
                  [re-frame "0.7.0"]
                  [reagent-utils "0.1.8"]]

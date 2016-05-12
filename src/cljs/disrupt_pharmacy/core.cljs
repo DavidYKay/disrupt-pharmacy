@@ -1,74 +1,80 @@
 (ns disrupt-pharmacy.core
-  (:require [reagent.core :as r :refer [atom]]
-            [reagent.session :as session]
-            
-            [secretary.core :as secretary :include-macros true]
-            [goog.events :as events]
-            [goog.history.EventType :as HistoryEventType]
-            [disrupt-pharmacy.components.book-consultation :as book-consultation]
+  (:require [disrupt-pharmacy.components.book-consultation :as book-consultation]
             [disrupt-pharmacy.components.drug-detail :as drug-detail]
             [disrupt-pharmacy.components.main-ui :as main-ui]
-            )
-  (:require-macros [secretary.core :refer [defroute]])
-  (:import goog.History))
+            [disrupt-pharmacy.routes :as routes]
+            [re-frame.core :as re-frame :refer [dispatch-sync subscribe register-handler register-sub]]
+            [reagent.core :as r :refer [atom]]
+            [reagent.session :as session])
+  (:require-macros [reagent.ratom :refer [reaction]]))
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+;;(defonce app-db (atom {:text "Hello Chestnut!"}))
+
+(def initial-state
+  {:active-panel :home-panel
+   :name "David"
+   })
+
+
+(register-handler                 ;; setup initial state
+  :initialize                     ;; usage:  (dispatch [:initialize])
+  (fn
+    [db _]
+    (println "initializing")
+    (let [new-db (merge db initial-state)]
+      ;;(println "old-db: " db)
+      ;;(println "new-db: " new-db)
+      new-db)))    
+
+(register-handler :set-active-panel 
+                  (fn [db [_ item-id]]
+                    (assoc db :active-panel item-id)))
+
+(register-sub :active-panel 
+              (fn [db _]
+                (reaction (:active-panel @db))))
+
+(register-sub :name
+              (fn [db _]
+                (reaction (:name @db))))
 
 ;; -------------------------
 ;; Routing
 ;; -------------------------
 
-(defn hook-browser-navigation! []
-  (doto (History.)
-    (events/listen
-     HistoryEventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
-    (.setEnabled true)))
+(defn home-panel []
+  (let [name (subscribe [:name])]
+    (fn []
+      [:div (str "Hello from " @name ". This is the Home Page.")
+       [:div [:a {:href (routes/url-for :about)} "go to About Page"]]])))
 
-(defn app-routes []
-  (secretary/set-config! :prefix "#")
+(defn about-panel []
+  (fn []
+    [:div "This is the About Page."
+     [:div [:a {:href (routes/url-for :home)} "go to Home Page"]]]))
 
-  (defroute "/" []
-    (swap! app-state assoc :page :home))
+(defmulti panels identity)
+(defmethod panels :home-panel [] [home-panel])
+(defmethod panels :about-panel [] [about-panel])
+(defmethod panels :default [] [:div])
 
-  (defroute "/about" []
-    (swap! app-state assoc :page :about))
 
-  (defroute "/drug/:id" []
-    (swap! app-state assoc :page :drug-detail))
+(defn greet         ;; outer, setup function, called once
+  []
+  (let [name-ratom  (subscribe [:name-query])]    ;; <---- subscribing happens here
+    (fn []        ;; the inner, render function, potentially called many times.
+      [:div "Hello" @name-ratom])))
 
-  (defroute "/book-consultation" []
-    (swap! app-state assoc :page :book-consultation))
+(defn main-panel []
+  (let [active-panel (subscribe [:active-panel])]
+    (println "Hello main panel")
+    (println "active panel: " active-panel)
+    (println "active panel deref: " @active-panel)
+    ;;(println "App db: " @app-db)
+    (fn []
+      (panels @active-panel))))
 
-  (hook-browser-navigation!))
-
-(defn home []
-  [:div [:h1 "Home Page"]
-   [:a {:href "#/about"} "about page"]])
-
-(defn about []
-  [:div [:h1 "About Page"]
-   [:a {:href "#/"} "home page"]])
-
-(defmulti current-page #(@app-state :page))
-(defmethod current-page :home [] 
-  ;;[main-ui/component])
-  [home])
-(defmethod current-page :about [] 
-  [about])
-
-(defmethod current-page :drug-detail [] 
-  [drug-detail/component])
-(defmethod current-page :book-consultation [] 
-  [book-consultation/component])
-
-(defn ^:export main []
+(defn ^:export run []
   (enable-console-print!)
-  (app-routes)
-  (r/render [current-page] (js/document.getElementById "app")))
-
-;(r/render [(session/get :current-page)] (js/document.getElementById "app")))
-;(r/render [main-ui/component] (js/document.getElementById "app"))
-;(r/render [page] (js/document.getElementById "app"))
-;(r/render page (js/document.getElementById "app"))
+  (dispatch-sync [:initialize])
+  (r/render [main-panel] (js/document.getElementById "app")))

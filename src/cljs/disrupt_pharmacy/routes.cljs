@@ -10,7 +10,7 @@
 (def routes ["/" {
                   ""      :home
                   "about" :about
-                  "drugs/" {"index.html" :drugs
+                  "drugs/" {"index.html" :search
                             [:id "/drug.html"] :drug}
                   ;; TODO: put these under drug detail
                   "consult" :consult
@@ -27,7 +27,8 @@
   (bidi/match-route routes url))
 
 (defn- dispatch-route [matched-route]
-  (let [panel-name (keyword (str (name (:handler matched-route)) "-panel"))]
+  ;;(let [panel-name (keyword (str (name (:handler matched-route)) "-panel"))]
+  (let [panel-name (keyword (str (name (:handler matched-route))))]
     (dispatch [:set-active-panel panel-name])))
 
 (defn app-routes []

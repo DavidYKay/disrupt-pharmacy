@@ -1,7 +1,6 @@
 (ns disrupt-pharmacy.core
-  (:require
-            [disrupt-pharmacy.handlers]
-            [disrupt-pharmacy.panels :refer [panels]]
+  (:require [disrupt-pharmacy.handlers]
+            [disrupt-pharmacy.panels :refer [get-panel]]
             [disrupt-pharmacy.routes :as routes]
             [disrupt-pharmacy.subscriptions]
             [re-frame.core :as re-frame :refer [dispatch-sync subscribe]]
@@ -12,7 +11,7 @@
 (defn main-panel []
   (let [active-panel (subscribe [:active-panel])]
     (fn []
-      (panels @active-panel))))
+      (get-panel @active-panel))))
 
 (defn ^:export run []
   (enable-console-print!)

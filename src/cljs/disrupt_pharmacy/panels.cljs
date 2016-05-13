@@ -1,6 +1,13 @@
 (ns disrupt-pharmacy.panels
   (:require [re-frame.core :as re-frame :refer [subscribe]]
-            [disrupt-pharmacy.routes :refer [url-for]]))
+            [disrupt-pharmacy.routes :refer [url-for]]
+            [disrupt-pharmacy.panels.consult :as consult]
+            [disrupt-pharmacy.panels.efficacy :as efficacy]
+            [disrupt-pharmacy.panels.search   :as search]
+            [disrupt-pharmacy.panels.drug-detail :as drug-detail]
+            [disrupt-pharmacy.panels.login    :as login]
+            [disrupt-pharmacy.panels.terms    :as terms]
+            ))
 
 ;; -------------------------
 ;; Mapping to Panels
@@ -17,7 +24,17 @@
     [:div "This is the About Page."
      [:div [:a {:href (url-for :home)} "go to Home Page"]]]))
 
-(defmulti panels identity)
-(defmethod panels :home-panel [] [home-panel])
-(defmethod panels :about-panel [] [about-panel])
-(defmethod panels :default [] [:div])
+(def panels {:home home-panel
+             :about about-panel
+             :consult consult/component
+             :efficacy efficacy/component
+             :search search/component
+             :drug drug-detail/component
+             :login login/component
+             :terms terms/component})
+
+(defn get-panel [k]
+  (let [p (get panels k)]
+    (if p
+      [p]
+      [:div])))

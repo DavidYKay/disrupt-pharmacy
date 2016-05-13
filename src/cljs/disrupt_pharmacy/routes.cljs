@@ -7,8 +7,7 @@
 ;; Route List
 ;; -------------------------
 
-(def routes ["/" {
-                  ""      :home
+(def routes ["/" {""      :home
                   "about" :about
                   "drugs/" {"index.html" :search
                             [:id "/drug.html"] :drug}

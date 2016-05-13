@@ -1,7 +1,7 @@
 (ns disrupt-pharmacy.routes
   (:require [bidi.bidi :as bidi]
             [pushy.core :as pushy]
-            [re-frame.core :as re-frame :refer [subscribe]]))
+            [re-frame.core :as re-frame :refer [dispatch]]))
 
 ;; -------------------------
 ;; Route List
@@ -28,29 +28,10 @@
 
 (defn- dispatch-route [matched-route]
   (let [panel-name (keyword (str (name (:handler matched-route)) "-panel"))]
-    (re-frame/dispatch [:set-active-panel panel-name])))
+    (dispatch [:set-active-panel panel-name])))
 
 (defn app-routes []
   (pushy/start! (pushy/pushy dispatch-route parse-url)))
 
 (def url-for (partial bidi/path-for routes))
 
-;; -------------------------
-;; Mapping to Panels
-;; -------------------------
-
-(defn home-panel []
-  (let [name (subscribe [:name])]
-    (fn []
-      [:div (str "Hello from " @name ". This is the Home Page. Woot")
-       [:div [:a {:href (url-for :about)} "go to About Page"]]])))
-
-(defn about-panel []
-  (fn []
-    [:div "This is the About Page."
-     [:div [:a {:href (url-for :home)} "go to Home Page"]]]))
-
-(defmulti panels identity)
-(defmethod panels :home-panel [] [home-panel])
-(defmethod panels :about-panel [] [about-panel])
-(defmethod panels :default [] [:div])

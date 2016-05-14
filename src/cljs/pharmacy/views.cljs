@@ -1,31 +1,12 @@
 (ns pharmacy.views
     (:require [re-frame.core :as re-frame]
-              [pharmacy.panels.home :as home]))
+              [pharmacy.panels.home :as home]
+              [pharmacy.panels.about :as about]))
 
-
-;; home
-
-(defn home-panel []
-  (let [name (re-frame/subscribe [:name])]
-    (fn []
-      [:div (str "Hello from " @name ". This is the Home Page.")
-       [:div [:a {:href "#/about"} "About"]]])))
-
-
-;; about
-
-(defn about-panel []
-  (fn []
-    [:div "This is the About Page."
-     [:div [:a {:href "#/"} "Home"]]]))
-
-
-;; main
 
 (defmulti panels identity)
-;;(defmethod panels :home-panel [] [home-panel])
 (defmethod panels :home-panel [] [home/component])
-(defmethod panels :about-panel [] [about-panel])
+(defmethod panels :about-panel [] [about/component])
 (defmethod panels :default [] [:div])
 
 (defn show-panel

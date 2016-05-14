@@ -6,7 +6,11 @@
 
 (def items
   [["Home" home]
-   ["About" about]])
+   ["About" about]
+   ["Terms" about]
+   ["Service" about]
+   ["Consultation" about]
+   ])
 
 (defn component []
   (fn []

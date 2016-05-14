@@ -6,5 +6,10 @@
 (defn component []
   (fn []
     [:div "This is the About Page."
-     [nav/component]
+
+     [:h1 "About"]
+     [:h2 "Team"]
+     [:div "We are a great team of peoples"]
+     
+     ;; [nav/component]
      ]))

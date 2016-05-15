@@ -33,9 +33,6 @@
   (defroute dashboard "/dashboard" []
     (re-frame/dispatch [:set-active-panel :dashboard-panel]))
 
-  (defroute about "/about" []
-    (re-frame/dispatch [:set-active-panel :about-panel]))
-
 
   ;; --------------------
   (hook-browser-navigation!))

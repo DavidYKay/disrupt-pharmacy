@@ -1,6 +1,5 @@
 (ns pharmacy.panels.home
   (:require 
-            [pharmacy.components.nav :as nav]
             [pharmacy.components.join-button :refer [join-button]]
             [pharmacy.components.menu-button :refer [menu-button]]
             [pharmacy.components.searchbox :refer [searchbox]]

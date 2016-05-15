@@ -5,7 +5,7 @@
               [pharmacy.panels.login :as login]
               [pharmacy.panels.dashboard :as dashboard]
               [pharmacy.panels.home :as home]
-              [pharmacy.panels.about :as about]))
+              ))
 
 
 (defmulti panels identity)
@@ -14,7 +14,6 @@
 (defmethod panels :drug-detail-panel [] [drug-detail/component])
 (defmethod panels :login-panel [] [login/component])
 (defmethod panels :dashboard-panel [] [dashboard/component])
-(defmethod panels :about-panel [] [about/component])
 (defmethod panels :default [] [:div])
 
 (defn show-panel

@@ -12,7 +12,10 @@
   (fn []
     [:div.columns
      [:div.column.container
-      [:h1 "Menu Drawer"]
-      [:ul
-       (for [[n p] items]
-         [:li [:a {:href p} n]])]]]))
+      [:section.section
+       [:div.container
+        [:h1.title "Menu Drawer"]]]
+      [:section.section
+       [:div.container
+        (for [[n p] items]
+          [:h2.subtitle [:a {:href p} n]])]]]]))

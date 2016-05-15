@@ -8,22 +8,22 @@
 
 (def items [
             {:title "Drug Bible"
-             :img "http://placehold.it/150x150"
+             :img "http://placehold.it/350x200"
              :text "Placeholder text about the Drug Bible"}
             {:title "Alternatives"
-             :img "http://placehold.it/150x150"
+             :img "http://placehold.it/350x200"
              :text "Placeholder text about alternatives"}
             {:title "Consult"
-             :img "http://placehold.it/150x150"
+             :img "http://placehold.it/350x200"
              :text "Placeholder text about consultation"}
             {:title "Fill Prescription"
-             :img "http://placehold.it/150x150"
+             :img "http://placehold.it/350x200"
              :text "Placeholder text about filling Rx"}])
 
 (defn component []
   (let [name (subscribe [:name])]
     (fn []
-      [:div.content
+      [:div
        
        [:div.top-bar.box.columns
         [:div.column
@@ -31,7 +31,7 @@
         [:div.column
          [join-button]]]
        
-       [:h1 "DisPharm"]
+       [:h1.title "DisPharm"]
        [:div "How effective are your drugs?"]
 
        [searchbox {:placeholder "Enter your drug"
@@ -44,11 +44,12 @@
 
 
        (for [{:keys [title text img]} items]
-         [:div.columns
-          [:div.column
-           [:img {:src img}]]
-          [:div.column
-           [:h1 title]
-           [:p text]]])
+         [:section.section
+          [:div.container.columns
+           [:div.column
+            [:img {:src img}]]
+           [:div.column
+            [:h1.title title]
+            [:p text]]]])
 
        ])))

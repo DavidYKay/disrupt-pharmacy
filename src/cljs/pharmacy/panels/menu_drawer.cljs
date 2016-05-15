@@ -10,8 +10,9 @@
 
 (defn component []
   (fn []
-    [:div
-     [:h1 "Menu Drawer"]
-     [:ul
-      (for [[n p] items]
-        [:li [:a {:href p} n]])]]))
+    [:div.columns
+     [:div.column.container
+      [:h1 "Menu Drawer"]
+      [:ul
+       (for [[n p] items]
+         [:li [:a {:href p} n]])]]]))

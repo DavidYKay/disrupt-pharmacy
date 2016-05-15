@@ -8,6 +8,7 @@
               [pharmacy.panels.join :as join]
               [pharmacy.panels.login :as login]
               [pharmacy.panels.menu-drawer :as menu]
+              [pharmacy.panels.treatment-alternatives :as treatment-alternatives]
               ))
 
 
@@ -20,6 +21,7 @@
 (defmethod panels :join-panel [] [join/component])
 (defmethod panels :login-panel [] [login/component])
 (defmethod panels :menu-panel [] [menu/component])
+(defmethod panels :treatment-alternatives-panel [] [treatment-alternatives/component])
 (defmethod panels :default [] [:div])
 
 (defn show-panel

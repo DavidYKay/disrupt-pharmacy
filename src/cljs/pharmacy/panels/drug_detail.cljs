@@ -52,7 +52,10 @@
 
      [:section.section
       [:div.container
-       [:a.button "View Alternatives to Atorvastatin"]]]
+       [:a.button
+        {:href "#/treatment-alternatives"
+         }
+        "View Alternatives to Atorvastatin"]]]
 
      [:section.section
       [:div.container

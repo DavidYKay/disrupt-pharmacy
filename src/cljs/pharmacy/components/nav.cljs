@@ -8,6 +8,7 @@
   [
    ["Home" "#"]
    ["About" "#/about"]
+   ["Menu" "#/menu"]
    ;;["Home" (home)]
    ;;["About" (about)]
    ;;["Terms" about]

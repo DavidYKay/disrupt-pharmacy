@@ -21,6 +21,9 @@
   (defroute home "/" []
     (re-frame/dispatch [:set-active-panel :home-panel]))
 
+  (defroute menu "/menu" []
+    (re-frame/dispatch [:set-active-panel :menu-panel]))
+
   (defroute about "/about" []
     (re-frame/dispatch [:set-active-panel :about-panel]))
 

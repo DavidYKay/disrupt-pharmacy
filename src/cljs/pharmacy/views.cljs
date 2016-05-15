@@ -1,11 +1,13 @@
 (ns pharmacy.views
     (:require [re-frame.core :as re-frame]
+              [pharmacy.panels.menu-drawer :as menu]
               [pharmacy.panels.home :as home]
               [pharmacy.panels.about :as about]))
 
 
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home/component])
+(defmethod panels :menu-panel [] [menu/component])
 (defmethod panels :about-panel [] [about/component])
 (defmethod panels :default [] [:div])
 

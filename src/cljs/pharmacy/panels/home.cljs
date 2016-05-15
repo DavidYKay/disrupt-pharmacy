@@ -31,16 +31,20 @@
         [:div.column
          [join-button]]]
        
-       [:h1.title "DisPharm"]
-       [:div "How effective are your drugs?"]
+       [:section.section
+        [:div.container
+         [:h1.title "DisPharm"]
+         [:h2.subtitle "How effective are your drugs?"]
 
-       [searchbox {:placeholder "Enter your drug"
-                   :on-search #(println "Searched with term: " %)}]
-       [:ul
-        [:li "Learn abot the drugs you are taking"]
-        [:li "See alternatives"]
-        [:li "Consult a pharmacist"]
-        [:li "Get Prescriptions Filled"]]
+         [searchbox {:placeholder "Enter your drug"
+                     :on-search #(println "Searched with term: " %)}]]]
+
+       [:section.section
+        [:div.container
+         [:h4.subtitle.is-4 "Learn about the drugs you are taking"]
+         [:h4.subtitle.is-4 "See alternatives"]
+         [:h4.subtitle.is-4 "Consult a pharmacist"]
+         [:h4.subtitle.is-4 "Get Prescriptions Filled"]]]
 
        (for [{:keys [title text img]} items]
          [:section.section
@@ -49,6 +53,4 @@
             [:img {:src img}]]
            [:div.column
             [:h1.title title]
-            [:p text]]]])
-
-       ])))
+            [:p text]]]])])))

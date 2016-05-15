@@ -1,8 +1,7 @@
 (ns pharmacy.panels.home
   (:require 
-            [pharmacy.components.join-button :refer [join-button]]
-            [pharmacy.components.menu-button :refer [menu-button]]
             [pharmacy.components.searchbox :refer [searchbox]]
+            [pharmacy.components.top-bar :refer [top-bar]]
             [re-frame.core :as re-frame :refer [subscribe]]))
 
 (def items [
@@ -23,12 +22,8 @@
   (let [name (subscribe [:name])]
     (fn []
       [:div
-       
-       [:div.top-bar.box.columns
-        [:div.column
-         [menu-button]]
-        [:div.column
-         [join-button]]]
+
+       [top-bar]
        
        [:section.section
         [:div.container

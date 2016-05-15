@@ -3,5 +3,6 @@
   )
 
 (defn arrow-button [{:keys [on-click]}]
-  [:i.fa.fa-arrow-left.is-pulled-right.hoverable {:aria-hidden true
-                                                   :on-click on-click}])
+  [:span.icon.is-large.is-pulled-right
+  [:i.fa.fa-arrow-left.hoverable {:aria-hidden true
+                                                   :on-click on-click}]])

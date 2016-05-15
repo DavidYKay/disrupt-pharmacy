@@ -5,5 +5,6 @@
 (defn menu-button []
   (fn []
     [:div.menu-button.hoverable
-     [:i.fa.fa-bars {:aria-hidden true
-                     :on-click #(dispatch [:set-active-panel :menu-panel])}]]))
+     [:span.icon.is-large
+      [:i.fa.fa-bars {:aria-hidden true
+                      :on-click #(dispatch [:set-active-panel :menu-panel])}]]]))

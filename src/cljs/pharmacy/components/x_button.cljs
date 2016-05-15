@@ -3,5 +3,6 @@
   )
 
 (defn x-button []
-  [:i.fa.fa-times.is-pulled-right.hoverable {:aria-hidden true
-                                             :on-click #(dispatch [:set-active-panel :menu-panel])}])
+  [:span.icon.is-large
+   [:i.fa.fa-times.is-pulled-right.hoverable {:aria-hidden true
+                                              :on-click #(dispatch [:set-active-panel :menu-panel])}]])

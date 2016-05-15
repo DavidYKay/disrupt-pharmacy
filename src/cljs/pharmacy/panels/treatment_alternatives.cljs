@@ -1,8 +1,7 @@
 (ns pharmacy.panels.treatment-alternatives
-  (:require [pharmacy.components.top-bar :refer [top-bar]]))
-
-
-
+  (:require
+   [pharmacy.components.drug-rating :refer [drug-rating]]
+   [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
   (let [alternatives [
@@ -26,8 +25,9 @@
 
        (for [{:keys [rating title description]} alternatives]
          [:div.box
-          [:div (str "Overall: " (name (:overall rating)))]
-          [:div (str "Effectiveness: " (name (:effectiveness rating)))]
-          [:div (str "Side Effects: " (name (:side-effects rating)))]
+          [drug-rating]
+          ;;[:div (str "Overall: " (name (:overall rating)))]
+          ;;[:div (str "Effectiveness: " (name (:effectiveness rating)))]
+          ;;[:div (str "Side Effects: " (name (:side-effects rating)))]
           [:h2.subtitle title]
           [:div description]])])))

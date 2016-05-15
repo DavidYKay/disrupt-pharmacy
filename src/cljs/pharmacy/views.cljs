@@ -11,7 +11,6 @@
               [pharmacy.panels.treatment-alternatives :as treatment-alternatives]
               ))
 
-
 (defmulti panels identity)
 (defmethod panels :consult-panel [] [consult/component])
 (defmethod panels :dashboard-panel [] [dashboard/component])

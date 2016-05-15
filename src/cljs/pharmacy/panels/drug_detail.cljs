@@ -1,7 +1,7 @@
 (ns pharmacy.panels.drug-detail
   (:require
-   [pharmacy.components.top-bar :refer [top-bar]]
-   ))
+   [pharmacy.components.drug-rating :refer [drug-rating]]
+   [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
   (fn []
@@ -11,21 +11,7 @@
      
      [:section.section
       [:div.container
-       [:div.tile.is-ancestor
-        [:div.tile.is-parent
-         [:div.tile.is-child.box
-          [:div "B"]
-          [:div "Overall Score"]
-          ]]
-        [:div.tile.is-parent.is-vertical
-         [:div.tile.is-child.box
-          [:div "A"]
-          [:div "Effectiveness"]
-          ]
-         [:div.tile.is-child.box
-          [:div "C"]
-          [:div "Side Effects"]
-          ]]]
+       [drug-rating]
        [:h1.title.drug-title "Atorvastatin"]]]
 
      
@@ -53,8 +39,7 @@
      [:section.section
       [:div.container
        [:a.button
-        {:href "#/treatment-alternatives"
-         }
+        {:href "#/treatment-alternatives"}
         "View Alternatives to Atorvastatin"]]]
 
      [:section.section

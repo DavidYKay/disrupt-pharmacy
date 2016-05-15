@@ -1,6 +1,8 @@
 (ns pharmacy.panels.menu-drawer
   (:require 
    [pharmacy.components.searchbox :refer [searchbox]]
+   [pharmacy.components.arrow-button :refer [arrow-button]]
+   [re-frame.core :as re-frame :refer [dispatch]]
    ))
 
 (def debug-items
@@ -28,10 +30,8 @@
   (fn []
     [:div.columns
      [:div.column.container
-
-      [:section.section
-       [:div.container
-        [:h1.title "Menu Drawer"]]]
+      
+      [arrow-button {:on-click #(dispatch [:set-active-panel :home-panel])}]
 
       [:section.section
        [:div.container

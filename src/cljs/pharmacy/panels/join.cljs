@@ -7,7 +7,6 @@
 (defn component []
   (fn []
     [:div.container
-     
      [:div.box.columns
       [:div.column
        [x-button]

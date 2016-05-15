@@ -25,10 +25,11 @@
     (fn []
       [:div.content
        
-       [:div.top-bar.box
-        [menu-button]
-        [join-button]]
-
+       [:div.top-bar.box.columns
+        [:div.column
+         [menu-button]]
+        [:div.column
+         [join-button]]]
        
        [:h1 "DisPharm"]
        [:div "How effective are your drugs?"]

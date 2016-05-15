@@ -29,6 +29,9 @@
 
   (defroute login "/login" []
     (re-frame/dispatch [:set-active-panel :login-panel]))
+
+  (defroute consult "/consultation" []
+    (re-frame/dispatch [:set-active-panel :consult-panel]))
   
   (defroute dashboard "/dashboard" []
     (re-frame/dispatch [:set-active-panel :dashboard-panel]))

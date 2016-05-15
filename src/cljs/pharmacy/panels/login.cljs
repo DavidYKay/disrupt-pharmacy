@@ -1,7 +1,6 @@
 (ns pharmacy.panels.login
   (:require
-   [pharmacy.components.join-button :refer [join-button]]
-   [pharmacy.components.menu-button :refer [menu-button]]
+   [pharmacy.components.top-bar :refer [top-bar]]
    [re-frame.core :as re-frame :refer [dispatch subscribe]]))
 
 (defn component []
@@ -15,12 +14,8 @@
                 (stop))]
     (fn []
       [:div.container
-       
-       [:div.top-bar.box.columns
-        [:div.column
-         [menu-button]]
-        [:div.column
-         [join-button]]]
+
+       [top-bar]
        
        [:div.box.columns
         [:div.column

@@ -1,8 +1,13 @@
-(ns pharmacy.panels.dashboard)
+(ns pharmacy.panels.dashboard
+  (:require
+   [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
   (fn []
     [:div
-     [:h1 "Dashboard"]
+     
+     [top-bar]
+     
+     [:h1.title "Dashboard"]
 
      ]))

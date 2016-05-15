@@ -1,5 +1,8 @@
-(ns pharmacy.panels.consult)
+(ns pharmacy.panels.consult
+  (:require
+   [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
   [:div
-   "Conuslt"])
+   [top-bar]
+   [:h1.title "Consult"]])

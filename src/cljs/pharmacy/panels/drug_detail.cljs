@@ -1,10 +1,14 @@
 (ns pharmacy.panels.drug-detail
-  ;(:require [pharmacy.components.zestimate-badge :refer [zestimate-badge]]
-            )
+  (:require
+  ;;[pharmacy.components.zestimate-badge :refer [zestimate-badge]]
+   [pharmacy.components.top-bar :refer [top-bar]]
+   ))
 
 (defn component []
   (fn []
     [:div
+
+     [top-bar]
      
      [:section.section
       [:div.container

@@ -1,6 +1,6 @@
 (ns pharmacy.panels.drug-detail
   (:require
-  ;;[pharmacy.components.zestimate-badge :refer [zestimate-badge]]
+   [pharmacy.components.zestimate-badge :refer [zestimate-badge]]
    [pharmacy.components.top-bar :refer [top-bar]]
    ))
 
@@ -14,6 +14,8 @@
       [:div.container
        [:h1.title.drug-title "A-Spaz"]
        ;;[zestimate-badge 90]
+       [zestimate-badge]
+       ;[:div 90]
        ]]
      
      [:section.section

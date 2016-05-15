@@ -6,14 +6,29 @@
             [pharmacy.components.searchbox :refer [searchbox]]
             [re-frame.core :as re-frame :refer [subscribe]]))
 
+(def items [
+            {:title "Drug Bible"
+             :img "http://placehold.it/150x150"
+             :text "Placeholder text about the Drug Bible"}
+            {:title "Alternatives"
+             :img "http://placehold.it/150x150"
+             :text "Placeholder text about alternatives"}
+            {:title "Consult"
+             :img "http://placehold.it/150x150"
+             :text "Placeholder text about consultation"}
+            {:title "Fill Prescription"
+             :img "http://placehold.it/150x150"
+             :text "Placeholder text about filling Rx"}])
+
 (defn component []
   (let [name (subscribe [:name])]
     (fn []
-      [:div
+      [:div.content
        
-       [:div.top-bar
+       [:div.top-bar.box
         [menu-button]
         [join-button]]
+
        
        [:h1 "DisPharm"]
        [:div "How effective are your drugs?"]
@@ -26,24 +41,13 @@
         [:li "Consult a pharmacist"]
         [:li "Get Prescriptions Filled"]]
 
-       [:div
-        [:img {:src "http://placehold.it/150x150"}]
-        [:H3 "Drug Bible"]
-        [:p "Some body text about the drug bible"]]
 
-       [:div
-        [:img {:src "http://placehold.it/150x150"}]
-        [:h3 "Alternatives"]
-        [:p "Some body text about hipster therapy"]]
-
-       [:div
-        [:img {:src "http://placehold.it/150x150"}]
-        [:h3 "Consult"]
-        [:p "Some body text about consultation"]]
-       
-       [:div
-        [:img {:src "http://placehold.it/150x150"}]
-        [:h3 "Fill Prescription"]
-        [:p "Some body text about filling a prescription"]]
+       (for [{:keys [title text img]} items]
+         [:div.columns
+          [:div.column
+           [:img {:src img}]]
+          [:div.column
+           [:h1 title]
+           [:p text]]])
 
        ])))

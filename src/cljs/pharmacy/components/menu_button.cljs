@@ -5,6 +5,6 @@
 (defn menu-button []
   (let [val (atom "")]
     (fn []
-      [:div
-       [:button {:on-click #(dispatch [:set-active-panel :menu-panel])}
-        "Menu"]])))
+      [:div.menu-button
+       [:i.fa.fa-bars {:aria-hidden true
+                       :on-click #(dispatch [:set-active-panel :menu-panel])}]])))

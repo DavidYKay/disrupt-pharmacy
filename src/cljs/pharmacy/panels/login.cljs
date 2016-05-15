@@ -12,7 +12,6 @@
    [:input.input {:placeholder "password" :type "text"}]
 
    [:a.button
-    {:on-click #(dispatch [:sign-in])}
-    "Sign In"]
-   ])
+    {:on-click #(dispatch [:sign-in "a-username" "a-password"])}
+    "Sign In"]])
   

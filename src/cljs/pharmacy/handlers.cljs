@@ -12,8 +12,14 @@
  (fn [db [_ active-panel]]
    (assoc db :active-panel active-panel)))
 
-
 (re-frame/register-handler
  :set-phn
  (fn [db [_ phn]]
    (assoc db :phn phn)))
+
+(re-frame/register-handler
+ :sign-in
+ (fn [db [_ username password]]
+   (println "handler: sign-in")
+   (assoc db :username username
+          :active-panel :home-panel)))

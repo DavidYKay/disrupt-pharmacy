@@ -1,12 +1,13 @@
-(ns pharmacy.panels.drug-detail)
+(ns pharmacy.panels.drug-detail
+  (:require [pharmacy.components.zestimate-badge :refer [zestimate-badge]])
 
 (defn component []
   (fn []
     [:div
      
-     [:h1.drug-tite "A-Spaz"]
+     [:h1.title.drug-title "A-Spaz"]
      
-     [:div.zestimate-badge "90"]
+     [zestimate-badge 90]
      [:div "Generic Name: hyoscyamine (HYE-oh-SYE-ameen)"]
      [:div "Brand Name: Examples include A-spaz and Levsin/SL"]
 

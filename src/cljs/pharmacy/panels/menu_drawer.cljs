@@ -1,7 +1,8 @@
 (ns pharmacy.panels.menu-drawer
   (:require 
-   [pharmacy.components.searchbox :refer [searchbox]]
    [pharmacy.components.arrow-button :refer [arrow-button]]
+   [pharmacy.components.drug-rating :refer [drug-rating]]
+   [pharmacy.components.searchbox :refer [searchbox]]
    [re-frame.core :as re-frame :refer [dispatch]]
    ))
 
@@ -22,9 +23,6 @@
   [["Atorvastatin" "#/drug/1234"]
    ["Drug B" "#/drug/5678"]
    ["Drug C" "#/drug/9012"]])
-
-(defn link-item [n p]
-  [:h2.subtitle [:a {:href p} n]])
 
 (defn component []
   (fn []
@@ -47,10 +45,13 @@
        [:div.container
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
-          [link-item n p])]]
+           [:a {:href p}
+            [drug-rating]
+            [:h2.subtitle n]
+            ])]]
 
       [:section.section
        [:div.container
         [:h2.subtitle "Debug"]
         (for [[n p] debug-items]
-          [link-item n p])]]]]))
+          [:h2.subtitle [:a {:href p} n]])]]]]))

@@ -10,12 +10,13 @@
                 (if-not (empty? v) (on-search v))
                 (stop))]
     (fn []
-      [:div
-       [:input
+      [:p.control.has-icon.has-icon-right
+       [:input.input
         {:placeholder placeholder
          :type "text"
          :on-key-down #(case (.-which %)
                          13 (save)
                          nil)
          :on-change (fn [ev]
-                      (reset! val (-> ev .-target .-value)))}]])))
+                      (reset! val (-> ev .-target .-value)))}]
+       [:i.fa.fa-search]])))

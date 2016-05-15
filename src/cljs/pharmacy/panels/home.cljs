@@ -42,7 +42,6 @@
         [:li "Consult a pharmacist"]
         [:li "Get Prescriptions Filled"]]
 
-
        (for [{:keys [title text img]} items]
          [:section.section
           [:div.container.columns

@@ -1,3 +1,14 @@
 div.menu-button {
     cursor: pointer;
 }
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+    background: #000
+}

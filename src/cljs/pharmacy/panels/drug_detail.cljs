@@ -11,12 +11,11 @@
      [top-bar]
      
      [:section.section
-      [:div.container
-       [:h1.title.drug-title "A-Spaz"]
-       ;;[zestimate-badge 90]
-       [zestimate-badge]
-       ;[:div 90]
-       ]]
+      [:div.container.columns
+       [:div.column
+        [:h1.title.drug-title "A-Spaz"]]
+       [:div.column
+        [zestimate-badge 90]]]]
      
      [:section.section
       [:div.container

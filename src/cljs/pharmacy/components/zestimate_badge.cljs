@@ -2,5 +2,5 @@
   ;;(:require [re-frame.core :as re-frame :refer [subscribe]])
   )
 
-(defn zestimate-badge []
-  [:div 90])
+(defn zestimate-badge [n]
+  [:div.circle n])

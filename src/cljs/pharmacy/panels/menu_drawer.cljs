@@ -1,7 +1,7 @@
 (ns pharmacy.panels.menu-drawer)
 
 (def items
-  [["Home" "#"]
+  [["Home" "#/"]
    ["Drug Detail" "#/drug/1234"]
    ["Dashboard" "#/dashboard"]
    ["Consultation" "#/consultation"]

@@ -1,5 +1,8 @@
 (ns pharmacy.panels.login)
 
 (defn component []
-  [:div
-   "Login"])
+  (fn []
+    [:div
+     [:h1 "Login"]
+     [:div "Please input your PHN"]
+     ]))

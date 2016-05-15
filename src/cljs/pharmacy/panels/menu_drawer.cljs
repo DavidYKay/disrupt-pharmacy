@@ -1,9 +1,16 @@
 (ns pharmacy.panels.menu-drawer)
 
-(defn component []
-  [:div
-   "Menu Drawer"
-   
-   [:div "This is my favorite thing. how are ya"]
+(def items
+  [["Home" "#"]
+   ["Dashboard" "#/dashboard"]
+   ["Consultation" "#/consultation"]
+   ["Past Orders" "#/orders"]
+   ["Login" "#/login"]])
 
-   ])
+(defn component []
+  (fn []
+    [:div
+     [:h1 "Menu Drawer"]
+     [:ul
+      (for [[n p] items]
+        [:li [:a {:href p} n]])]]))

@@ -24,6 +24,12 @@
   (defroute menu "/menu" []
     (re-frame/dispatch [:set-active-panel :menu-panel]))
 
+  (defroute login "/login" []
+    (re-frame/dispatch [:set-active-panel :login-panel]))
+  
+  (defroute dashboard "/dashboard" []
+    (re-frame/dispatch [:set-active-panel :dashboard-panel]))
+
   (defroute about "/about" []
     (re-frame/dispatch [:set-active-panel :about-panel]))
 

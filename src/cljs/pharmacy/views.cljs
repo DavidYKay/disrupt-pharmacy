@@ -3,6 +3,7 @@
               [pharmacy.panels.menu-drawer :as menu]
               [pharmacy.panels.drug-detail :as drug-detail]
               [pharmacy.panels.login :as login]
+              [pharmacy.panels.join :as join]
               [pharmacy.panels.consult :as consult]
               [pharmacy.panels.dashboard :as dashboard]
               [pharmacy.panels.home :as home]
@@ -14,6 +15,7 @@
 (defmethod panels :menu-panel [] [menu/component])
 (defmethod panels :drug-detail-panel [] [drug-detail/component])
 (defmethod panels :login-panel [] [login/component])
+(defmethod panels :join-panel [] [join/component])
 (defmethod panels :consult-panel [] [consult/component])
 (defmethod panels :dashboard-panel [] [dashboard/component])
 (defmethod panels :default [] [:div])

@@ -30,6 +30,9 @@
   (defroute login "/login" []
     (re-frame/dispatch [:set-active-panel :login-panel]))
 
+  (defroute join "/join" []
+    (re-frame/dispatch [:set-active-panel :join-panel]))
+
   (defroute consult "/consultation" []
     (re-frame/dispatch [:set-active-panel :consult-panel]))
   

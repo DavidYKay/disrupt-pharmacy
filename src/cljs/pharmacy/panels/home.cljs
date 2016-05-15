@@ -1,6 +1,7 @@
 (ns pharmacy.panels.home
   (:require 
             [pharmacy.components.nav :as nav]
+            [pharmacy.components.menu-button :refer [menu-button]]
             [pharmacy.components.searchbox :refer [searchbox]]
             [re-frame.core :as re-frame :refer [subscribe]]))
 
@@ -8,6 +9,8 @@
   (let [name (subscribe [:name])]
     (fn []
       [:div
+       [menu-button]
+       
        [:h1 "DisPharm"]
        [:div "How effective are your drugs?"]
 
@@ -17,8 +20,4 @@
         [:li "Learn abot the drugs you are taking"]
         [:li "See alternatives"]
         [:li "Consult a pharmacist"]
-        [:li "Get Prescriptions Filled"]]
-       
-       [:div 
-        [nav/component]
-        ]])))
+        [:li "Get Prescriptions Filled"]]])))

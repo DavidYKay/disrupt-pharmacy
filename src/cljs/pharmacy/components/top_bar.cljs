@@ -9,4 +9,6 @@
    [:div.column
     [menu-button]]
    [:div.column
+    [:h1.title "DisPharm"]]
+   [:div.column
     [join-button]]])

@@ -6,7 +6,7 @@
    ["Dashboard" "#/dashboard"]
    ["Consultation" "#/consultation"]
    ["Past Orders" "#/orders"]
-   ["Login" "#/login"]])
+   ["Join" "#/join"]])
 
 (defn component []
   (fn []

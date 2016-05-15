@@ -14,7 +14,8 @@
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
                                     "test/js"]
 
-  :figwheel {:css-dirs     ["resources/public/css"] }
+  :figwheel {:css-dirs     ["resources/public/css"]
+             :server-ip   "0.0.0.0"}
 
   :cljsbuild
   {:builds

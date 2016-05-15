@@ -6,5 +6,5 @@
   (let [val (atom "")]
     (fn []
       [:div
-       [:button {:on-click #(dispatch [:set-active-panel :login-panel])}
+       [:a.button {:on-click #(dispatch [:set-active-panel :login-panel])}
         "Join"]])))

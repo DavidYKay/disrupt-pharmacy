@@ -8,6 +8,11 @@
    (reaction (:name @db))))
 
 (re-frame/register-sub
+ :phn
+ (fn [db]
+   (reaction (:phn @db))))
+
+(re-frame/register-sub
  :active-panel
  (fn [db _]
    (reaction (:active-panel @db))))

@@ -11,3 +11,9 @@
  :set-active-panel
  (fn [db [_ active-panel]]
    (assoc db :active-panel active-panel)))
+
+
+(re-frame/register-handler
+ :set-phn
+ (fn [db [_ phn]]
+   (assoc db :phn phn)))

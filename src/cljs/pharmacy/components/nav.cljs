@@ -6,14 +6,9 @@
 
 (def items
   [
-   ["Home" "#"]
-   ["About" "#/about"]
+   ;;["Home" "#"]
+   ;;["About" "#/about"]
    ["Menu" "#/menu"]
-   ;;["Home" (home)]
-   ;;["About" (about)]
-   ;;["Terms" about]
-   ;;["Service" about]
-   ;;["Consultation" about]
    ])
 
 (defn component []

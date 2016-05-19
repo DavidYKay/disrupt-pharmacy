@@ -11,7 +11,7 @@
                 (stop))]
     (fn []
       [:p.control.has-icon.has-icon-right
-       [:input.input
+       [:input.input.is-large
         {:placeholder placeholder
          :type "text"
          :on-key-down #(case (.-which %)

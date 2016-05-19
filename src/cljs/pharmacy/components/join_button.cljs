@@ -6,5 +6,5 @@
   (let [val (atom "")]
     (fn []
       [:div.is-pulled-right
-       [:a.button {:on-click #(dispatch [:set-active-panel :join-panel])}
+       [:a.button.is-warning.is-bold {:on-click #(dispatch [:set-active-panel :join-panel])}
         "Join / Sign In"]])))

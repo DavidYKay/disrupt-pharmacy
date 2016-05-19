@@ -13,6 +13,32 @@
     background: green;
 }
 
+/* top-bar */
+#app{margin-top: 65px}
 .top-bar {
   padding-bottom:3px;
+  background-color: #333;
+  color: #eee;
+  position: fixed;
+  top:0;
+  width: calc(100% + 20px);
+  z-index: 99;
 }
+.top-bar .title{color:#ccc}
+
+/* Front page */
+@media (max-width:768px) {
+  .front-search {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}}
+.front-search .control {
+  width: 60vw;
+  margin: 0 auto;
+  min-width: 280px;
+}
+.front-features{padding-bottom: 2em}
+.front-meds{background-color: lightskyblue}
+.front-alt{background-color: lightblue}
+.front-consult{background-color: orange}
+.front-prescript{background-color: darkred}

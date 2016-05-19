@@ -5,10 +5,10 @@
    [pharmacy.components.menu-button :refer [menu-button]]))
 
 (defn top-bar []
-  [:div.top-bar.box.columns
+  [:div.top-bar.box.columns.is-mobile
    [:div.column
     [menu-button]]
    [:div.column
-    [:h1.title "DisPharm"]]
+    [:h1.title.has-text-centered "DisPharm"]]
    [:div.column
     [join-button]]])

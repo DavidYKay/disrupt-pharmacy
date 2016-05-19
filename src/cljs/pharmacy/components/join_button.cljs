@@ -5,6 +5,6 @@
 (defn join-button []
   (let [val (atom "")]
     (fn []
-      [:div
+      [:div.is-pulled-right
        [:a.button {:on-click #(dispatch [:set-active-panel :join-panel])}
-        "Join"]])))
+        "Join / Sign In"]])))

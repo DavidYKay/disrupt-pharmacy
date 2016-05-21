@@ -30,4 +30,8 @@
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [:active-panel])]
     (fn []
-      [show-panel @active-panel])))
+      [:div.root-container
+       [:div.core-ui
+        [show-panel @active-panel]]
+       [:div.nav-drawer
+        [menu/component]]])))

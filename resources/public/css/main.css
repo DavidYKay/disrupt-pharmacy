@@ -2,17 +2,6 @@
     cursor: pointer;
 }
 
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    font-size: 20px;
-    color: #fff;
-    line-height: 100px;
-    text-align: center;
-    background: green;
-}
-
 /* top-bar */
 #app{margin-top: 65px}
 .top-bar {

@@ -18,3 +18,11 @@
    (assoc db :phn phn
           :active-panel :drug-detail-panel)))
 
+
+(re-frame/register-handler
+ :question
+ (fn [db [_ q a]]
+   ;;(println "received question: " q " with answer:" a)
+   (let [state (assoc-in db [:questions q] a)]
+     (println "state is now: " state)
+     state)))

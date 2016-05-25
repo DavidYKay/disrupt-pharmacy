@@ -16,3 +16,8 @@
  :active-panel
  (fn [db _]
    (reaction (:active-panel @db))))
+
+(re-frame/register-sub
+ :questions
+ (fn [db [_ q]]
+   (reaction (get-in @db [:questions q]))))

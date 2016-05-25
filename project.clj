@@ -39,12 +39,9 @@
      :source-paths ["src/cljs" "test/cljs"]
      :compiler     {:output-to     "resources/public/js/compiled/test.js"
                     :main          pharmacy.runner
-                    :optimizations :none}}
-    ]}
+                    :optimizations :none}}]}
 
-  :profiles
-  {:dev
-   {:plugins [[lein-figwheel "0.5.3"]
-              [lein-doo "0.1.6"]
-              ]
-    }})
+  :profiles {:dev
+             {:plugins [[lein-figwheel "0.5.3"]
+                        [lein-doo "0.1.6"]]}})
+

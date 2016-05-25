@@ -3,6 +3,9 @@
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [re-frame.core :as re-frame :refer [dispatch subscribe]]
    [pharmacy.components.debug :refer [debug-boolean]]
+
+   [pharmacy.components.full-personalization-cta :refer
+    [full-personalization-cta]]
    [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
@@ -32,18 +35,17 @@
         [:div.container.box
          [:h2.subtitle "Personalize your results"]
          [:div "Have you ever had a heart attack or stroke?"]
-         [debug-boolean @heart-attack]
           
          [:a.button {:on-click #(dispatch [:question :heart-attack true])} "Yes"]
          [:a.button {:on-click #(dispatch [:question :heart-attack false])} "No"]
 
          [:div "Do you have diabetes or are pre-diabetic?"]
-         [debug-boolean @diabetes]
          [:a.button {:on-click #(dispatch [:question :diabetes true])} "Yes"]
-         [:a.button {:on-click #(dispatch [:question :diabetes false])} "No"]]
-        [:a.button
-         {:on-click #(dispatch [:set-active-panel :input-phn-panel])}
-         "Full Personalize"]]
+         [:a.button {:on-click #(dispatch [:question :diabetes false])} "No"]
+
+         (when (not-any? nil? [@heart-attack @diabetes])
+           [full-personalization-cta]
+           )]]
 
        [:section.section
         [:div.container

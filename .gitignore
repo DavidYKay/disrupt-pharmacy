@@ -14,3 +14,6 @@ figwheel_server.log
 pom.xml
 pom.xml.asc
 lein.bat
+# Emacs
+\#*
+.\#*

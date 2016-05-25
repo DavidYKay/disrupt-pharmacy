@@ -15,7 +15,8 @@
 (re-frame/register-handler
  :set-phn
  (fn [db [_ phn]]
-   (assoc db :phn phn)))
+   (assoc db :phn phn
+          :active-panel :drug-detail-panel)))
 
 (re-frame/register-handler
  :sign-in

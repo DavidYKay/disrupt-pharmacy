@@ -33,9 +33,6 @@
   (defroute menu "/menu" []
     (re-frame/dispatch [:set-active-panel :menu-panel]))
 
-  (defroute login "/login" []
-    (re-frame/dispatch [:set-active-panel :login-panel]))
-
   (defroute join "/join" []
     (re-frame/dispatch [:set-active-panel :join-panel]))
 

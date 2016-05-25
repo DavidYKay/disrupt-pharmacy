@@ -18,9 +18,3 @@
    (assoc db :phn phn
           :active-panel :drug-detail-panel)))
 
-(re-frame/register-handler
- :sign-in
- (fn [db [_ username password]]
-   (println "handler: sign-in")
-   (assoc db :username username
-          :active-panel :home-panel)))

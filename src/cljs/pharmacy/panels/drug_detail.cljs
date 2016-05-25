@@ -35,7 +35,6 @@
        [:a.button "Yes"]
        [:a.button "No"]]
       [:a.button
-       ;{:on-click #(dispatch [:sign-in "a-username" "a-password"])}
         {:on-click #(dispatch [:set-active-panel :input-phn-panel])}
        "Full Personalize"]]
 

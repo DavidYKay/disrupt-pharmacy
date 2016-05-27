@@ -13,11 +13,15 @@
    (assoc db :active-panel active-panel)))
 
 (re-frame/register-handler
+ :set-menu-open
+ (fn [db [_ open]]
+   (assoc db :menu-open open)))
+
+(re-frame/register-handler
  :set-phn
  (fn [db [_ phn]]
    (assoc db :phn phn
           :active-panel :drug-detail-panel)))
-
 
 (re-frame/register-handler
  :question

@@ -16,7 +16,7 @@
         risk (cond
                (and @logged-in @answered-risk-questions) 20
                @logged-in 10
-               :else 4)
+               :else "-")
         drug-score (cond
                      (and (false? @heart-attack) (false? @diabetes)) 10
                      (and (false? @heart-attack) (nil? @diabetes)) 15

@@ -40,13 +40,16 @@
       [:section.section
        [:div.container
         (for [[n p] items]
-          [:h1.title [:a {:href p} n]])]]
+          [:h1.title [:a {:href p
+            :on-click #(dispatch [:set-menu-open false])
+            } n]])]]
 
       [:section.section
        [:div.container
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
-           [:a {:href p}
+           [:a {:href p
+             :on-click #(dispatch [:set-menu-open false])}
             [drug-rating 80]
             [:h2.subtitle n]])]]
 
@@ -54,4 +57,5 @@
        [:div.container
         [:h2.subtitle "Debug"]
         (for [[n p] debug-items]
-          [:h2.subtitle [:a {:href p} n]])]]]]))
+          [:h2.subtitle [:a {:href p
+            :on-click #(dispatch [:set-menu-open false])} n]])]]]]))

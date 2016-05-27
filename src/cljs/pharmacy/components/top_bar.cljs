@@ -11,6 +11,7 @@
        [:div.column
         [menu-button]]
        [:div.column
-        [:h1.title.has-text-centered "DisPharm"]]
+        [:a {:href "#"}
+        [:h1.title.has-text-centered "DisPharm"]]]
        [:div.column
         [join-button @logged-in]]])))

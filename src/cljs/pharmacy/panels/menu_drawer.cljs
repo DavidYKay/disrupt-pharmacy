@@ -1,5 +1,5 @@
 (ns pharmacy.panels.menu-drawer
-  (:require 
+  (:require
    [pharmacy.components.arrow-button :refer [arrow-button]]
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [pharmacy.components.searchbox :refer [searchbox]]
@@ -26,16 +26,16 @@
 
 (defn component []
   (fn []
-    [:div.columns
-     [:div.column.container
-      
+    [:div.columns.dim-layer
+     [:div.column.container.nav-drawer-main
+
       [arrow-button {:on-click #(dispatch [:set-active-panel :home-panel])}]
 
       [:section.section
        [:div.container
         [searchbox {:placeholder "Find Medication"
                     :on-search #(print "searching for" %)}]]]
-      
+
       [:section.section
        [:div.container
         (for [[n p] items]

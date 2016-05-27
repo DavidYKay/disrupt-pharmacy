@@ -1,3 +1,10 @@
+div, a, span, section, input, p, h1, h2, h3, h4, h5 {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
 .hoverable {
     cursor: pointer;
 }
@@ -14,6 +21,39 @@
   z-index: 99;
 }
 .top-bar .title{color:#ccc}
+
+/* nav drawer - default state is closed*/
+.nav-drawer, .dim-layer {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.nav-drawer{width: 0px;display: none}
+.nav-drawer .dim-layer {
+  background-color: rgba(10,10,10,0.8);
+  padding: 0; margin: 0;
+  opacity: 0;
+}
+.nav-drawer .nav-drawer-main{
+  position: fixed;
+  top:0; left: 0;
+  width: 90%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+.nav-drawer.nav-opened{width: 100%;display: block}
+.nav-drawer.nav-opened .dim-layer{
+  opacity:1;
+}
+.nav-drawer.nav-opened .nav-drawer-main{
+  width: 0;
+}
 
 /* Front page */
 @media (max-width:768px) {

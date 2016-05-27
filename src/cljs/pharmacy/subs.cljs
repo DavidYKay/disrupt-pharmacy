@@ -26,3 +26,9 @@
  :questions
  (fn [db [_ q]]
    (reaction (get-in @db [:questions q]))))
+
+(re-frame/register-sub
+ :answered-risk-questions
+ (fn [db]
+   (reaction
+    (every? #(not (nil? %)) (vals (:risk-questions @db))))))

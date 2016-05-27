@@ -1,7 +1,7 @@
 (ns pharmacy.components.drug-rating
   (:require [re-frame.core :as re-frame :refer [dispatch]]))
 
-(defn drug-rating [grade]
+(defn drug-rating [grade risk]
   [:div.score-box.is-inline-flex.columns.is-gapless.has-text-centered
    [:div.column.is-two-third
     [:div.scorebox-overall
@@ -11,9 +11,9 @@
    [:div.column.is-one-third
     [:div.scorebox-efficacy
      [:div.grade "-"]
-     [:div.grade-label "Effectiveness"]
+     [:div.grade-label "-"]
      ]
     [:div.scorebox-sidefx
-     [:div.grade "-"]
-     [:div.grade-label "Side Effects"]
+     [:div.grade (or risk "?")]
+     [:div.grade-label "Risk"]
      ]]])

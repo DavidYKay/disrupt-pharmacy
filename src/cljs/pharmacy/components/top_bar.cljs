@@ -5,7 +5,7 @@
    [pharmacy.components.menu-button :refer [menu-button]]))
 
 (defn top-bar []
-  (let [phn (subscribe [:phn])]
+  (let [logged-in (subscribe [:logged-in])]
     (fn []
       [:div.top-bar.box.columns.is-mobile
        [:div.column
@@ -13,4 +13,4 @@
        [:div.column
         [:h1.title.has-text-centered "DisPharm"]]
        [:div.column
-        [join-button (not (nil? @phn))]]])))
+        [join-button @logged-in]]])))

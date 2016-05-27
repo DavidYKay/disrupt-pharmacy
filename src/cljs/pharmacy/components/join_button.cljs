@@ -2,11 +2,11 @@
   (:require
    [re-frame.core :as re-frame :refer [dispatch]]))
 
-(defn join-button [phn]
+(defn join-button [logged-in]
   (fn []
     [:div.is-pulled-right
-     (if (nil? @phn)
+     (if logged-in
        [:a.button.is-warning {:on-click #(dispatch [:set-active-panel :join-panel])}
-        "Join / Sign In"]
+        "View Profile"]
        [:a.button.is-warning {:on-click #(dispatch [:set-active-panel :join-panel])}
-        "View Profile"])]))
+        "Join / Sign In"])]))

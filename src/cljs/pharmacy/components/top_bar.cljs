@@ -13,4 +13,4 @@
        [:div.column
         [:h1.title.has-text-centered "DisPharm"]]
        [:div.column
-        [join-button phn]]])))
+        [join-button (not (nil? @phn))]]])))

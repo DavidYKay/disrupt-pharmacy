@@ -8,11 +8,9 @@
     [full-personalization-cta]]
    [pharmacy.components.top-bar :refer [top-bar]]))
 
-
 (defn component []
   (let [heart-attack (subscribe [:questions :heart-attack])
         diabetes (subscribe [:questions :diabetes])]
-    ;(println "diabetes: " @diabetes)
     (fn []
       [:div.drugbible-page
 
@@ -42,13 +40,9 @@
 
          [personalization-question :heart-attack "Have you ever had a heart attack or stroke?"]
          [personalization-question :diabetes "Do you have diabetes or are pre-diabetic?"]
-         
-         ;;[:a.button {:on-click #(dispatch [:question :diabetes true])} "Yes"]
-         ;;[:a.button {:on-click #(dispatch [:question :diabetes false])} "No"]
 
          (when (not-any? nil? [@heart-attack @diabetes])
-           [full-personalization-cta]
-           )]]
+           [full-personalization-cta])]]
 
        [:section.section
         [:div.container

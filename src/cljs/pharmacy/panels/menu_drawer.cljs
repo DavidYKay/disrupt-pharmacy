@@ -26,10 +26,11 @@
 
 (defn component []
   (fn []
-    [:div.columns.dim-layer
+    [:div.columns
+     [:div.dim-layer ]
      [:div.column.container.nav-drawer-main
 
-      [arrow-button {:on-click #(dispatch [:set-active-panel :home-panel])}]
+      [arrow-button {:on-click #(dispatch [:set-menu-open false])}]
 
       [:section.section
        [:div.container
@@ -46,9 +47,8 @@
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
            [:a {:href p}
-            [drug-rating]
-            [:h2.subtitle n]
-            ])]]
+            [drug-rating 80]
+            [:h2.subtitle n]])]]
 
       [:section.section
        [:div.container

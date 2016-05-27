@@ -29,7 +29,7 @@
     [:div.columns
      [:div.column.container
       
-      [arrow-button {:on-click #(dispatch [:set-active-panel :home-panel])}]
+      [arrow-button {:on-click #(dispatch [:set-menu-open false])}]
 
       [:section.section
        [:div.container
@@ -47,8 +47,7 @@
         (for [[n p] recent-drugs]
            [:a {:href p}
             [drug-rating 80]
-            [:h2.subtitle n]
-            ])]]
+            [:h2.subtitle n]])]]
 
       [:section.section
        [:div.container

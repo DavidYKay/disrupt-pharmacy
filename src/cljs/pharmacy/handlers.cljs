@@ -18,7 +18,6 @@
    (assoc db :phn phn
           :active-panel :drug-detail-panel)))
 
-
 (re-frame/register-handler
  :question
  (fn [db [_ q a]]

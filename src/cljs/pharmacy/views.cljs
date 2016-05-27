@@ -26,10 +26,13 @@
   [panels panel-name])
 
 (defn main-panel []
-  (let [active-panel (re-frame/subscribe [:active-panel])]
+  (let [active-panel (re-frame/subscribe [:active-panel])
+        menu-open (re-frame/subscribe [:menu-open])]
     (fn []
       [:div.root-container
        [:div.core-ui
         [show-panel @active-panel]]
-       [:div.nav-drawer
+       [:div {:class (if @menu-open
+                       "nav-drawer nav-opened"
+                       "nav-drawer")}
         [menu/component]]])))

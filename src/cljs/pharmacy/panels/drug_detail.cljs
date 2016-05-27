@@ -20,7 +20,11 @@
 
        [:section.section
         [:div.container.has-text-centered
-         [drug-rating]
+         [drug-rating 
+         (cond
+           (and (false? @heart-attack) (false? @diabetes)) 10
+           (and (false? @heart-attack) (nil? @diabetes)) 15
+           :else 70)]
          [:h1.title.drug-title "Atorvastatin"]]]
 
        [:section.section

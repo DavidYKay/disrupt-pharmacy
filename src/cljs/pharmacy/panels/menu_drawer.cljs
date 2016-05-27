@@ -46,7 +46,7 @@
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
            [:a {:href p}
-            [drug-rating]
+            [drug-rating 80]
             [:h2.subtitle n]
             ])]]
 

@@ -25,7 +25,7 @@
 
        (for [{:keys [rating title description]} alternatives]
          [:div.box
-          [drug-rating]
+          [drug-rating 85]
           ;;[:div (str "Overall: " (name (:overall rating)))]
           ;;[:div (str "Effectiveness: " (name (:effectiveness rating)))]
           ;;[:div (str "Side Effects: " (name (:side-effects rating)))]

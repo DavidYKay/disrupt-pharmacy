@@ -35,7 +35,6 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
   -o-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
-
 .nav-drawer, .dim-layer, .nav-drawer-main {
   position: fixed;
   top:0;
@@ -46,25 +45,42 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
   overflow: hidden;
   padding: 0; margin: 0;
 }
-.nav-drawer{width: 0px;xdisplay: none} /*initial state*/
+.nav-drawer{width: 0px;} /*initial state*/
 .nav-drawer .nav-drawer-main{
-  width: 0px; /*initial state*/
+  width: 0px;  /*initial state*/
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #fff;
 }
 .nav-drawer .dim-layer {
   background-color: rgba(10,10,10,0.8);
-  opacity: 0; width: 0px;/*initial state*/
+  opacity: 0; width: 0px;  /*initial state*/
 }
-.nav-drawer.nav-opened{width: 100%;xdisplay: block} /*opened state*/
+.nav-drawer.nav-opened{width: 100%;} /*opened state*/
 .nav-drawer.nav-opened .dim-layer{
   opacity:1; width: 100%; /*opened state*/
 }
 .nav-drawer.nav-opened .nav-drawer-main{
   width: 90%; /*opened state*/
-  padding: 10px;
+  xxpadding: 10px;
 }
+.nav-drawer-main .section {
+  padding: 1em 30px;
+}
+.nav-drawer-topbar{
+  background-color: #555;
+  position: sticky;
+  top:0; left:0;
+  width: 100%;
+  height: 65px;
+  z-index: 100;
+  padding: 7px 25px;
+  margin-bottom: 1em;
+}
+.nav-drawer-topbar .fa-arrow-left {
+  color: #fff;
+}
+
 
 /* Front page */
 @media (max-width:768px) {

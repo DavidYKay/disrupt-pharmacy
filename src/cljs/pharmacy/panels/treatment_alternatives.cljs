@@ -4,21 +4,32 @@
    [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
-  (let [alternatives [{:rating {:overall :B+
+  (let [alternatives [
+                      {:rating {:overall :B-
                                 :effectiveness :B
-                                :side-effects :A}
-                       :title "Exercise"
-                       :description "It has been shown that cardiovascular exercise of 45 minutes 5 days a week reduces heart attack risk by XX%."}
+                                :side-effects :C}
+                       :title "Lovastatin"
+                       :description "This other drug is recommended over Atorvastatin."}
+
                       {:rating {:overall :C
                                 :effectiveness :C
                                 :side-effects :A}
                        :title "An OTC"
                        :description "This OTC has minimal side effects and so-so efficacy."}
-                      {:rating {:overall :B-
+
+                      {:rating {:overall :B+
                                 :effectiveness :B
-                                :side-effects :C}
-                       :title "Some other drug"
-                       :description "This other drug is comparable to Atorvastatin."}]]
+                                :side-effects :A}
+                       :title "Exercise"
+                       :description "It has been shown that cardiovascular exercise of 45 minutes 5 days a week reduces heart attack risk by XX%."}
+                      ]]
+    
+    ;; Atorvastatin -> Rasuvastatin
+    ;; Consult Rasuvastatin
+    ;; Adaptation conversation with dr.
+    ;; Followup email
+    ;; Survey email
+    
     (fn []
       [:div
        [top-bar]

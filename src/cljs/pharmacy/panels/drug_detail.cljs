@@ -6,7 +6,8 @@
    [pharmacy.components.personalization-question :refer [personalization-question]]
    [pharmacy.components.full-personalization-cta :refer
     [full-personalization-cta]]
-   [pharmacy.components.top-bar :refer [top-bar]]))
+   [pharmacy.components.top-bar :refer [top-bar]])
+  (:require-macros [reagent.ratom :refer [reaction]]))
 
 (defn component []
   (let [logged-in (subscribe [:logged-in])
@@ -17,10 +18,10 @@
                (and @logged-in @answered-risk-questions) 20
                @logged-in 10
                :else "-")
-        drug-score (cond
-                     (and (false? @heart-attack) (false? @diabetes)) 10
-                     (and (false? @heart-attack) (nil? @diabetes)) 15
-                     :else 70)]
+        drug-score (reaction (cond
+                               (and (false? @heart-attack) (false? @diabetes)) 10
+                               (and (false? @heart-attack) (nil? @diabetes)) 15
+                               :else 70))]
     (fn []
       [:div.drugbible-page
 
@@ -28,7 +29,7 @@
 
        [:section.section
         [:div.container.has-text-centered
-         [drug-rating drug-score risk]
+         [drug-rating @drug-score risk]
          [:h1.title.drug-title "Atorvastatin"]]]
 
        [:section.section

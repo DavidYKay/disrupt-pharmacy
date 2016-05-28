@@ -10,7 +10,8 @@
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 (defn component []
-  (let [logged-in (subscribe [:logged-in])
+  (let [current-drug (subscribe [:current-drug])
+        logged-in (subscribe [:logged-in])
         heart-attack (subscribe [:questions :drug-score :heart-attack])
         diabetes (subscribe [:questions :drug-score :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
@@ -18,10 +19,12 @@
                          (and @logged-in @answered-risk-questions) 20
                          @logged-in 10
                          :else "-"))
+        drug-name (reaction (:name @current-drug))
         drug-score (reaction (cond
                                (and (false? @heart-attack) (false? @diabetes)) 10
                                (and (false? @heart-attack) (nil? @diabetes)) 15
-                               :else 70))]
+                               :else 70))
+        ]
     (fn []
       [:div.drugbible-page
 
@@ -30,7 +33,9 @@
        [:section.section
         [:div.container.has-text-centered
          [drug-rating @drug-score @risk]
-         [:h1.title.drug-title "Atorvastatin"]]]
+         [:h1.title.drug-title @drug-name]
+         ;; [:h2.subtitle (str "sub:" @current-drug)]
+         ]]
 
        [:section.section
         [:div.container
@@ -57,7 +62,6 @@
 
          (when (not-any? nil? [@heart-attack @diabetes])
            [full-personalization-cta])]]
-
        
        [:section.section
         [:div.container
@@ -68,16 +72,19 @@
        [:section.section
         [:div.container
          [:h2.subtitle "Side Effects"]
+         
          [:ul
-          [:li "* Leg Cramps - 50%"]
-          [:li "* Headaches - 10%"]]]]
+          (for [{:keys [name percentage]} (:side-effects @current-drug)]
+            ^{:key name}
+            [:li (str "* " name " - " percentage)])]]]
 
        [:section.section
         [:div.container
          [:h2.subtitle "Drug Interactions"]
          [:ul
-          [:li "* Grapefruit - Hives"]
-          [:li "* Tylenol - Diahrrea"]]]]
+          (for [{:keys [item effect]} (:drug-interactions @current-drug)]
+            ^{:key item}
+            [:li (str "* " item " - " effect)])]]]
 
        [:section.section
         [:div.container

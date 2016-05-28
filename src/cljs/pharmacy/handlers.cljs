@@ -18,6 +18,12 @@
    (assoc db :menu-open open)))
 
 (re-frame/register-handler
+ :view-drug
+ (fn [db [_ drug-id]]
+   (assoc db :drug-id drug-id
+          :active-panel :drug-detail-panel)))
+
+(re-frame/register-handler
  :set-phn
  (fn [db [_ phn]]
    (assoc db :phn phn

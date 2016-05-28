@@ -1,6 +1,7 @@
 (ns pharmacy.subs
     (:require-macros [reagent.ratom :refer [reaction]])
-    (:require [re-frame.core :as re-frame]))
+    (:require [re-frame.core :as re-frame]
+              [pharmacy.data.drugs :refer [drugs]]))
 
 (re-frame/register-sub
  :name
@@ -16,6 +17,12 @@
  :logged-in
  (fn [db]
    (reaction (not (nil? (:phn @db))))))
+
+(re-frame/register-sub
+ :current-drug
+ (fn [db]
+   (let [drug-id (:drug-id @db)]
+     (reaction (get drugs drug-id)))))
 
 (re-frame/register-sub
  :menu-open

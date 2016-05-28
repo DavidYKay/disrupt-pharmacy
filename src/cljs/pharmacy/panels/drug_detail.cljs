@@ -14,10 +14,10 @@
         heart-attack (subscribe [:questions :heart-attack])
         diabetes (subscribe [:questions :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
-        risk (cond
-               (and @logged-in @answered-risk-questions) 20
-               @logged-in 10
-               :else "-")
+        risk (reaction (cond
+                         (and @logged-in @answered-risk-questions) 20
+                         @logged-in 10
+                         :else "-"))
         drug-score (reaction (cond
                                (and (false? @heart-attack) (false? @diabetes)) 10
                                (and (false? @heart-attack) (nil? @diabetes)) 15
@@ -29,7 +29,7 @@
 
        [:section.section
         [:div.container.has-text-centered
-         [drug-rating @drug-score risk]
+         [drug-rating @drug-score @risk]
          [:h1.title.drug-title "Atorvastatin"]]]
 
        [:section.section

@@ -24,6 +24,7 @@
        [:h1.title "Alternatives to Atorvastatin"]
 
        (for [{:keys [rating title description]} alternatives]
+         ^{:key title}
          [:div.box
           [drug-rating 85]
           ;;[:div (str "Overall: " (name (:overall rating)))]

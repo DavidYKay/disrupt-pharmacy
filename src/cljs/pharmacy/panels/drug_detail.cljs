@@ -11,8 +11,8 @@
 
 (defn component []
   (let [logged-in (subscribe [:logged-in])
-        heart-attack (subscribe [:questions :heart-attack])
-        diabetes (subscribe [:questions :diabetes])
+        heart-attack (subscribe [:questions :drug-score :heart-attack])
+        diabetes (subscribe [:questions :drug-score :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
         risk (reaction (cond
                          (and @logged-in @answered-risk-questions) 20
@@ -45,15 +45,15 @@
          [:section.section
           [:div.container.box
            [:h2.subtitle "Two Risk Questions"]
-           [personalization-question :race "What is your race?"]
-           [personalization-question :smoker "Have you had a heart attack?"]]])
+           [personalization-question :risk :race "What is your race?"]
+           [personalization-question :risk :smoker "Have you had a heart attack?"]]])
 
        [:section.section
         [:div.container.box
          [:h2.subtitle "Personalize your results"]
 
-         [personalization-question :heart-attack "Have you ever had a heart attack or stroke?"]
-         [personalization-question :diabetes "Do you have diabetes or are pre-diabetic?"]
+         [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?"]
+         [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?"]
 
          (when (not-any? nil? [@heart-attack @diabetes])
            [full-personalization-cta])]]

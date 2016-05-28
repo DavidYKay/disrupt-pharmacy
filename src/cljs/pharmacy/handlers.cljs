@@ -25,8 +25,8 @@
 
 (re-frame/register-handler
  :question
- (fn [db [_ q a]]
-   ;;(println "received question: " q " with answer:" a)
-   (let [state (assoc-in db [:questions q] a)]
+ (fn [db [_ kind q a]]
+   ;; (println "received  " kind " question: " q " with answer:" a)
+   (let [state (assoc-in db [:questions kind q] a)]
      (println "state is now: " state)
      state)))

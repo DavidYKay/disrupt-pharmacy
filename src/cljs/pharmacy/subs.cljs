@@ -29,11 +29,15 @@
 
 (re-frame/register-sub
  :questions
- (fn [db [_ q]]
-   (reaction (get-in @db [:questions q]))))
+ (fn [db [_ kind q]]
+   (reaction (get-in @db [:questions kind q]))))
 
 (re-frame/register-sub
  :answered-risk-questions
  (fn [db]
    (reaction
-    (every? #(not (nil? %)) (vals (:risk-questions @db))))))
+    (let [risk-questions (get-in @db [:questions :risk])]
+      (println "risk questions:" risk-questions)
+      (and (not (empty? risk-questions))
+           (every? #(not (nil? %)) (vals risk-questions)))))))
+

@@ -4,44 +4,29 @@
    [pharmacy.components.top-bar :refer [top-bar]]))
 
 (defn component []
-  (let [alternatives [
-                      {:rating {:overall :B-
-                                :effectiveness :B
-                                :side-effects :C}
-                       :title "Lovastatin"
-                       :description "This other drug is recommended over Atorvastatin."}
+  (let [alternatives [{:name "Exercise" :rating {:current 1 :max 8} :description "hello world" }
+                      {:name "Diet" :rating {:current 2 :max 8} :description "hello world" }
+                      {:name "Atorvastatin" :rating {:current 3 :max 8} :description "hello world" }
+                      {:name "Rosuvastatin" :rating {:current 3 :max 8} :description "hello world" }
+                      {:name "Simvastatin" :rating {:current 4 :max 5} :description "hello world" }
+                      {:name "Lovastatin" :rating {:current 6 :max 8} :description "hello world" }
+                      {:name "Fluvastatin" :rating {:current 6 :max 8} :description "hello world" }]]
 
-                      {:rating {:overall :C
-                                :effectiveness :C
-                                :side-effects :A}
-                       :title "An OTC"
-                       :description "This OTC has minimal side effects and so-so efficacy."}
-
-                      {:rating {:overall :B+
-                                :effectiveness :B
-                                :side-effects :A}
-                       :title "Exercise"
-                       :description "It has been shown that cardiovascular exercise of 45 minutes 5 days a week reduces heart attack risk by XX%."}
-                      ]]
-    
     ;; Atorvastatin -> Rasuvastatin
     ;; Consult Rasuvastatin
     ;; Adaptation conversation with dr.
     ;; Followup email
     ;; Survey email
-    
+
     (fn []
       [:div
        [top-bar]
-       
+
        [:h1.title "Alternatives to Atorvastatin"]
 
-       (for [{:keys [rating title description]} alternatives]
-         ^{:key title}
+       (for [{:keys [rating name description]} alternatives]
+         ^{:key name}
          [:div.box
-          [drug-rating 85]
-          ;;[:div (str "Overall: " (name (:overall rating)))]
-          ;;[:div (str "Effectiveness: " (name (:effectiveness rating)))]
-          ;;[:div (str "Side Effects: " (name (:side-effects rating)))]
-          [:h2.subtitle title]
+          [drug-rating (:current rating)]
+          [:h2.subtitle name]
           [:div description]])])))

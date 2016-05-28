@@ -40,11 +40,12 @@
          [:a.button "Fill Prescription"]
          [:a.button "Consult"]]]
 
-       [:section.section
-        [:div.container.box
-         [:h2.subtitle "Two Risk Questions"]
-         [personalization-question :race "What is your race?"]
-         [personalization-question :smoker "Have you had a heart attack?"]]]
+       (when @logged-in
+         [:section.section
+          [:div.container.box
+           [:h2.subtitle "Two Risk Questions"]
+           [personalization-question :race "What is your race?"]
+           [personalization-question :smoker "Have you had a heart attack?"]]])
 
        [:section.section
         [:div.container.box

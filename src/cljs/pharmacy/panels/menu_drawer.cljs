@@ -20,9 +20,8 @@
    ["Checkout (2)" "#/checkout"]])
 
 (def recent-drugs
-  [["Atorvastatin" "#/drug/1234"]
-   ["Drug B" "#/drug/5678"]
-   ["Drug C" "#/drug/9012"]])
+  [["Atorvastatin" "#/drug/atorvastatin"]
+   ["Lovastatin" "#/drug/lovastatin"]])
 
 (defn component []
   (fn []

@@ -17,3 +17,4 @@ lein.bat
 # Emacs
 \#*
 .\#*
+Thumbs.db

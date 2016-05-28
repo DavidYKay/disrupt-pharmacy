@@ -1,5 +1,5 @@
 (ns pharmacy.panels.menu-drawer
-  (:require 
+  (:require
    [pharmacy.components.arrow-button :refer [arrow-button]]
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [pharmacy.components.searchbox :refer [searchbox]]
@@ -27,25 +27,29 @@
 (defn component []
   (fn []
     [:div.columns
-     [:div.column.container
-      
+     [:div.dim-layer ]
+     [:div.column.container.nav-drawer-main
+
       [arrow-button {:on-click #(dispatch [:set-menu-open false])}]
 
       [:section.section
        [:div.container
         [searchbox {:placeholder "Find Medication"
                     :on-search #(print "searching for" %)}]]]
-      
+
       [:section.section
        [:div.container
         (for [[n p] items]
-          [:h1.title [:a {:href p} n]])]]
+          [:h1.title [:a {:href p
+            :on-click #(dispatch [:set-menu-open false])
+            } n]])]]
 
       [:section.section
        [:div.container
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
-           [:a {:href p}
+           [:a {:href p
+             :on-click #(dispatch [:set-menu-open false])}
             [drug-rating 80]
             [:h2.subtitle n]])]]
 
@@ -53,4 +57,5 @@
        [:div.container
         [:h2.subtitle "Debug"]
         (for [[n p] debug-items]
-          [:h2.subtitle [:a {:href p} n]])]]]]))
+          [:h2.subtitle [:a {:href p
+            :on-click #(dispatch [:set-menu-open false])} n]])]]]]))

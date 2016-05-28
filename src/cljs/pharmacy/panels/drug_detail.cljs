@@ -41,7 +41,7 @@
         [:div.container
 
          [:h2.subtitle "Description"]
-         [:div.content "A high-risk, high-reward drug. Is highly effective at reducing risk of heart attack but is known to cause significant side effects in some individuals."]
+         [:div.content (:description @current-drug)]
 
          [:a.button "Fill Prescription"]
          [:a.button "Consult"]]]

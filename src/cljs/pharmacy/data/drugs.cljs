@@ -1,7 +1,6 @@
 (ns pharmacy.data.drugs)
 
-(def drugs {
-            :atorvastatin {:name "Atorvastatin"
+(def drugs {:atorvastatin {:name "Atorvastatin"
                            :description "A high-risk, high-reward drug. Is highly effective at reducing risk of heart attack but is known to cause significant side effects in some individuals."
                            :side-effects [{:name "Leg Cramps"
                                            :percentage "50%"}
@@ -22,7 +21,4 @@
                                                 :effect "Hives"}
                                                {:item "Pumpkin"
                                                 :effect "Diahrrea"}]}
-
-            }
-
-  )
+            })

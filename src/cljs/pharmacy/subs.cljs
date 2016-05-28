@@ -21,8 +21,7 @@
 (re-frame/register-sub
  :current-drug
  (fn [db]
-   (let [drug-id (:drug-id @db)]
-     (reaction (get drugs drug-id)))))
+   (reaction (get drugs (:drug-id @db)))))
 
 (re-frame/register-sub
  :menu-open

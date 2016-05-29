@@ -21,11 +21,18 @@
   (defroute home "/" []
     (re-frame/dispatch [:set-active-panel :home-panel]))
 
+  ;; --------------------
+  ;; Google
+  ;; --------------------
   (defroute google "/google" []
     (re-frame/dispatch [:set-active-panel :google-panel]))
 
   (defroute google-results "/google-results" []
     (re-frame/dispatch [:set-active-panel :google-results-panel]))
+
+  ;; --------------------
+  ;; Core Routes
+  ;; --------------------
 
   (defroute consult "/consultation" []
     (re-frame/dispatch [:set-active-panel :consult-panel]))
@@ -44,6 +51,13 @@
 
   (defroute treatment-alternatives "/treatment-alternatives" []
     (re-frame/dispatch [:set-active-panel :treatment-alternatives-panel]))
+  
+  ;; --------------------
+  ;; Emails
+  ;; --------------------
 
+  (defroute adaptation-email "/adaptation-email" []
+    (re-frame/dispatch [:set-active-panel :adaptation-email-panel]))
+  
   ;; --------------------
   (hook-browser-navigation!))

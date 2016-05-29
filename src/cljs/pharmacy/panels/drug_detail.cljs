@@ -95,7 +95,11 @@
          [:div.modal-content 
           [:div.box
            [:h1.title "Consult Booked"]
-           "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]]]
+           [:div "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]
+           [:a.button.is-primary {:href "/#/adaptation-email"
+                                  ;; :on-click #(println "show adaptation")
+                                  }
+            "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]
 
        [:section.section

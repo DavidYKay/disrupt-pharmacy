@@ -11,6 +11,17 @@
                                                {:item "Tylenol"
                                                 :effect "Diahrrea"}]}
 
+            :rosuvastatin {:name "Rosuvastatin"
+                           :description "A simple drug with different side effects."
+                           :side-effects [{:name "Leg Cramps"
+                                           :percentage "30%"}
+                                          {:name "Headaches"
+                                           :percentage "30%"}]
+                           :drug-interactions [{:item "Strawberries"
+                                                :effect "Hives"}
+                                               {:item "Pumpkin"
+                                                :effect "Diahrrea"}]}
+
             :lovastatin {:name "Lovastatin"
                            :description "A simple drug with different side effects."
                            :side-effects [{:name "Leg Cramps"

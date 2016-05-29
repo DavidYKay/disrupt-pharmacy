@@ -129,19 +129,23 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .front-features{padding-bottom: 2em}
 .front-meds{
   background-image: url("/img/meds_bg.jpg");
-  background-size: cover;
+  background-position: center bottom;
 }
 .front-alt{
   background-image: url("/img/alt_bg.png");
-  background-size: cover;
+  background-position: center center;
 }
 .front-consult{
   background-image: url("/img/consult_bg.png");
-  background-size: cover;
+  background-position: center top;
 }
 .front-prescript{
   background-image: url("/img/prescript_bg.png");
+  background-position: center center;
+}
+.front-meds,.front-consult,.front-alt,.front-prescript {
   background-size: cover;
+  padding-top: 6em;
 }
 
 /* med score widget */

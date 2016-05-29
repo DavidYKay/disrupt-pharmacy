@@ -48,7 +48,7 @@
 
          [fill-rx-button @can-fill]
          (when (and @can-fill @logged-in)
-           [:a.button
+           [:a.button.is-medium
             {:href "#/treatment-alternatives"}
             (str "View Alternatives to " @drug-name)])]]
 
@@ -72,7 +72,8 @@
                       (not @logged-in))
              [full-personalization-cta])]])
 
-       [:section.section
+       [:section.section.drug-detail-sideFX
+
         [:div.container
          [:h2.subtitle "Side Effects"]
 
@@ -81,7 +82,8 @@
             ^{:key name}
             [:li (str "* " name " - " percentage)])]]]
 
-       [:section.section
+       [:section.section.drug-detail-interactions
+
         [:div.container
          [:h2.subtitle "Drug Interactions"]
          [:ul
@@ -93,8 +95,8 @@
                        "modal is-active"
                        "modal")}
         [:div.modal-background {:on-click #(dispatch [:consult-pharmacist false])}]
-        [:div.modal-container 
-         [:div.modal-content 
+        [:div.modal-container
+         [:div.modal-content
           [:div.box
            [:h1.title "Consult Booked"]
            [:div "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]

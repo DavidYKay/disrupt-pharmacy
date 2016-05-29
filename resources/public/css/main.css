@@ -7,6 +7,7 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
 
 body{
   font-family: 'Roboto', sans-serif;
+  font-size: 14pt;
 }
 
 .front-hero {
@@ -36,6 +37,10 @@ h1, h2, h3, h4, h5 {
   borderx:0px;
   border-radius: .3em;
   font-weight: 450;
+}
+
+.button.Alternatives{
+  font-size: 14pt;
 }
 
 .hoverable {
@@ -141,7 +146,8 @@ h1, h2, h3, h4, h5 {
 }
 .front-prescript{
   background-image: url("/img/prescript_bg.png");
-  background-size: cover;}
+  background-size: cover;
+}
 
 /* med score widget */
 .score-box{
@@ -184,4 +190,21 @@ h1, h2, h3, h4, h5 {
 /* drug bible */
 .drugbible-page .score-box{
   font-size: 47px;
+}
+
+.drug-detail-sideFX{
+  background-color: #cc9bb4;
+  color:white;
+}
+
+.drug-detail-sideFX .subtitle{
+  color:white;
+}
+
+.drug-detail-interactions{
+  background-color: #fce473;
+}
+
+.fill-rx-button{
+  margin-right: 2em;
 }

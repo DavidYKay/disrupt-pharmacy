@@ -2,7 +2,7 @@
   (:require
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [re-frame.core :as re-frame :refer [dispatch subscribe]]
-   [pharmacy.components.debug :refer [debug-boolean]]
+   [pharmacy.components.questions-box :refer [questions-box]]
    [pharmacy.components.consult-pharmacist-button :refer [consult-pharmacist-button]]
    [pharmacy.components.fill-rx-button :refer [fill-rx-button]]
    [pharmacy.components.personalization-question :refer [personalization-question]]
@@ -52,6 +52,8 @@
             {:href "#/treatment-alternatives"}
             (str "View Alternatives to " @drug-name)])]]
 
+       [questions-box "test"]
+
        (when @logged-in
          [:section.section
           [:div.container.box
@@ -68,7 +70,6 @@
          (when (and (not-any? nil? [@heart-attack @diabetes])
                     (not @logged-in))
            [full-personalization-cta])]]
-
 
        [:section.section
         [:div.container

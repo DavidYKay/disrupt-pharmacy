@@ -21,6 +21,12 @@
   (defroute home "/" []
     (re-frame/dispatch [:set-active-panel :home-panel]))
 
+  (defroute google "/google" []
+    (re-frame/dispatch [:set-active-panel :google-panel]))
+
+  (defroute google-results "/google-results" []
+    (re-frame/dispatch [:set-active-panel :google-results-panel]))
+
   (defroute consult "/consultation" []
     (re-frame/dispatch [:set-active-panel :consult-panel]))
   

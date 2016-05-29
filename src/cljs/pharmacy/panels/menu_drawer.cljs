@@ -8,6 +8,7 @@
 
 (def debug-items
   [["Home" "#/"]
+   ["Google" "#/google"]
    ["Consultation" "#/consultation"]
    ["Past Orders" "#/orders"]
    ["Join" "#/join"]])

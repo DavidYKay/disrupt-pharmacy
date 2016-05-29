@@ -3,6 +3,8 @@
               [pharmacy.panels.consult :as consult]
               [pharmacy.panels.dashboard :as dashboard]
               [pharmacy.panels.drug-detail :as drug-detail]
+              [pharmacy.panels.google :as google]
+              [pharmacy.panels.google-results :as google-results]
               [pharmacy.panels.home :as home]
               [pharmacy.panels.input-phn :as input-phn]
               [pharmacy.panels.join :as join]
@@ -20,6 +22,9 @@
 (defmethod panels :menu-panel [] [menu/component])
 (defmethod panels :treatment-alternatives-panel [] [treatment-alternatives/component])
 (defmethod panels :default [] [:div])
+
+(defmethod panels :google-panel [] [google/component])
+(defmethod panels :google-results-panel [] [google-results/component])
 
 (defn show-panel
   [panel-name]

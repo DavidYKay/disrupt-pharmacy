@@ -5,6 +5,27 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
   transition: all 0.3s ease-out;
 }
 
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+/*nav bar title*/
+h1.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.9em;
+  }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+  -webkit-box-shadow: .2em .2em .7em 0px rgba(0, 0, 0, 0.3);
+  borderx:0px;
+  border-radius: .3em;
+  font-weight: 450;
+}
+
 .hoverable {
     cursor: pointer;
 }
@@ -95,9 +116,9 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
 }
 .front-features{padding-bottom: 2em}
 .front-meds{background-color: lightskyblue}
-.front-alt{background-color: lightblue}
-.front-consult{background-color: orange}
-.front-prescript{background-color: darkred}
+.front-alt{background-color: #ffe975}
+.front-consult{background-color: lightblue}
+.front-prescript{background-color: #ffe286}
 
 /* med score widget */
 .score-box{

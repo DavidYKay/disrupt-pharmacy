@@ -61,15 +61,16 @@
            [personalization-question :risk :race "What is your race?" false]
            [personalization-question :risk :smoker "Have you had a heart attack?" false]]])
 
-       [:section.section
-        [:div.container.box
-         [:h2.subtitle "Personalize your results"]
-         [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?" @logged-in]
-         [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?" @logged-in]
+       (when (not @logged-in)
+         [:section.section
+          [:div.container.box
+           [:h2.subtitle "Personalize your results"]
+           [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?" @logged-in]
+           [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?" @logged-in]
 
-         (when (and (not-any? nil? [@heart-attack @diabetes])
-                    (not @logged-in))
-           [full-personalization-cta])]]
+           (when (and (not-any? nil? [@heart-attack @diabetes])
+                      (not @logged-in))
+             [full-personalization-cta])]])
 
        [:section.section
         [:div.container

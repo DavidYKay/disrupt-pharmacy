@@ -19,6 +19,7 @@
 
 (def recent-drugs
   [["Atorvastatin" "#/drug/atorvastatin"]
+   ["Rosuvastatin" "#/drug/rosuvastatin"]
    ["Lovastatin" "#/drug/lovastatin"]])
 
 (defn component []

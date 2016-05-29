@@ -3,6 +3,8 @@
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [re-frame.core :as re-frame :refer [dispatch subscribe]]
    [pharmacy.components.debug :refer [debug-boolean]]
+   [pharmacy.components.consult-pharmacist-button :refer [consult-pharmacist-button]]
+   [pharmacy.components.fill-rx-button :refer [fill-rx-button]]
    [pharmacy.components.personalization-question :refer [personalization-question]]
    [pharmacy.components.full-personalization-cta :refer
     [full-personalization-cta]]
@@ -15,6 +17,7 @@
         heart-attack (subscribe [:questions :drug-score :heart-attack])
         diabetes (subscribe [:questions :drug-score :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
+        can-fill (reaction (= (:name @current-drug) "Atorvastatin"))
         risk (reaction (cond
                          (and @logged-in @answered-risk-questions) 20
                          @logged-in 10
@@ -23,8 +26,7 @@
         drug-score (reaction (cond
                                (and (false? @heart-attack) (false? @diabetes)) 10
                                (and (false? @heart-attack) (nil? @diabetes)) 15
-                               :else 70))
-        ]
+                               :else 70))]
     (fn []
       [:div.drugbible-page
 
@@ -43,8 +45,8 @@
          [:h2.subtitle "Description"]
          [:div.content (:description @current-drug)]
 
-         [:a.button "Fill Prescription"]
-         [:a.button "Consult"]]]
+         [fill-rx-button @can-fill]
+         [consult-pharmacist-button]]]
 
        (when @logged-in
          [:section.section
@@ -90,6 +92,6 @@
         [:div.container
          [:div.columns
           [:div.column
-           [:a.button "Fill Prescription"]]
+           [fill-rx-button @can-fill]]
           [:div.column
-           [:a.button "Consult Pharmacist"]]]]]])))
+           [consult-pharmacist-button]]]]]])))

@@ -14,6 +14,7 @@
 (defn component []
   (let [current-drug (subscribe [:current-drug])
         logged-in (subscribe [:logged-in])
+        modal-shown (subscribe [:modal-shown])
         heart-attack (subscribe [:questions :drug-score :heart-attack])
         diabetes (subscribe [:questions :drug-score :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
@@ -72,7 +73,7 @@
        [:section.section
         [:div.container
          [:h2.subtitle "Side Effects"]
-         
+
          [:ul
           (for [{:keys [name percentage]} (:side-effects @current-drug)]
             ^{:key name}
@@ -86,10 +87,18 @@
             ^{:key item}
             [:li (str "* " item " - " effect)])]]]
 
+       [:div {:class (if @modal-shown
+                       "modal is-active"
+                       "modal")}
+        [:div.modal-background {:on-click #(dispatch [:consult-pharmacist false])}]
+        [:div.modal-container 
+         [:div.modal-content 
+          [:div.box
+           [:h1.title "Consult Booked"]
+           "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]]]
+        [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]
+
        [:section.section
         [:div.container
-         [:div.columns
-          [:div.column
-           [fill-rx-button @can-fill]]
-          [:div.column
-           [consult-pharmacist-button]]]]]])))
+         [fill-rx-button @can-fill]
+         [consult-pharmacist-button]]]])))

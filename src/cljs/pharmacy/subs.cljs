@@ -29,6 +29,11 @@
    (reaction (:menu-open @db))))
 
 (re-frame/register-sub
+ :modal-shown
+ (fn [db]
+   (reaction (:modal-shown @db))))
+
+(re-frame/register-sub
  :active-panel
  (fn [db _]
    (reaction (:active-panel @db))))

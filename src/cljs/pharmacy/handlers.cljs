@@ -36,3 +36,8 @@
    (let [state (assoc-in db [:questions kind q] a)]
      (println "state is now: " state)
      state)))
+
+(re-frame/register-handler
+ :consult-pharmacist
+ (fn [db [_ show]]
+   (assoc db :modal-shown show)))

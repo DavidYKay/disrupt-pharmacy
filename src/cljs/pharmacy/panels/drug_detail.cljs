@@ -61,7 +61,8 @@
          [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?" @logged-in]
          [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?" @logged-in]
 
-         (when (not-any? nil? [@heart-attack @diabetes])
+         (when (and (not-any? nil? [@heart-attack @diabetes])
+                    (not @logged-in))
            [full-personalization-cta])]]
        
        [:section.section

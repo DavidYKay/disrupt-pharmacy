@@ -65,7 +65,7 @@
                     (not @logged-in))
            [full-personalization-cta])]]
 
-       (when @can-fill
+       (when (and @can-fill @logged-in)
          [:section.section
           [:div.container
            [:a.button

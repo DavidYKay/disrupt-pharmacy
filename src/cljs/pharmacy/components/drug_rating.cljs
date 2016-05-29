@@ -2,18 +2,12 @@
   (:require [re-frame.core :as re-frame :refer [dispatch]]))
 
 (defn drug-rating [grade risk]
-  [:div.score-box.is-inline-flex.columns.is-gapless.has-text-centered
-   [:div.column.is-two-third
-    [:div.scorebox-overall
+  [:div.score-box.has-text-centered
+    [:div.scorebox-recommend
      [:div.grade grade]
-     [:div.grade-label "Overall Score"]
-     ]]
-   [:div.column.is-one-third
-    [:div.scorebox-efficacy
-     [:div.grade "-"]
-     [:div.grade-label "-"]
+     [:div.grade-label "Recommend"]
      ]
-    [:div.scorebox-sidefx
+    [:div.scorebox-risk
      [:div.grade (or risk "?")]
      [:div.grade-label "Risk"]
-     ]]])
+     ]])

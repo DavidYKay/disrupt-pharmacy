@@ -22,7 +22,7 @@
         risk (reaction (cond
                          (and @logged-in @answered-risk-questions) 20
                          @logged-in 10
-                         :else "-"))
+                         :else "?"))
         drug-name (reaction (:name @current-drug))
         drug-score (reaction (cond
                                (and (false? @heart-attack) (false? @diabetes)) 10
@@ -35,7 +35,11 @@
 
        [:section.section
         [:div.container.has-text-centered
+
          [drug-rating @drug-score @risk]
+         [:p.subtitle.is-6.info-text
+          [:i.fa.fa-question-circle] " What does Recommend and Risk mean?"]
+
          [:h1.title.drug-title @drug-name]
          ;; [:h2.subtitle (str "sub:" @current-drug)]
          ]]

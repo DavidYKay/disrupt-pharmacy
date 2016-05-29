@@ -8,7 +8,7 @@ body{
   font-family: 'Roboto', sans-serif;
   font-size: 14pt;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, .title, .subtitle {
   font-family: 'Montserrat', sans-serif;
 }
 .button {
@@ -18,10 +18,11 @@ h1, h2, h3, h4, h5 {
   border-radius: .3em;
   font-weight: 450;
 }
-.hoverable {
-    cursor: pointer;
-}
+.hoverable {cursor: pointer;}
 .has-text-centered{margin: 0 auto;}
+.info-text{
+  padding: 1em 2em;
+}
 
 .join-box .box {width:75%}
 .button.Alternatives{
@@ -145,9 +146,32 @@ h1, h2, h3, h4, h5 {
 
 /* med score widget */
 .score-box{
-  width: 6em;
-  height: 4em;
+  display: inline-flex;
 }
+.scorebox-recommend, .scorebox-risk {
+  color: black;
+  height: 3em;
+  width: 3em;
+  display: inline-block;
+  border-radius: 50%;
+}
+.scorebox-recommend{
+  margin-right: -0.2em;
+  background-color: green;
+}
+.scorebox-risk{
+  margin-left: -0.2em;
+  background-color: yellow;
+}
+.grade{
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1;
+  padding-top: 0.2em;
+}
+.grade-label{font-size: 0.35em;}
+
+  /*OLD score-box 3 tiles ver*/
 .scorebox-overall{
   background-color: blue;
   color:white;
@@ -166,7 +190,6 @@ h1, h2, h3, h4, h5 {
   height: 2em;
   width: 2em;
 }
-.grade{font-weight: bold;}
 .scorebox-overall .grade{
   font-size: 2.5em;
   line-height: 1;
@@ -181,24 +204,24 @@ h1, h2, h3, h4, h5 {
 .scorebox-efficacy .grade-label, .scorebox-sidefx .grade-label{
   font-size: 0.25em;}
 
+
 /* drug bible */
 .drugbible-page .score-box{
   font-size: 47px;
 }
-
 .drug-detail-sideFX{
   background-color: #cc9bb4;
   color:white;
 }
-
 .drug-detail-sideFX .subtitle{
   color:white;
 }
-
 .drug-detail-interactions{
   background-color: #fce473;
 }
-
 .fill-rx-button{
   margin-right: 2em;
+}
+.drug-title {
+  padding:.3em;
 }

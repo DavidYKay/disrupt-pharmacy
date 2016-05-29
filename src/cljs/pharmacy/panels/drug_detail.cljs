@@ -46,7 +46,10 @@
          [:div.content (:description @current-drug)]
 
          [fill-rx-button @can-fill]
-         [consult-pharmacist-button]]]
+         (when (and @can-fill @logged-in)
+           [:a.button
+            {:href "#/treatment-alternatives"}
+            (str "View Alternatives to " @drug-name)])]]
 
        (when @logged-in
          [:section.section
@@ -65,12 +68,6 @@
                     (not @logged-in))
            [full-personalization-cta])]]
 
-       (when (and @can-fill @logged-in)
-         [:section.section
-          [:div.container
-           [:a.button
-            {:href "#/treatment-alternatives"}
-            (str "View Alternatives to " @drug-name)]]])
 
        [:section.section
         [:div.container

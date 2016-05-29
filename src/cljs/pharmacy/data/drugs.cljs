@@ -31,5 +31,4 @@
                            :drug-interactions [{:item "Strawberries"
                                                 :effect "Hives"}
                                                {:item "Pumpkin"
-                                                :effect "Diahrrea"}]}
-            })
+                                                :effect "Diahrrea"}]}}) 

@@ -52,15 +52,14 @@
          [:section.section
           [:div.container.box
            [:h2.subtitle "Two Risk Questions"]
-           [personalization-question :risk :race "What is your race?"]
-           [personalization-question :risk :smoker "Have you had a heart attack?"]]])
+           [personalization-question :risk :race "What is your race?" false]
+           [personalization-question :risk :smoker "Have you had a heart attack?" false]]])
 
        [:section.section
         [:div.container.box
          [:h2.subtitle "Personalize your results"]
-
-         [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?"]
-         [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?"]
+         [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?" @logged-in]
+         [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?" @logged-in]
 
          (when (not-any? nil? [@heart-attack @diabetes])
            [full-personalization-cta])]]

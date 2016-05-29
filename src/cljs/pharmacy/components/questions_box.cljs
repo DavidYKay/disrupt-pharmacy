@@ -29,14 +29,15 @@
         active-q (reaction (if (or (= (count @active-qs) 1)
                                    (= (mod @pos 2) 0))
                              :a
-                             :b))]
+                             :b))
+        empty? (reaction (empty? @active-qs))]
     (fn []
       [:section.section
+       {:class (if @empty?
+                 "section questions-complete"
+                 "section")}
        [:div.container.box
         [:h1.title "Questions box"]
-        [:h2.subtitle (str "Pos:" @pos)]
-        [:h2.subtitle (str "active qs:" @active-qs)]
-        [:h2.subtitle (str "active q:" @active-q)]
         (let [a (first @active-qs)]
           (when a
             [:div.question.a
@@ -44,9 +45,7 @@
                        "active-question"
                        "")}
              [:div (:question a)]
-             [:a.button
-              {:on-click on-yes}
-              "Yes"]
+             [:a.button {:on-click on-yes} "Yes"]
              [:a.button {:on-click on-no} "No"]]))
         (let [b (second @active-qs)]
           (when b
@@ -55,6 +54,5 @@
                                        "")}
              [:div (:question b)]
              [:a.button {:on-click on-yes} "Yes"]
-             [:a.button {:on-click on-no} "No"]
-             ]))]])))
+             [:a.button {:on-click on-no} "No"]]))]])))
 

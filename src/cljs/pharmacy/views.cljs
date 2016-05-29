@@ -1,6 +1,7 @@
 (ns pharmacy.views
     (:require [re-frame.core :as re-frame]
               [pharmacy.panels.adaptation-email :as adaptation-email]
+              [pharmacy.panels.follow-up-email :as follow-up-email]
               [pharmacy.panels.consult :as consult]
               [pharmacy.panels.dashboard :as dashboard]
               [pharmacy.panels.drug-detail :as drug-detail]
@@ -28,6 +29,7 @@
 (defmethod panels :google-results-panel [] [google-results/component])
 
 (defmethod panels :adaptation-email-panel [] [adaptation-email/component])
+(defmethod panels :follow-up-email-panel [] [follow-up-email/component])
 
 
 

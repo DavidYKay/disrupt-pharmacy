@@ -9,4 +9,9 @@
      [:h1.title "Adaptation Email"]
      [:div "Your medication was successfully changed."]
      [:div
-      [:a.button.is-primary {:on-click #(dispatch [:consult-pharmacist false])} "Fill Prescription"]]]))
+      [:a.button.is-primary
+       {
+        :href "/#/follow-up-email"
+        ;;:on-click #(dispatch [:consult-pharmacist false])
+        }
+       "Fill Prescription"]]]))

@@ -58,6 +58,9 @@
 
   (defroute adaptation-email "/adaptation-email" []
     (re-frame/dispatch [:set-active-panel :adaptation-email-panel]))
+
+  (defroute follow-up-email "/follow-up-email" []
+    (re-frame/dispatch [:set-active-panel :follow-up-email-panel]))
   
   ;; --------------------
   (hook-browser-navigation!))

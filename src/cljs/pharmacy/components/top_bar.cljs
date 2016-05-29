@@ -10,7 +10,7 @@
       [:div.top-bar.box.columns.is-mobile
        [:div.column
         [menu-button]]
-       [:div.column
+       [:div.column.top-logo
         [:a {:href "#"}
         [:h1.title.has-text-centered "DisPharm"]]]
        [:div.column

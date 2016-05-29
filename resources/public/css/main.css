@@ -4,47 +4,27 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-
 body{
   font-family: 'Roboto', sans-serif;
   font-size: 14pt;
 }
-
-.front-hero {
-  background: linear-gradient(to bottom right, #482a43, #cc9bb4)
-}
-
-.front-hero .subtitle{
-  color:white;
-}
-
-.front-features .subtitle{
-  color:white;
-}
-
-/*nav bar title*/
-h1.title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.9em;
-  }
-
 h1, h2, h3, h4, h5 {
   font-family: 'Montserrat', sans-serif;
 }
-
 .button {
-  -webkit-box-shadow: .2em .2em .7em 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: .1em .1em .7em 0px rgba(0, 0, 0, 0.5);
+  xbox-shadow: .1em .1em .7em 0px rgba(0, 0, 0, 0.3);
   borderx:0px;
   border-radius: .3em;
   font-weight: 450;
 }
+.hoverable {
+    cursor: pointer;
+}
+
 
 .button.Alternatives{
   font-size: 14pt;
-}
-
-.hoverable {
-    cursor: pointer;
 }
 
 /* top-bar */
@@ -58,7 +38,11 @@ h1, h2, h3, h4, h5 {
   width: calc(100% + 20px);
   z-index: 99;
 }
-.top-bar .title{color:#ccc}
+.top-bar .title{
+  color:#cc9bb4;
+  white-space: nowrap;
+}
+
 
 /* nav drawer - default state is closed*/
 .nav-drawer, .nav-drawer-main {
@@ -121,6 +105,15 @@ h1, h2, h3, h4, h5 {
 
 
 /* Front page */
+.front-hero {
+  background: linear-gradient(to bottom right, #482a43, #cc9bb4)
+}
+.front-hero .subtitle{
+  color:white;
+}
+.front-features .subtitle{
+  color:white;
+}
 @media (max-width:768px) {
   .front-search {
   padding-top: 8em;

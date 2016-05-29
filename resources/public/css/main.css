@@ -21,8 +21,9 @@ h1, h2, h3, h4, h5 {
 .hoverable {
     cursor: pointer;
 }
+.has-text-centered{margin: 0 auto;}
 
-
+.join-box .box {width:75%}
 .button.Alternatives{
   font-size: 14pt;
 }

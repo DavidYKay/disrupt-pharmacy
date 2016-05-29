@@ -25,16 +25,24 @@
         on-no on-yes
         active-qs (reaction (->> questions
                                  (drop @pos)
-                                 (take 2)))]
+                                 (take 2)))
+        active-q (reaction (if (or (= (count @active-qs) 1)
+                                   (= (mod @pos 2) 0))
+                             :a
+                             :b))]
     (fn []
       [:section.section
        [:div.container.box
         [:h1.title "Questions box"]
         [:h2.subtitle (str "Pos:" @pos)]
         [:h2.subtitle (str "active qs:" @active-qs)]
+        [:h2.subtitle (str "active q:" @active-q)]
         (let [a (first @active-qs)]
           (when a
             [:div.question.a
+             {:class (if (= @active-q :a)
+                       "active-question"
+                       "")}
              [:div (:question a)]
              [:a.button
               {:on-click on-yes}
@@ -42,7 +50,9 @@
              [:a.button {:on-click on-no} "No"]]))
         (let [b (second @active-qs)]
           (when b
-            [:div.question.b
+            [:div.question.b {:class (if (= @active-q :b)
+                                       "active-question"
+                                       "")}
              [:div (:question b)]
              [:a.button {:on-click on-yes} "Yes"]
              [:a.button {:on-click on-no} "No"]

@@ -64,12 +64,13 @@
          (when (and (not-any? nil? [@heart-attack @diabetes])
                     (not @logged-in))
            [full-personalization-cta])]]
-       
-       [:section.section
-        [:div.container
-         [:a.button
-          {:href "#/treatment-alternatives"}
-          "View Alternatives to Atorvastatin"]]]
+
+       (when @can-fill
+         [:section.section
+          [:div.container
+           [:a.button
+            {:href "#/treatment-alternatives"}
+            (str "View Alternatives to " @drug-name)]]])
 
        [:section.section
         [:div.container

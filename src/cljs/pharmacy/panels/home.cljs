@@ -5,9 +5,9 @@
             [re-frame.core :as re-frame :refer [subscribe]]))
 
 (def items [
-            {:title "Drug Bible"
+            {:title "Drug Glossary"
              :img "http://placehold.it/350x200"
-             :text "Placeholder text about the Drug Bible"
+             :text "Look up a drug's efficacy, its side-effects"
              :cta "Learn About A Medication"
              :className "front-meds"}
             {:title "Alternatives"
@@ -52,8 +52,7 @@
        (for [{:keys [title text img cta className]} items]
          [:section.section {:class className}
           [:div.container.columns
-           [:div.column.has-text-centered
-            [:img {:src img}]]
+
            [:div.column.has-text-centered
             [:h1.title title]
             [:p text]

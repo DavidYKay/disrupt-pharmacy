@@ -9,6 +9,18 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+.front-hero {
+  background: linear-gradient(to bottom right, #482a43, #cc9bb4)
+}
+
+.front-hero .subtitle{
+  color:white;
+}
+
+.front-features .subtitle{
+  color:white;
+}
+
 /*nav bar title*/
 h1.title {
   font-family: 'Montserrat', sans-serif;
@@ -115,10 +127,21 @@ h1, h2, h3, h4, h5 {
   min-width: 280px;
 }
 .front-features{padding-bottom: 2em}
-.front-meds{background-color: lightskyblue}
-.front-alt{background-color: #ffe975}
-.front-consult{background-color: lightblue}
-.front-prescript{background-color: #ffe286}
+.front-meds{
+  background-image: url("/img/meds_bg.jpg");
+  background-size: cover;
+}
+.front-alt{
+  background-image: url("/img/alt_bg.png");
+  background-size: cover;
+}
+.front-consult{
+  background-image: url("/img/consult_bg.png");
+  background-size: cover;
+}
+.front-prescript{
+  background-image: url("/img/prescript_bg.png");
+  background-size: cover;}
 
 /* med score widget */
 .score-box{

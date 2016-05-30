@@ -9,8 +9,8 @@
      [top-bar]
 
      [:h1.title "My Dashboard"]
-     
-     [searchbox {:placeholder "Find Medication"
+
+     [searchbox {:placeholder "Find a Medication"
                  :on-search #(print "searching for" %)}]
 
      [:a {:href "#/pharmacist"} [:h2.subtitle "My Pharmacist"]]

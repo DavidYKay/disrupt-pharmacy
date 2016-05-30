@@ -33,7 +33,7 @@
 
       [:section.section
        [:div.container
-        [searchbox {:placeholder "Find Medication"
+        [searchbox {:placeholder "Find a Medication"
                     :on-search #(print "searching for" %)}]]]
 
       [:section.section

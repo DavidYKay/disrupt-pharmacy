@@ -11,12 +11,18 @@
    ["Google" "#/google"]
    ["Consultation" "#/consultation"]
    ["Past Orders" "#/orders"]
+   ["My Dashboard" "#/dashboard"]
    ["Join" "#/join"]])
 
 (def items
-  [["My Dashboard" "#/dashboard"]
-   ["My Prescription" "#/prescription"]
-   ["Checkout (2)" "#/checkout"]])
+  [["Checkout (2)" "#/checkout"]
+   ["Alerts" "#/alerts"]  
+   ["Consult Pharmacist" "#/pharmacist"]
+   ["Fill A Prescription / Refills" "#/prescriptions"]
+   ["My Active Medications" "#/prescriptions/active"]
+   ["Fill & Order History" "#/prescriptions/history"]
+   ["My Health Profile" "#/health-profile"]
+   ["Account Information" "#/account"]   ])
 
 (def recent-drugs
   [["Atorvastatin" "#/drug/atorvastatin"]
@@ -40,7 +46,7 @@
        [:div.container
         (for [[n p] items]
           ^{:key n}
-          [:h1.title [:a {:href p
+          [:h1 [:a {:href p
                           :on-click #(dispatch [:set-menu-open false])} n]])]]
 
       [:section.section
@@ -53,7 +59,7 @@
             [drug-rating 80]
             [:h2.subtitle.is-inline n]])]]
 
-      [:section.section
+      [:section.section.debugmenu
        [:div.container
         [:h2.subtitle "Debug"]
         (for [[n p] debug-items]

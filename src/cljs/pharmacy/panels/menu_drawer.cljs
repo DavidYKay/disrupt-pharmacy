@@ -44,7 +44,7 @@
                           :on-click #(dispatch [:set-menu-open false])} n]])]]
 
       [:section.section
-       [:div.container
+       [:div.container.recently-browsed
         [:h2.subtitle "Recently Browsed"]
         (for [[n p] recent-drugs]
           ^{:key n}

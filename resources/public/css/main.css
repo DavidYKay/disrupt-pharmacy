@@ -93,6 +93,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .nav-drawer-topbar{
   background-color: #555;
+  position: -webkit-sticky;
   position: sticky;
   top:0; left:0;
   width: 100%;
@@ -103,6 +104,9 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .nav-drawer-topbar .fa-arrow-left {
   color: #fff;
+}
+.recently-browsed a {
+  display: block;
 }
 
 
@@ -174,7 +178,6 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   padding-top: 0.2em;
 }
 .grade-label{font-size: 0.35em;}
-
   /*OLD score-box 3 tiles ver*/
 .scorebox-overall{
   background-color: blue;

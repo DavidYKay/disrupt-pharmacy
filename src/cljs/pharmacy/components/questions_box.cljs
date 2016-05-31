@@ -34,9 +34,9 @@
     (fn []
       [:section.section
        {:class (if @empty?
-                 "section questions-complete"
-                 "section")}
-       [:div.container.box
+                 "section questions-box questions-complete"
+                 "section questions-box")}
+       [:div.container
         [:h1.title "Questions box"]
         (let [a (first @active-qs)]
           (when a
@@ -55,4 +55,3 @@
              [:div (:question b)]
              [:a.button {:on-click on-yes} "Yes"]
              [:a.button {:on-click on-no} "No"]]))]])))
-

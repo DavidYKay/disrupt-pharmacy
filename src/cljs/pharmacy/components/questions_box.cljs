@@ -45,13 +45,15 @@
                        "active-question"
                        "")}
              [:div (:question a)]
+             [:div.control.has-addons
              [:a.button {:on-click on-yes} "Yes"]
-             [:a.button {:on-click on-no} "No"]]))
+             [:a.button {:on-click on-no} "No"]]]))
         (let [b (second @active-qs)]
           (when b
             [:div.question.b {:class (if (= @active-q :b)
                                        "active-question"
                                        "")}
              [:div (:question b)]
+             [:div.control.has-addons
              [:a.button {:on-click on-yes} "Yes"]
-             [:a.button {:on-click on-no} "No"]]))]])))
+             [:a.button {:on-click on-no} "No"]]]))]])))

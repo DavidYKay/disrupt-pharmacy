@@ -20,8 +20,8 @@
         answered-risk-questions (subscribe [:answered-risk-questions])
         can-fill (reaction (= (:name @current-drug) "Atorvastatin"))
         risk (reaction (cond
-                         (and @logged-in @answered-risk-questions) 20
-                         @logged-in 10
+                         (and @logged-in @answered-risk-questions) "D"
+                         @logged-in "B"
                          :else "?"))
         drug-name (reaction (:name @current-drug))
         drug-score (reaction (cond
@@ -44,17 +44,18 @@
          ;; [:h2.subtitle (str "sub:" @current-drug)]
          ]]
 
-       [:section.section
+       [:section.section.drug-detail-descrip
         [:div.container
 
          [:h2.subtitle "Description"]
          [:div.content (:description @current-drug)]
 
+         [:div.has-text-centered
          [fill-rx-button @can-fill]
          (when (and @can-fill @logged-in)
            [:a.button.is-medium
             {:href "#/treatment-alternatives"}
-            (str "View Alternatives to " @drug-name)])]]
+            (str "View Alternatives to " @drug-name)])]]]
 
        [questions-box "test"]
 
@@ -110,7 +111,7 @@
             "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]
 
-       [:section.section
+       [:section.section.drug-detail-ctas.has-text-centered
         [:div.container
          [fill-rx-button @can-fill]
          [consult-pharmacist-button]]]])))

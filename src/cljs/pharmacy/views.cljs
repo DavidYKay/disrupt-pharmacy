@@ -32,7 +32,6 @@
 (defmethod panels :follow-up-email-panel [] [follow-up-email/component])
 
 
-
 (defn show-panel
   [panel-name]
   [panels panel-name])

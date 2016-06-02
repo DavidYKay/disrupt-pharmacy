@@ -9,3 +9,4 @@ deploy:
     skip_cleanup: true
     local_dir: resources/public
     region: us-west-2
+    acl: public_read

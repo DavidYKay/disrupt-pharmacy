@@ -9,10 +9,9 @@
      [:h1.title "Follow-up Email"]
 
      [:div "This is your follow-up."]
+     [:div "I was recently changed."]
      [:div "Have you seen any adverse events in the last 3 months?"]
 
      [:div
       [:a.button.is-primary "Yes"]
-      [:a.button.is-primary "No"]]
-      
-     ]))
+      [:a.button.is-primary "No"]]])) 

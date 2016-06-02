@@ -1,4 +1,10 @@
 language: clojure
 lein: lein2
-#script: lein2 cljsbuild test
 script: lein2 cljsbuild once min
+deploy:
+    provider: s3
+    access_key_id: "AKIAJ3R5ROX3GUUHJHIQ"
+    secret_access_key: "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"
+    bucket: "disruptpharmacy"
+    skip_cleanup: true
+    local_dir: resources/public

@@ -1,0 +1,3 @@
+#!/bin/bash
+lein clean && lein cljsbuild once min
+aws s3 sync --acl public-read --region us-west-2 resources/public s3://disruptpharmacy

@@ -108,6 +108,29 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .recently-browsed a {
   display: block;
 }
+.dashboard{
+  text-align: center;
+}
+.dashboard a {
+  display: inline-block;
+  vertical-align: top;
+  width: 30vw;
+  font-size: 12pt;
+  height: calc(25vw + 2.5em);
+  text-align: center;
+  line-height: 1em;
+}
+.dashboard a:nth-child(odd){margin-right: 8vw;}
+.dashboard a i {
+  display: block;
+  font-size: 15vw;
+  border: 2vw solid;
+  border-radius: 50%;
+  height: 25vw;
+  width: 25vw;
+  margin: auto;
+  padding-top: 3vw;
+}
 
 
 /* Front page */
@@ -248,7 +271,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   position: sticky;
   top: 67%;
   left: 0;
-  z-index: 101;
+  z-index: 98;
   width: 100%;
   padding:20px;
   height: 23vh;

@@ -18,7 +18,7 @@
         heart-attack (subscribe [:questions :drug-score :heart-attack])
         diabetes (subscribe [:questions :drug-score :diabetes])
         answered-risk-questions (subscribe [:answered-risk-questions])
-        can-fill (reaction (= (:name @current-drug) "Atorvastatin"))
+        can-fill (reaction (= (:name @current-drug) "Lovastatin"))
         risk (reaction (cond
                          (and @logged-in @answered-risk-questions) "D"
                          @logged-in "B"

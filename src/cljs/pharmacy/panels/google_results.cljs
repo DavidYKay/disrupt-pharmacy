@@ -7,9 +7,9 @@
           ])
 
 (def results [
-              {:title "Atorvastatin Side Effects in Detail - Drugs.com"
-               :summary "Learn about the potential side effects of atorvastatin. Includes common and rare side effects information for consumers and healthcare professionals."
-               :url "www.drugs.com › Drugs A to Z › Atorvastatin"}
+              {:title "Lovastatin Side Effects in Detail - Drugs.com"
+               :summary "Learn about the potential side effects of lovastatin. Includes common and rare side effects information for consumers and healthcare professionals."
+               :url "www.drugs.com › Drugs A to Z › Lovastatin"}
               ])
 
 (defn component []
@@ -28,7 +28,7 @@
      [:div 
       [:div title]
       [:div summary]
-      [:a {:href "#/drug/atorvastatin"} url]])
+      [:a {:href "#/drug/lovastatin"} url]])
    
    ;; [:img {:src "img/searchbutton.png"}]
    ])

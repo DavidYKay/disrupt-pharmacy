@@ -236,6 +236,11 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .drug-detail-descrip .button
 {margin: .5em;}
 
+.drug-detail-descrip {
+  margin-top: -3.5em;
+  margin-bottom: -1.5em;
+}
+
 /*Questions boxes*/
 .questions-box{
   overflow: hidden;
@@ -246,11 +251,14 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   z-index: 101;
   width: 100%;
   padding:20px;
-  height: 33vh;
+  height: 23vh;
   color:#fff;
 }
 .questions-box h1 {
   color:#fff;
+}
+.questions-box .button{
+  margin-top: 1em;
 }
 .question {
   height: 5em;
@@ -262,3 +270,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .questions-complete{height:0px;padding:0px}
 
 .debugmenu{background-color: #ccc}
+
+.container .button{
+  margin: 1em;
+}

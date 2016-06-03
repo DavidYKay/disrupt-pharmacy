@@ -11,6 +11,12 @@
    [pharmacy.components.top-bar :refer [top-bar]])
   (:require-macros [reagent.ratom :refer [reaction]]))
 
+;; Score Risk
+;; 10%   ~5% (based on assumption of high cholesterol)
+;; 20%   ~10% (checked YES to smoking)
+;; 40%   ~17% (checked yes to diabetes)
+;; 80%   HIGH (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
+
 (defn component []
   (let [current-drug (subscribe [:current-drug])
         logged-in (subscribe [:logged-in])

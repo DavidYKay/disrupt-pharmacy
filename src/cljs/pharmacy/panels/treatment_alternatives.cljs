@@ -4,6 +4,17 @@
    [pharmacy.components.drug-rating :refer [drug-rating]]
    [pharmacy.components.top-bar :refer [top-bar]]))
 
+;; Hipster Therapy
+;; Ranking:
+;; Atorvastatin 1 (tie)
+;; Rosuvastatin 1 (tie)
+;; Simvastatin 3
+;; Pravastatin 4
+;; Lovastatin 5 (tie)
+;; Fluvastatin 5 (tie)
+;; 
+;; Comment: drug therapy should always be accompanied by a healthy diet and exercise
+
 (defn component []
   (let [alternatives [{:name "Exercise" :rating {:current 1 :max 8} :description "hello world" }
                       {:name "Diet" :rating {:current 2 :max 8} :description "hello world" }

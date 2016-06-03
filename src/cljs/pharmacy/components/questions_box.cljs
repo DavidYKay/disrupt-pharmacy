@@ -23,14 +23,8 @@
   (let [pos (reagent/atom 0)
         on-yes #(swap! pos inc)
         on-no on-yes
-        active-qs (reaction (->> questions
-                                 (drop @pos)
-                                 (take 2)))
-        active-q (reaction (if (or (= (count @active-qs) 1)
-                                   (= (mod @pos 2) 0))
-                             :a
-                             :b))
-        empty? (reaction (empty? @active-qs))]
+        ;;empty? (reaction (= (inc pos) (count questions)))]
+        empty? (reagent/atom false)]
     (fn []
       [:section.section
        {:class (if @empty?
@@ -38,22 +32,14 @@
                  "section questions-box")}
        [:div.container
         [:h1.title "Questions box"]
-        (let [a (first @active-qs)]
-          (when a
-            [:div.question.a
-             {:class (if (= @active-q :a)
-                       "active-question"
-                       "")}
-             [:div (:question a)]
-             [:div.control.has-addons
-             [:a.button {:on-click on-yes} "Yes"]
-             [:a.button {:on-click on-no} "No"]]]))
-        (let [b (second @active-qs)]
-          (when b
-            [:div.question.b {:class (if (= @active-q :b)
-                                       "active-question"
-                                       "")}
-             [:div (:question b)]
-             [:div.control.has-addons
-             [:a.button {:on-click on-yes} "Yes"]
-             [:a.button {:on-click on-no} "No"]]]))]])))
+        (doall
+         (map-indexed (fn [idx {:keys [question type choices]}]
+                        ^{:key idx}
+                        [:div.question
+                         {:class (if (= idx @pos)
+                                   "active-question"
+                                   "")}
+                         [:div question]
+                         [:div.control.has-addons
+                          [:a.button {:on-click on-yes} "Yes"]
+                          [:a.button {:on-click on-no} "No"]]]) questions))]])))

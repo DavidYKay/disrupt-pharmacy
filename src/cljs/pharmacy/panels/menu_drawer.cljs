@@ -25,9 +25,9 @@
    ["Account Information" "#/account" "fa-info"]])
 
 (def recent-drugs
-  [["Atorvastatin" "#/drug/atorvastatin"]
-   ["Rosuvastatin" "#/drug/rosuvastatin"]
-   ["Lovastatin" "#/drug/lovastatin"]])
+  [["Lovastatin" "#/drug/lovastatin"]
+   ["Atorvastatin" "#/drug/atorvastatin"]
+   ["Rosuvastatin" "#/drug/rosuvastatin"]])
 
 (defn component []
   (fn []

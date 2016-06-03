@@ -7,7 +7,7 @@
   (fn []
     [:div.box.container
      [:h1.title "Adaptation Email"]
-     [:div "Your medication was successfully changed."]
+     [:div "Your medication was successfully changed after Dr. Nguyen spoke with your physician."]
      [:div
       [:a.button.is-primary
        {

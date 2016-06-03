@@ -16,14 +16,12 @@
 ;; Comment: drug therapy should always be accompanied by a healthy diet and exercise
 
 (defn component []
-  (let [alternatives [{:name "Exercise" :rating {:current 1 :max 8} :description "hello world" }
-                      {:name "Diet" :rating {:current 2 :max 8} :description "hello world" }
-                      {:name "Atorvastatin" :rating {:current 3 :max 8} :description "hello world" }
-                      {:name "Rosuvastatin" :rating {:current 3 :max 8} :description "hello world" }
-                      {:name "Simvastatin" :rating {:current 4 :max 8} :description "hello world" }
-                      {:name "Pravastatin" :rating {:current 5 :max 8} :description "hello world" }
-                      {:name "Lovastatin" :rating {:current 6 :max 8} :description "hello world" }
-                      {:name "Fluvastatin" :rating {:current 6 :max 8} :description "hello world" }]]
+  (let [alternatives [{:name "Atorvastatin" :rating {:current 1 :max 5} :description "hello world" }
+                      {:name "Rosuvastatin" :rating {:current 1 :max 5} :description "hello world" }
+                      {:name "Simvastatin" :rating {:current 3 :max 5} :description "hello world" }
+                      {:name "Pravastatin" :rating {:current 4 :max 5} :description "hello world" }
+                      {:name "Lovastatin" :rating {:current 5 :max 5} :description "hello world" }
+                      {:name "Fluvastatin" :rating {:current 5 :max 5} :description "hello world" }]]
 
     ;; Atorvastatin -> Rasuvastatin
     ;; Consult Rasuvastatin
@@ -33,7 +31,7 @@
       [:div
        [top-bar]
 
-       [:h1.title "Alternatives to Atorvastatin"]
+       [:h1.title "Alternatives to Lovastatin"]
 
        (for [{:keys [rating name description]} alternatives]
          ^{:key name}
@@ -42,4 +40,7 @@
            ;; [drug-rating (:current rating)]
            [:div (:current rating) "/" (:max rating)]
            [:h2.subtitle name]
-           [:div description]]])])))
+           [:div description]]])
+
+       [:div "Note: drug therapy should always be accompanied by a healthy diet and exercise."]
+       ])))

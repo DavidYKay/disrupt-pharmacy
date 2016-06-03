@@ -15,14 +15,14 @@
    ["Join" "#/join"]])
 
 (def items
-  [["Checkout (2)" "#/checkout"]
-   ["Alerts" "#/alerts"]  
-   ["Consult Pharmacist" "#/pharmacist"]
-   ["Fill A Prescription / Refills" "#/prescriptions"]
-   ["My Active Medications" "#/prescriptions/active"]
-   ["Fill & Order History" "#/prescriptions/history"]
-   ["My Health Profile" "#/health-profile"]
-   ["Account Information" "#/account"]   ])
+  [["Checkout (2)" "#/checkout" "fa-shopping-cart"]
+   ["Alerts" "#/alerts" "fa-bell-o"]
+   ["Consult Pharmacist" "#/pharmacist" "fa-user-plus"]
+   ["Fill A Prescription / Refills" "#/prescriptions" "fa-sticky-note"]
+   ["My Active Medications" "#/prescriptions/active" "fa-medkit"]
+   ["Fill & Order History" "#/prescriptions/history" "fa-history"]
+   ["My Health Profile" "#/health-profile" "fa-clipboard"]
+   ["Account Information" "#/account" "fa-info"]])
 
 (def recent-drugs
   [["Atorvastatin" "#/drug/atorvastatin"]
@@ -43,11 +43,11 @@
                     :on-search #(print "searching for" %)}]]]
 
       [:section.section
-       [:div.container
-        (for [[n p] items]
+       [:div.container.dashboard
+        (for [[n p i] items]
           ^{:key n}
-          [:h1 [:a {:href p
-                          :on-click #(dispatch [:set-menu-open false])} n]])]]
+          [:a {:href p
+                          :on-click #(dispatch [:set-menu-open false])} [:i.fa {:class i}] n])]]
 
       [:section.section
        [:div.container.recently-browsed

@@ -5,19 +5,21 @@
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 (def questions
-  [{:question "What is your favorite color?"
+  [{:question "What is your age?"
+    :type :integer}
+   {:question "What is your race?"
     :type :multiple-choice
-    :choices ["Red"
-              "Blue"
-              "Green"
-              "Black"]}
-   {:question "Are you a smoker?"
-    :type :boolean}
+    :choices ["Black"
+              "White"
+              "Other"]}
    {:question "Are you taking BP Meds?"
     :type :boolean}
-   {:question "Do you have a history of early cardiovascular disease in your family?"
+   {:question "Are you a smoker?"
     :type :boolean}
-   ])
+   {:question "Have you ever had a heart attack or stroke?"
+    :type :boolean}
+   {:question "Do you have diabetes or are pre-diabetic?"
+    :type :boolean}])
 
 (defn questions-box [x]
   (let [pos (reagent/atom 0)
@@ -27,18 +29,20 @@
         empty? (reagent/atom false)]
     (fn []
       [:section.section
-       {:class (if @empty?
-                 "section questions-box questions-complete"
-                 "section questions-box")}
+       ;{:class (str "section questions-box" (if @empty?
+       {:class (str "section" (if @empty?
+                                "questions-complete"
+                                ""))}
        [:div.container
         [:h1.title "Questions box"]
         (doall
          (map-indexed (fn [idx {:keys [question type choices]}]
                         ^{:key idx}
                         [:div.question
-                         {:class (if (= idx @pos)
-                                   "active-question"
-                                   "")}
+                         {:class
+                          (if (= idx @pos)
+                            "active-question"
+                            "")}
                          [:div question]
                          [:div.control.has-addons
                           [:a.button {:on-click on-yes} "Yes"]

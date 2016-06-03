@@ -46,9 +46,7 @@
          [:p.subtitle.is-6.info-text
           [:i.fa.fa-question-circle] " What does Recommend and Risk mean?"]
 
-         [:h1.title.drug-title @drug-name]
-         ;; [:h2.subtitle (str "sub:" @current-drug)]
-         ]]
+         [:h1.title.drug-title @drug-name]]]
 
        [:section.section.drug-detail-descrip
         [:div.container
@@ -59,29 +57,12 @@
          [:div.has-text-centered
          [fill-rx-button @can-fill]
          (when (and @can-fill @logged-in)
-           [:a.button.is-medium
-            {:href "#/treatment-alternatives"}
+           [:a.button.is-medium {:href "#/treatment-alternatives"}
             (str "View Alternatives to " @drug-name)])]]]
 
        [questions-box "test"]
-
-       (when @logged-in
-         [:section.section
-          [:div.container.box
-           [:h2.subtitle "Two Risk Questions"]
-           [personalization-question :risk :race "What is your race?" false]
-           [personalization-question :risk :smoker "Have you had a heart attack?" false]]])
-
-       (when (not @logged-in)
-         [:section.section
-          [:div.container.box
-           [:h2.subtitle "Personalize your results"]
-           [personalization-question :drug-score :heart-attack "Have you ever had a heart attack or stroke?" @logged-in]
-           [personalization-question :drug-score :diabetes "Do you have diabetes or are pre-diabetic?" @logged-in]
-
-           (when (and (not-any? nil? [@heart-attack @diabetes])
-                      (not @logged-in))
-             [full-personalization-cta])]])
+       
+       ;; [full-personalization-cta]
 
        [:section.section.drug-detail-sideFX
 

@@ -43,12 +43,34 @@
  (fn [db [_ kind q]]
    (reaction (get-in @db [:questions kind q]))))
 
-(re-frame/register-sub
- :answered-risk-questions
- (fn [db]
-   (reaction
-    (let [risk-questions (get-in @db [:questions :risk])]
-      (println "risk questions:" risk-questions)
-      (and (not (empty? risk-questions))
-           (every? #(not (nil? %)) (vals risk-questions)))))))
+;; Risk
+;; ~5% (based on assumption of high cholesterol)
+;; ~10% (checked YES to smoking)
+;; ~17% (checked yes to diabetes)
+;; HIGH (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
 
+(re-frame/register-sub
+ :risk
+ (fn [db [_]]
+   (reaction
+    (cond
+      (get-in @db [:questions :universal :cardiac-event]) "HIGH"
+      (get-in @db [:questions :universal :diabetes]) "17%"
+      (get-in @db [:questions :universal :smoker]) "10%"
+      :else "5%"))))
+
+;; Score 
+;; 10%  (based on assumption of high cholesterol)
+;; 20%  (checked YES to smoking)
+;; 40%  (checked yes to diabetes)
+;; 80%  (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
+
+(re-frame/register-sub
+ :drug-score
+ (fn [db [_]]
+   (reaction
+    (cond
+      (get-in @db [:questions :universal :cardiac-event]) "80%"
+      (get-in @db [:questions :universal :diabetes]) "40%"
+      (get-in @db [:questions :universal :smoker]) "20%"
+      :else "10%"))))

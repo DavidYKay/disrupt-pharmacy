@@ -1,6 +1,7 @@
 (ns pharmacy.panels.input-phn
   (:require
    [re-frame.core :as re-frame :refer [dispatch subscribe]]
+   [pharmacy.helpers :refer [on-enter]]
    [pharmacy.components.x-button :refer [x-button]]))
 
 (def example-phn "1122334455")
@@ -25,10 +26,6 @@
         {:value @val
          :text "11"
          :type "text"
-         :on-key-down #(case (.-which %)
-                         13 (save)
-                         nil)
+         :on-key-down (on-enter save)
          :on-change (fn [ev]
-                      (reset! val (-> ev .-target .-value)))}]
-       ;;[:h2.subtitle "Current PHN:" @phn]
-       ])))
+                      (reset! val (-> ev .-target .-value)))}]])))

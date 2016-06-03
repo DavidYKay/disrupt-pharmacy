@@ -11,29 +11,15 @@
    [pharmacy.components.top-bar :refer [top-bar]])
   (:require-macros [reagent.ratom :refer [reaction]]))
 
-;; Score Risk
-;; 10%   ~5% (based on assumption of high cholesterol)
-;; 20%   ~10% (checked YES to smoking)
-;; 40%   ~17% (checked yes to diabetes)
-;; 80%   HIGH (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
 
 (defn component []
   (let [current-drug (subscribe [:current-drug])
         logged-in (subscribe [:logged-in])
         modal-shown (subscribe [:modal-shown])
-        heart-attack (subscribe [:questions :drug-score :heart-attack])
-        diabetes (subscribe [:questions :drug-score :diabetes])
-        answered-risk-questions (subscribe [:answered-risk-questions])
+        drug-score (subscribe [:drug-score])
+        risk (subscribe [:risk])
         can-fill (reaction (= (:name @current-drug) "Lovastatin"))
-        risk (reaction (cond
-                         (and @logged-in @answered-risk-questions) "D"
-                         @logged-in "B"
-                         :else "?"))
-        drug-name (reaction (:name @current-drug))
-        drug-score (reaction (cond
-                               (and (false? @heart-attack) (false? @diabetes)) 10
-                               (and (false? @heart-attack) (nil? @diabetes)) 15
-                               :else 70))]
+        drug-name (reaction (:name @current-drug))]
     (fn []
       [:div.drugbible-page
 
@@ -68,14 +54,12 @@
 
         [:div.container
          [:h2.subtitle "Side Effects"]
-
          [:ul
           (for [{:keys [name percentage]} (:side-effects @current-drug)]
             ^{:key name}
             [:li (str "* " name " - " percentage)])]]]
 
        [:section.section.drug-detail-interactions
-
         [:div.container
          [:h2.subtitle "Drug Interactions"]
          [:ul
@@ -92,9 +76,7 @@
           [:div.box
            [:h1.title "Consult Booked"]
            [:div "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]
-           [:a.button.is-primary {:href "/#/adaptation-email"
-                                  ;; :on-click #(println "show adaptation")
-                                  }
+           [:a.button.is-primary {:href "/#/adaptation-email"}
             "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]
 

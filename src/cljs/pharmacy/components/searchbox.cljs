@@ -1,5 +1,6 @@
 (ns pharmacy.components.searchbox
   (:require
+   [pharmacy.helpers :refer [on-enter]]
    [re-frame.core :as re-frame :refer [dispatch]]))
 
 (defn searchbox [{:keys [placeholder
@@ -14,9 +15,7 @@
        [:input.input.is-large
         {:placeholder placeholder
          :type "text"
-         :on-key-down #(case (.-which %)
-                         13 (save)
-                         nil)
+         :on-key-down (on-enter save)
          :on-change (fn [ev]
                       (reset! val (-> ev .-target .-value)))}]
        [:i.fa.fa-search]])))

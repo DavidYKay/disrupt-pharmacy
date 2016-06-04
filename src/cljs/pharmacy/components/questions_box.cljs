@@ -38,21 +38,21 @@
         ;; empty? (reaction (= (inc pos) (count questions)))]
         empty? (reagent/atom false)]
     (fn []
-      [:section.section
+      [:section.questions-box
        ;; {:class (str "section questions-box" (if @empty?
        {:class (str "section" (if @empty?
                                 "questions-complete"
                                 ""))}
        [:div.container
-        [:h1.title "Questions box"]
+        [:h1.title.is-4 "Customize Your Score"]
         (doall
          (map-indexed (fn [idx {:keys [id question type choices] :as current-q}]
                         ^{:key idx}
                         [:div.question
                          {:class
                           (if (= idx @pos)
-                            "active-question"
-                            "")}
+                            (do (str "q" idx " active-question"))
+                            (str "q" idx))}
                          [response-form current-q (fn [response]
                                                     (on-response {:id id
                                                                   :response response}))]])

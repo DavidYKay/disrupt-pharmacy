@@ -268,13 +268,12 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .questions-box{
   overflow: hidden;
   background-color: rgba(50, 50, 50, 0.8);
-  position: sticky;
-  top: 67%;
-  left: 0;
-  z-index: 98;
+  xposition: sticky;
+  xtop: 67%;
+  xleft: 0;
+  xz-index: 98;
   width: 100%;
   padding:20px;
-  height: 23vh;
   color:#fff;
 }
 .questions-box h1 {
@@ -284,11 +283,23 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   margin-top: 1em;
 }
 .question {
-  height: 5em;
+  height: 100pt;
   position: relative;
   left: 100vw;
 }
 .question.b{margin-top: -5em;}
+/*.question.q0{margin-top: 0pt;}*/
+.question.q1{margin-top: -100pt;}
+.question.q2{margin-top: -100pt;}
+.question.q3{margin-top: -100pt;}
+.question.q4{margin-top: -100pt;}
+.question.q5{margin-top: -100pt;}
+.question.q6{margin-top: -100pt;}
+.question.q7{margin-top: -100pt;}
+.question.q8{margin-top: -100pt;}
+.question.q9{margin-top: -100pt;}
+.question.q10{margin-top: -100pt;}
+.question.q11{margin-top: -100pt;}
 .active-question{left:0;}
 .questions-complete{height:0px;padding:0px}
 

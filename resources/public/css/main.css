@@ -260,8 +260,10 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 {margin: .5em;}
 
 .drug-detail-descrip {
-  margin-top: -3.5em;
-  margin-bottom: -1.5em;
+  /*margin-top: -3.5em;
+  margin-bottom: -1.5em;*/
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /*Questions boxes*/

@@ -25,30 +25,28 @@
 
        [top-bar]
 
+       [:section.section.drug-detail-descrip
+        [:div.container
+        [:h1.title.is-2.drug-title.has-text-centered @drug-name]
+         [:h2.subtitle "Description"]
+         [:div.content (:description @current-drug)]]]
+
        [:section.section
         [:div.container.has-text-centered
-
          [drug-rating @drug-score @risk]
          [:p.subtitle.is-6.info-text
           [:i.fa.fa-question-circle] " What does Recommend and Risk mean?"]
-
-         [:h1.title.drug-title @drug-name]]]
-
-       [:section.section.drug-detail-descrip
-        [:div.container
-
-         [:h2.subtitle "Description"]
-         [:div.content (:description @current-drug)]
-
-         [:div.has-text-centered
-         [fill-rx-button @can-fill]
-         (when (and @can-fill @logged-in)
-           [:a.button.is-medium {:href "#/treatment-alternatives"}
-            (str "View Alternatives to " @drug-name)])]]]
+         ]]
 
        [questions-box "test"]
-       
        ;; [full-personalization-cta]
+
+       [:section.section
+       [:div.has-text-centered
+       [fill-rx-button @can-fill]
+       (when (and @can-fill @logged-in)
+         [:a.button.is-medium {:href "#/treatment-alternatives"}
+          (str "View Alternatives to " @drug-name)])]]
 
        [:section.section.drug-detail-sideFX
 

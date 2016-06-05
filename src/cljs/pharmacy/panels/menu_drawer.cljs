@@ -9,6 +9,7 @@
 (def debug-items
   [["Home" "#/"]
    ["Google" "#/google"]
+   ["Alternative Therapy" "#/treatment-alternatives"]
    ["Consultation" "#/consultation"]
    ["Past Orders" "#/orders"]
    ["My Dashboard" "#/dashboard"]
@@ -62,6 +63,7 @@
       [:section.section.debugmenu
        [:div.container
         [:h2.subtitle "Debug"]
+
         (for [[n p] debug-items]
           ^{:key n}
           [:h2.subtitle [:a {:href p

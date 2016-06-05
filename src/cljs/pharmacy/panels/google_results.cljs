@@ -6,11 +6,15 @@
 
           ])
 
-(def results [
+(def results [{:title "Find out if Lovastatin is right for you - DrugIQ.ca"
+               :summary "Lovastatin is a cholesterol-lowering medication.  By answering a few simple questions, find out your risk of having an adverse health event and whether pharmacists would recommend it for you."
+               :link-text "drugiq.ca › Drug Bible › Lovastatin"
+               :url "#/drug/lovastatin"}
+              
               {:title "Lovastatin Side Effects in Detail - Drugs.com"
                :summary "Learn about the potential side effects of lovastatin. Includes common and rare side effects information for consumers and healthcare professionals."
-               :url "www.drugs.com › Drugs A to Z › Lovastatin"}
-              ])
+               :link-text "www.drugs.com › Drugs A to Z › Lovastatin"
+               :url "www.drugs.com"}])
 
 (defn component []
   [:div.box
@@ -23,12 +27,12 @@
    ;;  [:li "Images"]
    ;;  [:li "More"]]
 
-   (for [{:keys [title summary url]} results]
+   (for [{:keys [title summary link-text url]} results]
      ^{:key url}
      [:div 
       [:div title]
       [:div summary]
-      [:a {:href "#/drug/lovastatin"} url]])
+      [:a {:href url} link-text]])
    
    ;; [:img {:src "img/searchbutton.png"}]
    ])

@@ -8,10 +8,10 @@
     [:div.box.container
      [:h1.title "Follow-up Email"]
 
-     [:div "This is your follow-up."]
-     [:div "I was recently changed."]
-     [:div "Have you seen any adverse events in the last 3 months?"]
+     [:p "You have been taking Atorvastatin for 1 month!  How has it been?  Let us know how your treatment is going by logging into your DrugIQ account and completing a short follow-up questionnaire, and provide any additional feedback you may have about your experience with the medication, as well as our service overall.  This will help us to improve our research, and ultimately provide you and the rest of our patients with the most optimal care."]
 
-     [:div
-      [:a.button.is-primary "Yes"]
-      [:a.button.is-primary "No"]]])) 
+     [:p "Thank you!"]
+
+     [:p "Sincerely,"]
+     [:p "DrugIQ"]]))
+

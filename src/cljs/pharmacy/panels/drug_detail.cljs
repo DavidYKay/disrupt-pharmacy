@@ -28,7 +28,8 @@
        [:section.section.drug-detail-descrip
         [:div.container
         [:h1.title.is-2.drug-title.has-text-centered @drug-name]
-         [:h2.subtitle "Description"]
+         [:h2.subtitle "What is this drug for?"]
+
          [:div.content (:description @current-drug)]]]
 
        [:section.section
@@ -36,28 +37,28 @@
         [:div.has-text-centered
          [drug-rating @drug-score @risk]
          [:p.subtitle.is-6.info-text
-          [:i.fa.fa-question-circle] " What does Recommend and Risk mean?"]
-         ]
+          [:i.fa.fa-question-circle] "What do these scores mean?"]]
 
        [questions-box "test"]
        ;; [full-personalization-cta]
        ]]
 
-       (when (and @can-fill @logged-in)
-        [:section.section
-        [:div.has-text-centered
-         [:a.button.is-medium {:href "#/treatment-alternatives"}
-          (str "View Alternatives to " @drug-name)]]])
+       ;; TODO: also check for logged-in. We're not doing so right now because the login flow is messed up.
+       (when @can-fill 
+         [:section.section
+          [:div.has-text-centered
+           [:div "Out of the 6 cholesterol-lowering medications we asked pharmacists about, they have ranked Lovastatin 6 out of 6 (tie)."]
+           [:a.button.is-medium {:href "#/treatment-alternatives"}
+            "See better options"]]])
 
-
-        [:section.drug-detail-ctas.has-text-centered
-           [:div.container
-            [fill-rx-button @can-fill]
-            [consult-pharmacist-button]]]
+       [:section.drug-detail-ctas.has-text-centered
+        [:div.container
+         [fill-rx-button @can-fill]
+         [consult-pharmacist-button]]]
 
        [:section.section
         [:div.box.drug-detail-sideFX
-         [:h2.subtitle "Side Effects"]
+         [:h2.subtitle "Common Side Effects"]
          [:ul
           (for [{:keys [name percentage]} (:side-effects @current-drug)]
             ^{:key name}
@@ -77,8 +78,9 @@
         [:div.modal-container
          [:div.modal-content
           [:div.box
-           [:h1.title "Consult Booked"]
-           [:div "You have booked a consult with Dr. Nguyen for 3PM tomorrow. She will call you then."]
+           [:h1.title "Consultation Appointment Booked"]
+           [:div "Please expect a phone call from pharmacist Dr. Nguyen at 3:00 pm on Wednesday June 8th, 2016.  If you need to update your contact phone number or change the appointment, please do so via the Patient Dashboard."]
+           
            [:a.button.is-primary {:href "/#/adaptation-email"}
             "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]

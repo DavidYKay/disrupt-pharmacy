@@ -2,6 +2,7 @@
   (:require
    [clojure.string :refer [lower-case]]
    [pharmacy.components.drug-rating :refer [drug-rating]]
+   [pharmacy.components.dollar-rating :refer [dollar-rating]]
    [pharmacy.components.top-bar :refer [top-bar]]))
 
 ;; Hipster Therapy
@@ -16,31 +17,33 @@
 ;; Comment: drug therapy should always be accompanied by a healthy diet and exercise
 
 (defn component []
-  (let [alternatives [{:name "Atorvastatin" :rating {:current 1 :max 5} :description "hello world" }
-                      {:name "Rosuvastatin" :rating {:current 1 :max 5} :description "hello world" }
-                      {:name "Simvastatin" :rating {:current 3 :max 5} :description "hello world" }
-                      {:name "Pravastatin" :rating {:current 4 :max 5} :description "hello world" }
-                      {:name "Lovastatin" :rating {:current 5 :max 5} :description "hello world" }
-                      {:name "Fluvastatin" :rating {:current 5 :max 5} :description "hello world" }]]
-
-    ;; Atorvastatin -> Rasuvastatin
-    ;; Consult Rasuvastatin
-    ;; Adaptation conversation with dr.
+  (let [alternatives [{:name "Atorvastatin" :brand-name "Lipitor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
+                      {:name "Rosuvastatin" :brand-name "Crestor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
+                      {:name "Simvastatin"  :brand-name "Zocor" :rating {:current 3 :max 5} :description "hello world" :cost 1 }
+                      {:name "Pravastatin"  :brand-name "Pravachol" :rating {:current 4 :max 5} :description "hello world" :cost 1 }
+                      {:name "Lovastatin"   :brand-name "Mevacor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }
+                      {:name "Fluvastatin"  :brand-name "Crestor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }]]
 
     (fn []
       [:div
        [top-bar]
+       
+       [:h1.title "Compare Therapy Options"]
+       [:h2.subtitle "Cholesterol-lowering medications as ranked by pharmacists " [:a {:href "/#/survey/cholesterol"} "(*)"]]
 
-       [:h1.title "Alternatives to Lovastatin"]
-
-       (for [{:keys [rating name description]} alternatives]
+       (for [{:keys [rating name brand-name cost tie description]} alternatives]
          ^{:key name}
          [:div.box
           [:a {:href (str "/#/drug/" (lower-case name))}
-           ;; [drug-rating (:current rating)]
-           [:div (:current rating) "/" (:max rating)]
-           [:h2.subtitle name]
+           [:span.rating (:current rating) ". "]
+           [:span.drug-name name]
+           [:span.brand-name " (" brand-name ")"]
+           [:span.tie (if tie "(tie)" "")]
+           [dollar-rating cost 4]
+           
            [:div description]]])
 
-       [:div "Note: drug therapy should always be accompanied by a healthy diet and exercise."]
+       [:div "Note: For best results, any of the above therapies should be accompanied by a healthy diet and exercise"]
+       [:div "(*) - View the raw pharmacist " [:a {:href ""} "poll results"]]
+
        ])))

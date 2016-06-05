@@ -7,29 +7,32 @@
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 (def questions
-  [{:question "What is your age?"
+  [
+   {:question "What is your sex?"
+    :id :sex
+    :type :multiple-choice
+    :choices ["----"
+              "Male"
+              "Female"]}
+   {:question "What is your age?"
     :type :integer
     :id :age}
-   {:question "What is your race?"
+   {:question "What is your ethnicity?"
     :id :race
     :type :multiple-choice
-    :choices [""
+    :choices ["----"
               "Black"
               "White"
               "Other"]}
-   {:question "Are you taking BP Meds?"
-    :id :bp-meds
-    :type :boolean}
    {:question "Are you a smoker?"
     :id :smoker
     :type :boolean}
-   {:question "Do you have diabetes or are pre-diabetic?"
+   {:question "Do you have diabetes?"
     :id :diabetes
     :type :boolean}
    {:question "Have you ever had a heart attack or stroke?"
     :id :cardiac-event
-    :type :boolean}
-   ])
+    :type :boolean}])
 
 (defn questions-box [x]
   (let [pos (reagent/atom 0)

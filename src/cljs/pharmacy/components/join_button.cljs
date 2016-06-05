@@ -6,7 +6,7 @@
   (fn []
     [:div.is-pulled-right
      (if logged-in
-       [:a.button.is-warning {:on-click #(dispatch [:set-active-panel :join-panel])}
-        "View Profile"]
+       [:span.tag.is-medium
+        "Hi Mark!"]
        [:a.button.is-warning {:on-click #(dispatch [:set-active-panel :join-panel])}
         "Join / Sign In"])]))

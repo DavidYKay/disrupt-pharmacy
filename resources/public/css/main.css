@@ -107,6 +107,12 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   z-index: 100;
   padding: 7px 25px;
   margin-bottom: 1em;
+  color: #ccc;
+  font-size: 16pt;
+}
+.nav-drawer-topbar > span:nth-child(1) {
+  padding-top: 15pt;
+  vertical-align: middle;
 }
 .nav-drawer-topbar .fa-arrow-left {
   color: #fff;
@@ -230,9 +236,10 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .grade{
   font-weight: bold;
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 1;
-  padding-top: 0.2em;
+  padding-top: 0.35em;
+  letter-spacing: -0.1em;
 }
 .grade-label{font-size: 0.35em;}
   /*OLD score-box 3 tiles ver*/

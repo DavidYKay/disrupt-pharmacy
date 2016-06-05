@@ -3,7 +3,7 @@
   )
 
 (defn arrow-button [{:keys [on-click]}]
-  [:div.nav-drawer-topbar
+  [:div.nav-drawer-topbar "Hi Mark!"
   [:span.icon.is-large.is-pulled-right
   [:i.fa.fa-arrow-left.hoverable {:aria-hidden true
                                                    :on-click on-click}]]])

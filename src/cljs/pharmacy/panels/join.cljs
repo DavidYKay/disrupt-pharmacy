@@ -11,7 +11,7 @@
       [:div.box.has-text-centered
        [x-button]
 
-       [:h1.title "Join DisPharm"]
+       [:h1.title "Join DrugIQ"]
        [:h2.subtitle "for more personalized medication evaluations, ordering medication, or consulting our pharmacists."]
 
        [:input.input {:placeholder "Enter your email" :type "text"}]

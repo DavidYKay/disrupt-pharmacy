@@ -36,7 +36,7 @@
        [:section.hero.is-medium.has-text-centered.front-hero
        [:div.hero-body.front-search
         [:div.container
-         [:h1.title.is-1 "DisPharm"]
+         [:h1.title.is-1 "DrugIQ"]
          [:h2.subtitle "How effective is your medication?"]
 
          [searchbox {:placeholder "Enter your medication"

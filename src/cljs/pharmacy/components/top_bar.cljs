@@ -12,6 +12,6 @@
         [menu-button]]
        [:div.column.top-logo
         [:a {:href "#"}
-        [:h1.title.has-text-centered "DisPharm"]]]
+        [:h1.title.has-text-centered "DrugIQ"]]]
        [:div.column
         [join-button @logged-in]]])))

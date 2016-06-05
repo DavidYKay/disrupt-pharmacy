@@ -4,25 +4,34 @@ div, a, span, section, input, p, h1, h2, h3, h4, h5 {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
+html{background: #fff}
 body{
   font-family: 'Roboto', sans-serif;
-  font-size: 14pt;
+  font-size: 13pt;
 }
 h1, h2, h3, h4, h5, .title, .subtitle {
   font-family: 'Montserrat', sans-serif;
 }
 .button {
-  -webkit-box-shadow: .1em .1em .7em 0px rgba(0, 0, 0, 0.5);
-  xbox-shadow: .1em .1em .7em 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 .1em .7em 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 .1em .7em 0 rgba(0, 0, 0, 0.5);
   borderx:0px;
-  border-radius: .3em;
+  border-radius: 1.5em;
   font-weight: 450;
+}
+.container .button{
+  margin: 1em 0.5em;
+}
+.section {
+padding: 1em 3vw;
 }
 .hoverable {cursor: pointer;}
 .has-text-centered{margin: 0 auto;}
 .info-text{
   padding: 1em 2em;
+  color: #aaa
 }
+.debugmenu{background-color: #ccc}
 
 .join-box .box {width:75%}
 .button.Alternatives{
@@ -113,6 +122,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .nav-drawer-topbar > span:nth-child(1) {
   padding-top: 15pt;
   vertical-align: middle;
+  color:#cc9bb4;
 }
 .nav-drawer-topbar .fa-arrow-left {
   color: #fff;
@@ -143,7 +153,8 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   width: 1.8em;
   color: #888;
 }
-/*.dashboard{
+/* Old dashboard icons
+.dashboard{
   text-align: center;
 }
 .dashboard a {
@@ -228,11 +239,14 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .scorebox-recommend{
   margin-right: -0.2em;
-  background-color: green;
+  background-color: yellow;
+  z-index: 2;
+  box-shadow: -0.02em 0 .3em rgba(0, 0, 0, 0.5);
 }
 .scorebox-risk{
   margin-left: -0.2em;
   background-color: yellow;
+  box-shadow: .02em 0 .3em rgba(0, 0, 0, 0.5);
 }
 .grade{
   font-weight: bold;
@@ -242,8 +256,9 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   letter-spacing: -0.1em;
 }
 .grade-label{font-size: 0.35em;}
+
   /*OLD score-box 3 tiles ver*/
-.scorebox-overall{
+/*.scorebox-overall{
   background-color: blue;
   color:white;
   height: 4em;
@@ -273,7 +288,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   padding-top: 0.15em;
 }
 .scorebox-efficacy .grade-label, .scorebox-sidefx .grade-label{
-  font-size: 0.25em;}
+  font-size: 0.25em;}*/
 
 
 /* drug bible */
@@ -291,30 +306,49 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   background-color: #fce473;
 }
 .fill-rx-button{
-  xmargin: .5em;
+  background: #8dd9c1;
+  color:#333;
+}
+.consult-pharmacist-button {
+  background: #808be3;
+  color:#fff;
+  border-color: transparent;
 }
 .drug-title {
-  padding:.3em;
+  padding:.3em;}
+.drug-detail-descrip .drug-title {
+  xposition: sticky;
+  top: 65px;
+}
+.score-and-questions {
+  background: linear-gradient(to bottom, #9b617e,#482a43)
 }
 .drug-detail-ctas .button,
 .drug-detail-descrip .button
-{margin: .5em;}
-
+{margin: 1em .5em;}
+.drug-detail-ctas{
+  text-align: center;
+  position: sticky;
+  top:calc(100vh - 4em);
+  z-index: 98;
+  background: rgba(255, 255, 255, 0.8);
+}
 .drug-detail-descrip {
   /*margin-top: -3.5em;
   margin-bottom: -1.5em;*/
   padding-top: 0;
-  padding-bottom: 0;
+  /*padding-bottom: 0;*/
 }
+.drugbible-page .ctas-placeholder-bottom {height: 5em}
 
 /*Questions boxes*/
 .questions-box{
   overflow: hidden;
-  background-color: rgba(50, 50, 50, 0.8);
+  /*xbackground-color: rgba(50, 50, 50, 0.8);
   xposition: sticky;
   xtop: 67%;
   xleft: 0;
-  xz-index: 98;
+  xz-index: 98;*/
   width: 100%;
   padding:20px;
   color:#fff;
@@ -345,9 +379,3 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 .question.q11{margin-top: -100pt;}
 .active-question{left:0;}
 .questions-complete{height:0px;padding:0px}
-
-.debugmenu{background-color: #ccc}
-
-.container .button{
-  margin: 1em;
-}

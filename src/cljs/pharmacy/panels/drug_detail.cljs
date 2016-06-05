@@ -32,33 +32,38 @@
          [:div.content (:description @current-drug)]]]
 
        [:section.section
-        [:div.container.has-text-centered
+       [:div.box..score-and-questions
+        [:div.has-text-centered
          [drug-rating @drug-score @risk]
          [:p.subtitle.is-6.info-text
           [:i.fa.fa-question-circle] " What does Recommend and Risk mean?"]
-         ]]
+         ]
 
        [questions-box "test"]
        ;; [full-personalization-cta]
+       ]]
+
+       (when (and @can-fill @logged-in)
+        [:section.section
+        [:div.has-text-centered
+         [:a.button.is-medium {:href "#/treatment-alternatives"}
+          (str "View Alternatives to " @drug-name)]]])
+
+
+        [:section.drug-detail-ctas.has-text-centered
+           [:div.container
+            [fill-rx-button @can-fill]
+            [consult-pharmacist-button]]]
 
        [:section.section
-       [:div.has-text-centered
-       [fill-rx-button @can-fill]
-       (when (and @can-fill @logged-in)
-         [:a.button.is-medium {:href "#/treatment-alternatives"}
-          (str "View Alternatives to " @drug-name)])]]
-
-       [:section.section.drug-detail-sideFX
-
-        [:div.container
+        [:div.box.drug-detail-sideFX
          [:h2.subtitle "Side Effects"]
          [:ul
           (for [{:keys [name percentage]} (:side-effects @current-drug)]
             ^{:key name}
-            [:li (str "* " name " - " percentage)])]]]
+            [:li (str "* " name " - " percentage)])]]
 
-       [:section.section.drug-detail-interactions
-        [:div.container
+        [:div.box.drug-detail-interactions
          [:h2.subtitle "Drug Interactions"]
          [:ul
           (for [{:keys [item effect]} (:drug-interactions @current-drug)]
@@ -78,7 +83,6 @@
             "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]
 
-       [:section.section.drug-detail-ctas.has-text-centered
-        [:div.container
-         [fill-rx-button @can-fill]
-         [consult-pharmacist-button]]]])))
+        [:section.section.ctas-placeholder-bottom]
+
+         ])))

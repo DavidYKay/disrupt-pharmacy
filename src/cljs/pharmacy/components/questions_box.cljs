@@ -38,11 +38,11 @@
         ;; empty? (reaction (= (inc pos) (count questions)))]
         empty? (reagent/atom false)]
     (fn []
-      [:section.questions-box
+      [:div.questions-box
        ;; {:class (str "section questions-box" (if @empty?
-       {:class (str "section" (if @empty?
+       {:class (if @empty?
                                 "questions-complete"
-                                ""))}
+                                "")}
        [:div.container
         [:h1.title.is-4 "Customize Your Score"]
         (doall

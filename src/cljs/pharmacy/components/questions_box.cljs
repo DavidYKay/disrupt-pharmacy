@@ -13,7 +13,8 @@
    {:question "What is your race?"
     :id :race
     :type :multiple-choice
-    :choices ["Black"
+    :choices [""
+              "Black"
               "White"
               "Other"]}
    {:question "Are you taking BP Meds?"

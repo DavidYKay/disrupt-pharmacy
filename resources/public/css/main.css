@@ -113,8 +113,31 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .recently-browsed a {
   display: block;
+  margin-bottom: 1em;
+}
+.recently-browsed a h2 {
+  margin-left: 1em;
 }
 .dashboard{
+  text-align: left;
+}
+.dashboard a {
+  color: #482a43;
+  display: block;
+  vertical-align: middle;
+  font-size: 15pt;
+  height: 3em;
+  text-align: left;
+  line-height: 1em;
+}
+.dashboard a i {
+  font-size: 20pt;
+  padding-right: 0.5em;
+  padding-left: 0.2em;
+  width: 1.8em;
+  color: #888;
+}
+/*.dashboard{
   text-align: center;
 }
 .dashboard a {
@@ -136,7 +159,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
   width: 25vw;
   margin: auto;
   padding-top: 3vw;
-}
+}*/
 
 
 /* Front page */

@@ -59,6 +59,10 @@ padding: 1em 3vw;
     line-height: 30px;
   }
 }
+.join-button {
+  background: #cbc;
+  border-color: transparent;
+}
 
 
 /* nav drawer - default state is closed*/
@@ -239,13 +243,13 @@ padding: 1em 3vw;
 }
 .scorebox-recommend{
   margin-right: -0.2em;
-  background-color: yellow;
+  background-color: #aaa;
   z-index: 2;
   box-shadow: -0.02em 0 .3em rgba(0, 0, 0, 0.5);
 }
 .scorebox-risk{
   margin-left: -0.2em;
-  background-color: yellow;
+  background-color: #aaa;
   box-shadow: .02em 0 .3em rgba(0, 0, 0, 0.5);
 }
 .grade{
@@ -296,14 +300,15 @@ padding: 1em 3vw;
   font-size: 47px;
 }
 .drug-detail-sideFX{
-  background-color: #cc9bb4;
+  background-color: #e39e6b;
   color:white;
 }
 .drug-detail-sideFX .subtitle{
   color:white;
 }
 .drug-detail-interactions{
-  background-color: #fce473;
+  /*background-color: #fce473;*/
+  background: #fcf275;
 }
 .fill-rx-button{
   background: #8dd9c1;

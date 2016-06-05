@@ -8,5 +8,5 @@
      (if logged-in
        [:span.tag.is-medium
         "Hi Mark!"]
-       [:a.button.is-warning {:on-click #(dispatch [:set-active-panel :join-panel])}
+       [:a.button.join-button {:on-click #(dispatch [:set-active-panel :join-panel])}
         "Join / Sign In"])]))

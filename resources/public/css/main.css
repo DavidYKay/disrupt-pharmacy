@@ -189,7 +189,12 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .front-alt{
   background-image: url("/img/alt_bg.png");
-  background-position: center center;
+  background-position: center center;}
+  .front-alt p, .front-alt h1,
+  .front-consult p, .front-consult h1,
+  .front-prescript p, .front-prescript h1 {
+  color: #fff;
+  text-shadow: 0 0 5px #000;
 }
 .front-consult{
   background-image: url("/img/consult_bg.png");
@@ -201,7 +206,7 @@ h1, h2, h3, h4, h5, .title, .subtitle {
 }
 .front-meds,.front-consult,.front-alt,.front-prescript {
   background-size: cover;
-  padding-top: 6em;
+  padding-top: 33vh;
 }
 
 /* med score widget */

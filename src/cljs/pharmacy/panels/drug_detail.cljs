@@ -1,14 +1,14 @@
 (ns pharmacy.panels.drug-detail
   (:require
-   [pharmacy.components.drug-rating :refer [drug-rating]]
-   [re-frame.core :as re-frame :refer [dispatch subscribe]]
-   [pharmacy.components.questions-box :refer [questions-box]]
    [pharmacy.components.consult-pharmacist-button :refer [consult-pharmacist-button]]
+   [pharmacy.components.drug-rating :refer [drug-rating]]
    [pharmacy.components.fill-rx-button :refer [fill-rx-button]]
+   [pharmacy.components.full-personalization-cta :refer [full-personalization-cta]]
    [pharmacy.components.personalization-question :refer [personalization-question]]
-   [pharmacy.components.full-personalization-cta :refer
-    [full-personalization-cta]]
-   [pharmacy.components.top-bar :refer [top-bar]])
+   [pharmacy.components.questions-box :refer [questions-box]]
+   [pharmacy.components.top-bar :refer [top-bar]]
+   [pharmacy.data.questions :refer [score-risk-questions]]
+   [re-frame.core :as re-frame :refer [dispatch subscribe]])
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 
@@ -39,7 +39,7 @@
          [:p.subtitle.is-6.info-text
           [:i.fa.fa-question-circle] "What do these scores mean?"]]
 
-       [questions-box "test"]
+       [questions-box score-risk-questions]
        ;; [full-personalization-cta]
        ]]
 

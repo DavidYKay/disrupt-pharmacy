@@ -1,7 +1,8 @@
 (ns pharmacy.subs
     (:require-macros [reagent.ratom :refer [reaction]])
     (:require [re-frame.core :as re-frame]
-              [pharmacy.data.drugs :refer [drugs]]))
+              [pharmacy.data.drugs :refer [drugs]]
+              [pharmacy.data.questions :refer [score-risk-questions]]))
 
 (re-frame/register-sub
  :name

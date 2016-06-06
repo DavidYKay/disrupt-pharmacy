@@ -404,3 +404,22 @@ text-align: center;
 .question.q11{margin-top: -100pt;}
 .active-question{left:0;}
 .questions-complete{height:0px;padding:0px}
+
+.page-indicator {
+}
+
+.circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.circle.current {
+    background: #fff;
+}
+
+.circle.other {
+    background: #888;
+}

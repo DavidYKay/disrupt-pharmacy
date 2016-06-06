@@ -29,14 +29,10 @@
                                              (reset! val (-> ev .-target .-value)))}]]])))
 
 (defmethod response-form :multiple-choice [question callback]
-  (let [val (reagent/atom nil)]
-    (fn []
-      [:div
-       [:div (:question question)]
-       [:p {:class "control"}
-        [:span {:class "select"}
-         [:select  {:on-change #(reset! val (.. % -target -value))}
-          (for [choice (:choices question)]
-            ^{:key choice}
-            [:option choice])]]]
-       [:a.button {:on-click #(callback @val)} "OK"]])))
+  (fn []
+    [:div
+     [:div (:question question)]
+     [:div.control
+      (for [choice (:choices question)]
+        ^{:key choice}
+        [:a.button {:on-click #(callback choice)} choice])]]))

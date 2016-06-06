@@ -4,8 +4,7 @@
   [{:question "What is your sex?"
     :id :sex
     :type :multiple-choice
-    :choices ["----"
-              "Male"
+    :choices ["Male"
               "Female"]}
    {:question "What is your age?"
     :type :integer
@@ -13,8 +12,7 @@
    {:question "What is your ethnicity?"
     :id :race
     :type :multiple-choice
-    :choices ["----"
-              "Black"
+    :choices ["Black"
               "White"
               "Other"]}
    {:question "Are you a smoker?"

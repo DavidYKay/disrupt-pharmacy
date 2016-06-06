@@ -17,12 +17,12 @@
 ;; Comment: drug therapy should always be accompanied by a healthy diet and exercise
 
 (defn component []
-  (let [alternatives [{:name "Atorvastatin" :brand-name "Lipitor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Rosuvastatin" :brand-name "Crestor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Simvastatin"  :brand-name "Zocor" :rating {:current 3 :max 5} :description "hello world" :cost 1 }
-                      {:name "Pravastatin"  :brand-name "Pravachol" :rating {:current 4 :max 5} :description "hello world" :cost 1 }
-                      {:name "Lovastatin"   :brand-name "Mevacor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Fluvastatin"  :brand-name "Crestor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }]]
+  (let [alternatives [{:name "Atorvastatin" :brand-name "Lipitor" :rating {:current 1 :max 5} :description "a blurb about this drug" :cost 1 :tie true }
+                      {:name "Rosuvastatin" :brand-name "Crestor" :rating {:current 1 :max 5} :description "a blurb about this drug" :cost 1 :tie true }
+                      {:name "Simvastatin"  :brand-name "Zocor" :rating {:current 3 :max 5} :description "a blurb about this drug" :cost 1 }
+                      {:name "Pravastatin"  :brand-name "Pravachol" :rating {:current 4 :max 5} :description "a blurb about this drug" :cost 1 }
+                      {:name "Lovastatin"   :brand-name "Mevacor" :rating {:current 5 :max 5} :description "a blurb about this drug" :cost 1 :tie true }
+                      {:name "Fluvastatin"  :brand-name "Crestor" :rating {:current 5 :max 5} :description "a blurb about this drug" :cost 1 :tie true }]]
 
     (fn []
       [:div

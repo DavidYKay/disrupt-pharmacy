@@ -13,37 +13,42 @@
 ;; Pravastatin 4
 ;; Lovastatin 5 (tie)
 ;; Fluvastatin 5 (tie)
-;; 
+;;
 ;; Comment: drug therapy should always be accompanied by a healthy diet and exercise
 
 (defn component []
-  (let [alternatives [{:name "Atorvastatin" :brand-name "Lipitor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Rosuvastatin" :brand-name "Crestor" :rating {:current 1 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Simvastatin"  :brand-name "Zocor" :rating {:current 3 :max 5} :description "hello world" :cost 1 }
-                      {:name "Pravastatin"  :brand-name "Pravachol" :rating {:current 4 :max 5} :description "hello world" :cost 1 }
-                      {:name "Lovastatin"   :brand-name "Mevacor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }
-                      {:name "Fluvastatin"  :brand-name "Crestor" :rating {:current 5 :max 5} :description "hello world" :cost 1 :tie true }]]
+  (let [alternatives [{:name "Atorvastatin" :brand-name "Lipitor" :rating {:current 1 :max 5} :description "a blurb about this drug" :cost 1 :tie true :recommend-score 8 :risk "B"}
+                      {:name "Rosuvastatin" :brand-name "Crestor" :rating {:current 1 :max 5} :description "a blurb about this drug" :cost 1 :tie true :recommend-score 8 :risk "B" }
+                      {:name "Simvastatin"  :brand-name "Zocor" :rating {:current 3 :max 5} :description "a blurb about this drug" :cost 1 :recommend-score 6 :risk "B" }
+                      {:name "Pravastatin"  :brand-name "Pravachol" :rating {:current 4 :max 5} :description "a blurb about this drug" :cost 1 :recommend-score 5 :risk "B" }
+                      {:name "Lovastatin"   :brand-name "Mevacor" :rating {:current 5 :max 5} :description "a blurb about this drug" :cost 1 :tie true :recommend-score 1 :risk "B" }
+                      {:name "Fluvastatin"  :brand-name "Crestor" :rating {:current 5 :max 5} :description "a blurb about this drug" :cost 1 :tie true :recommend-score 1 :risk "B" }]]
 
     (fn []
       [:div
        [top-bar]
-       
-       [:h1.title "Compare Therapy Options"]
-       [:h2.subtitle "Cholesterol-lowering medications as ranked by pharmacists " [:a {:href "/#/survey/cholesterol"} "(*)"]]
 
-       (for [{:keys [rating name brand-name cost tie description]} alternatives]
+       [:section.section.has-text-centered
+       [:h1.title.is-4 "Compare Therapy Options"]
+       [:h2.subtitle.is-6 "Cholesterol-lowering medications as ranked by pharmacists " [:a {:href "/#/survey/cholesterol"} " *"]]]
+
+       (for [{:keys [rating name brand-name cost tie description recommend-score risk]} alternatives]
          ^{:key name}
-         [:div.box
+         [:section.section.alternatives-page-drug-box
           [:a {:href (str "/#/drug/" (lower-case name))}
-           [:span.rating (:current rating) ". "]
-           [:span.drug-name name]
-           [:span.brand-name " (" brand-name ")"]
-           [:span.tie (if tie "(tie)" "")]
-           [dollar-rating cost 4]
-           
-           [:div description]]])
+          [:div.columns.is-mobile
+          [:div.column.alt-page-score.is-one-third [drug-rating recommend-score risk]]
+          [:div.column.content
+           [:h4.drug-name name]
+           [:div.ranking "Rank:" (:current rating) [:span.tie (if tie " (tie)" "")]]
+           [:div.brand-name "Also known as " brand-name ]
 
-       [:div "Note: For best results, any of the above therapies should be accompanied by a healthy diet and exercise"]
-       [:div "(*) - View the raw pharmacist " [:a {:href ""} "poll results"]]
+           [dollar-rating cost 5]
+           ;;[:div description] ;;No description
+           ]]]])
+
+      [:section.section.alternatives-foot
+       [:p "Note: For best results, any of the above therapies should be accompanied by a healthy diet and exercise"]
+       [:p "* View the raw pharmacist " [:a {:href ""} "poll results"]]]
 
        ])))

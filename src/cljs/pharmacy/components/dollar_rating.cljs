@@ -5,7 +5,7 @@
 (def dollar-signs (repeat "$"))
 
 (defn dollar-rating [val max]
-  [:span
+  [:span.cost-rating
    (let [dark-signs (take val dollar-signs)
          grey-signs (take (- max val) dollar-signs)]
      (concat
@@ -13,4 +13,3 @@
         [:span.dark sign])
       (for [sign grey-signs]
         [:span.grey sign])))])
-   

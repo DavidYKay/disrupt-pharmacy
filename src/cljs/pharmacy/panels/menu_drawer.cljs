@@ -57,7 +57,7 @@
           ^{:key n}
            [:a {:href p
              :on-click #(dispatch [:set-menu-open false])}
-            [drug-rating 80]
+            [drug-rating 8]
             [:h2.subtitle.is-inline n]])]]
 
       [:section.section.debugmenu

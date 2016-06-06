@@ -50,6 +50,7 @@
          [:h4.subtitle.is-4 "Get Prescriptions Filled"]]]]
 
        (for [{:keys [title text img cta className]} items]
+         ^{:key title}
          [:section.section {:class className}
           [:div.container.columns
 

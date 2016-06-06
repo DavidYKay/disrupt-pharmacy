@@ -1,4 +1,5 @@
 (ns pharmacy.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:name "DrugIQ"
+   :fresh-from-google true})

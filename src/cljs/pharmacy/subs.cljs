@@ -1,7 +1,8 @@
 (ns pharmacy.subs
     (:require-macros [reagent.ratom :refer [reaction]])
     (:require [re-frame.core :as re-frame]
-              [pharmacy.data.drugs :refer [drugs]]))
+              [pharmacy.data.drugs :refer [drugs]]
+              [pharmacy.data.questions :refer [score-risk-questions]]))
 
 (re-frame/register-sub
  :name
@@ -29,9 +30,14 @@
    (reaction (:menu-open @db))))
 
 (re-frame/register-sub
- :modal-shown
+ :appointment-modal-shown
  (fn [db]
-   (reaction (:modal-shown @db))))
+   (reaction (:appointment-modal-shown @db))))
+
+(re-frame/register-sub
+ :personalization-modal-shown
+ (fn [db]
+   (reaction (:personalization-modal-shown @db))))
 
 (re-frame/register-sub
  :active-panel
@@ -43,11 +49,16 @@
  (fn [db [_ kind q]]
    (reaction (get-in @db [:questions kind q]))))
 
-;; Risk
-;; ~5% (based on assumption of high cholesterol)
-;; ~10% (checked YES to smoking)
-;; ~17% (checked yes to diabetes)
-;; HIGH (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
+(re-frame/register-sub
+ :answered-all-questions
+ (fn [db _]
+   (reaction
+    (let [greater? (fn [x]
+                     (>= x (count score-risk-questions)))]
+      (->> (get-in @db [:questions :universal])
+           (vals)
+           (count)
+           (greater?))))))
 
 (re-frame/register-sub
  :risk
@@ -74,3 +85,8 @@
       (get-in @db [:questions :universal :diabetes]) "4"
       (get-in @db [:questions :universal :smoker]) "2"
       :else "1"))))
+
+(re-frame/register-sub
+ :fresh-from-google
+ (fn [db [_]]
+   (reaction (:fresh-from-google @db)))) 

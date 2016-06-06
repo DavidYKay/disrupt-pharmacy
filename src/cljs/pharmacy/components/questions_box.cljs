@@ -1,49 +1,23 @@
 (ns pharmacy.components.questions-box
   (:require
    [re-frame.core :as re-frame :refer [dispatch subscribe]]
+   [pharmacy.components.page-indicator :refer [page-indicator]]
    [pharmacy.components.question :refer [response-form]]
    [pharmacy.helpers :refer [on-enter]]
    [reagent.core :as reagent])
   (:require-macros [reagent.ratom :refer [reaction]]))
 
-(def questions
-  [{:question "What is your sex?"
-    :id :sex
-    :type :multiple-choice
-    :choices ["----"
-              "Male"
-              "Female"]}
-   {:question "What is your age?"
-    :type :integer
-    :id :age}
-   {:question "What is your ethnicity?"
-    :id :race
-    :type :multiple-choice
-    :choices ["----"
-              "Black"
-              "White"
-              "Other"]}
-   {:question "Are you a smoker?"
-    :id :smoker
-    :type :boolean}
-   {:question "Do you have diabetes?"
-    :id :diabetes
-    :type :boolean}
-   {:question "Have you ever had a heart attack or stroke?"
-    :id :cardiac-event
-    :type :boolean}])
-
-(defn questions-box [x]
+(defn questions-box [questions]
   (let [pos (reagent/atom 0)
         on-response (fn [{:keys [id response]}]
                        (dispatch [:question :universal id response])
                       (swap! pos inc))
-        empty? (reaction (>= @pos (count questions)))]
+        answered-all? (subscribe [:answered-all-questions])]
     (fn []
-      [:div.questions-box
-       {:class (if @empty? "questions-complete" "")}
+      [:div.questions-box {:class (if @answered-all? "questions-complete" "")}
        [:div.container
         [:h1.title.is-4 "Customize Your Score"]
+        
         (doall
          (map-indexed (fn [idx {:keys [id question type choices] :as current-q}]
                         ^{:key idx}
@@ -55,4 +29,6 @@
                          [response-form current-q (fn [response]
                                                     (on-response {:id id
                                                                   :response response}))]])
-                      questions))]])))
+                      questions))
+
+        [page-indicator @pos questions]]])))

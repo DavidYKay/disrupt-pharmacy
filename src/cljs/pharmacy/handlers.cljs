@@ -40,4 +40,9 @@
 (re-frame/register-handler
  :consult-pharmacist
  (fn [db [_ show]]
-   (assoc db :modal-shown show)))
+   (assoc db :appointment-modal-shown show)))
+
+(re-frame/register-handler
+ :personalization-modal
+ (fn [db [_ show]]
+   (assoc db :personalization-modal-shown show :fresh-from-google show)))

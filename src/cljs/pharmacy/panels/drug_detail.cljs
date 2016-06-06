@@ -48,7 +48,7 @@
          [:section.section
           [:div.has-text-centered
            [:div "Out of the 6 cholesterol-lowering medications we asked pharmacists about, they have ranked Lovastatin 6 out of 6 (tie)."]
-           [:a.button.is-medium {:href "#/treatment-alternatives"}
+           [:a.button.is-medium.is-warning {:href "#/treatment-alternatives"}
             "See better options"]]])
 
        [:section.drug-detail-ctas.has-text-centered

@@ -30,9 +30,14 @@
    (reaction (:menu-open @db))))
 
 (re-frame/register-sub
- :modal-shown
+ :appointment-modal-shown
  (fn [db]
-   (reaction (:modal-shown @db))))
+   (reaction (:appointment-modal-shown @db))))
+
+(re-frame/register-sub
+ :personalization-modal-shown
+ (fn [db]
+   (reaction (:personalization-modal-shown @db))))
 
 (re-frame/register-sub
  :active-panel
@@ -80,3 +85,8 @@
       (get-in @db [:questions :universal :diabetes]) "4"
       (get-in @db [:questions :universal :smoker]) "2"
       :else "1"))))
+
+(re-frame/register-sub
+ :fresh-from-google
+ (fn [db [_]]
+   (reaction (:fresh-from-google @db)))) 

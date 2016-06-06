@@ -7,8 +7,7 @@
   (:require-macros [reagent.ratom :refer [reaction]]))
 
 (def questions
-  [
-   {:question "What is your sex?"
+  [{:question "What is your sex?"
     :id :sex
     :type :multiple-choice
     :choices ["----"
@@ -39,14 +38,10 @@
         on-response (fn [{:keys [id response]}]
                        (dispatch [:question :universal id response])
                       (swap! pos inc))
-        ;; empty? (reaction (= (inc pos) (count questions)))]
-        empty? (reagent/atom false)]
+        empty? (reaction (>= @pos (count questions)))]
     (fn []
       [:div.questions-box
-       ;; {:class (str "section questions-box" (if @empty?
-       {:class (if @empty?
-                                "questions-complete"
-                                "")}
+       {:class (if @empty? "questions-complete" "")}
        [:div.container
         [:h1.title.is-4 "Customize Your Score"]
         (doall

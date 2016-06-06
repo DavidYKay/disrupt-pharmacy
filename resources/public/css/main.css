@@ -9,7 +9,7 @@ body{
   font-family: 'Roboto', sans-serif;
   font-size: 13pt;
 }
-h1, h2, h3, h4, h5, .title, .subtitle {
+h1, h2, h3, h4, h5, .title, .subtitle, .score-box {
   font-family: 'Montserrat', sans-serif;
 }
 .button {
@@ -258,6 +258,15 @@ padding: 1em 3vw;
   line-height: 1;
   padding-top: 0.35em;
   letter-spacing: -0.1em;
+}
+.scorebox-risk .grade {
+  font-size:1em;
+}
+.out-of-10{
+  font-weight: 100;
+  font-size: 0.25em;
+  letter-spacing: -0.1em;
+  color: #555;
 }
 .grade-label{font-size: 0.35em;}
 

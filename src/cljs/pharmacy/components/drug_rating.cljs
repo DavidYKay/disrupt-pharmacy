@@ -4,7 +4,8 @@
 (defn drug-rating [grade risk]
   [:div.score-box.has-text-centered
     [:div.scorebox-recommend
-     [:div.grade grade]
+     [:div.grade grade
+     [:span.out-of-10 "/10"]]
      [:div.grade-label "Recommend"]
      ]
     [:div.scorebox-risk

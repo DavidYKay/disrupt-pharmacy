@@ -11,10 +11,9 @@
         on-response (fn [{:keys [id response]}]
                        (dispatch [:question :universal id response])
                       (swap! pos inc))
-        empty? (reaction (>= @pos (count questions)))]
+        answered-all? (subscribe [:answered-all-questions])]
     (fn []
-      [:div.questions-box
-       {:class (if @empty? "questions-complete" "")}
+      [:div.questions-box {:class (if @answered-all? "questions-complete" "")}
        [:div.container
         [:h1.title.is-4 "Customize Your Score"]
         (doall

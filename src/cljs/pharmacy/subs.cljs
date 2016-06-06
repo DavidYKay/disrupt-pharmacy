@@ -44,11 +44,16 @@
  (fn [db [_ kind q]]
    (reaction (get-in @db [:questions kind q]))))
 
-;; Risk
-;; ~5% (based on assumption of high cholesterol)
-;; ~10% (checked YES to smoking)
-;; ~17% (checked yes to diabetes)
-;; HIGH (or whatever is the worst rating on scale) (checked yes to: have you had a heart attack or stroke)
+(re-frame/register-sub
+ :answered-all-questions
+ (fn [db _]
+   (reaction
+    (let [greater? (fn [x]
+                     (>= x (count score-risk-questions)))]
+      (->> (get-in @db [:questions :universal])
+           (vals)
+           (count)
+           (greater?))))))
 
 (re-frame/register-sub
  :risk

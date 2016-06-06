@@ -19,7 +19,8 @@
         drug-score (subscribe [:drug-score])
         risk (subscribe [:risk])
         can-fill (reaction (= (:name @current-drug) "Lovastatin"))
-        drug-name (reaction (:name @current-drug))]
+        drug-name (reaction (:name @current-drug))
+        answered-questions? (subscribe [:answered-all-questions])]
     (fn []
       [:div.drugbible-page
 
@@ -44,7 +45,7 @@
        ]]
 
        ;; TODO: also check for logged-in. We're not doing so right now because the login flow is messed up.
-       (when @can-fill
+       (when (and @can-fill @answered-questions?)
          [:section.section
           [:div.box.alternatives-box
            [:div "Out of the 6 cholesterol-lowering medications we asked pharmacists about, they have ranked Lovastatin 6 out of 6 (tie)."]

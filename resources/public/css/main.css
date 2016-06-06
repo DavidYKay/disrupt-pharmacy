@@ -28,8 +28,11 @@ padding: 1em 3vw;
 .hoverable {cursor: pointer;}
 .has-text-centered{margin: 0 auto;}
 .info-text{
-  padding: 1em 2em;
+  padding: 1em 0em;
   color: #aaa
+}
+.info-text span{
+  vertical-align: middle;
 }
 .debugmenu{background-color: #ccc}
 
@@ -259,12 +262,9 @@ padding: 1em 3vw;
   padding-top: 0.35em;
   letter-spacing: -0.1em;
 }
-.scorebox-risk .grade {
-  font-size:1em;
-}
 .out-of-10{
   font-weight: 100;
-  font-size: 0.25em;
+  font-size: 0.3em;
   letter-spacing: -0.1em;
   color: #555;
 }
@@ -306,14 +306,15 @@ padding: 1em 3vw;
 
 /* drug bible */
 .drugbible-page .score-box{
-  font-size: 47px;
+  font-size: 12vw;
 }
 .drug-detail-sideFX{
-  background-color: #e39e6b;
-  color:white;
+  /*background-color: #e39e6b;*/
+  background: #fcf275;
+  /*xcolor:white;*/
 }
 .drug-detail-sideFX .subtitle{
-  color:white;
+  /*color:white;*/
 }
 .drug-detail-interactions{
   /*background-color: #fce473;*/
@@ -335,7 +336,8 @@ padding: 1em 3vw;
   top: 65px;
 }
 .score-and-questions {
-  background: linear-gradient(to bottom, #9b617e,#482a43)
+  background: linear-gradient(to bottom, #9b617e,#482a43);
+  padding-top: 30px;
 }
 .drug-detail-ctas .button,
 .drug-detail-descrip .button
@@ -343,7 +345,8 @@ padding: 1em 3vw;
 .drug-detail-ctas{
   text-align: center;
   position: sticky;
-  top:calc(100vh - 4em);
+  top:calc(100vh - 3.5em);
+  top:91vh;
   z-index: 98;
   background: rgba(255, 255, 255, 0.8);
 }
@@ -353,7 +356,15 @@ padding: 1em 3vw;
   padding-top: 0;
   /*padding-bottom: 0;*/
 }
-.drugbible-page .ctas-placeholder-bottom {height: 5em}
+.drugbible-page .ctas-placeholder-bottom {height: 3.5em}
+.alternatives-box {
+background: linear-gradient(to bottom, #9b617e,#482a43);
+color:#fff;
+text-align: center;
+}
+.alternatives-box .button {
+  color: #000
+}
 
 /*Questions boxes*/
 .questions-box{

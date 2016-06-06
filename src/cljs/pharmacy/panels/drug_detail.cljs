@@ -44,12 +44,13 @@
        ]]
 
        ;; TODO: also check for logged-in. We're not doing so right now because the login flow is messed up.
-       (when @can-fill 
+       (when @can-fill
          [:section.section
-          [:div.has-text-centered
+          [:div.box.alternatives-box
            [:div "Out of the 6 cholesterol-lowering medications we asked pharmacists about, they have ranked Lovastatin 6 out of 6 (tie)."]
-           [:a.button.is-medium.is-warning {:href "#/treatment-alternatives"}
-            "See better options"]]])
+           [:div.has-text-centered.container
+           [:a.button.is-warning {:href "#/treatment-alternatives"}
+            "See Better Options"]]]])
 
        [:section.drug-detail-ctas.has-text-centered
         [:div.container
@@ -80,7 +81,7 @@
           [:div.box
            [:h1.title "Consultation Appointment Booked"]
            [:div "Please expect a phone call from pharmacist Dr. Nguyen at 3:00 pm on Wednesday June 8th, 2016.  If you need to update your contact phone number or change the appointment, please do so via the Patient Dashboard."]
-           
+
            [:a.button.is-primary {:href "/#/adaptation-email"}
             "Fast Forward"]]]]
         [:button.modal-close {:on-click #(dispatch [:consult-pharmacist false])}]]

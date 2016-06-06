@@ -54,12 +54,12 @@
  (fn [db [_]]
    (reaction
     (cond
-      (get-in @db [:questions :universal :cardiac-event]) "HIGH"
-      (get-in @db [:questions :universal :diabetes]) "17%"
-      (get-in @db [:questions :universal :smoker]) "10%"
-      :else "5%"))))
+      (get-in @db [:questions :universal :cardiac-event]) "D"
+      (get-in @db [:questions :universal :diabetes]) "C"
+      (get-in @db [:questions :universal :smoker]) "B"
+      :else "A"))))
 
-;; Score 
+;; Score
 ;; 10%  (based on assumption of high cholesterol)
 ;; 20%  (checked YES to smoking)
 ;; 40%  (checked yes to diabetes)
@@ -70,7 +70,7 @@
  (fn [db [_]]
    (reaction
     (cond
-      (get-in @db [:questions :universal :cardiac-event]) "80%"
-      (get-in @db [:questions :universal :diabetes]) "40%"
-      (get-in @db [:questions :universal :smoker]) "20%"
-      :else "10%"))))
+      (get-in @db [:questions :universal :cardiac-event]) "8"
+      (get-in @db [:questions :universal :diabetes]) "4"
+      (get-in @db [:questions :universal :smoker]) "2"
+      :else "1"))))

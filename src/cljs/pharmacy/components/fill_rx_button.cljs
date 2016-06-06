@@ -4,4 +4,4 @@
 
 (defn fill-rx-button [can-fill]
   (when can-fill
-    [:a.button.is-medium.fill-rx-button "Fill Prescription"]))
+    [:a.button.fill-rx-button "Fill Prescription"]))

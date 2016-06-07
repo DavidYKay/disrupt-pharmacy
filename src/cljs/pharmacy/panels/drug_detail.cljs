@@ -71,9 +71,9 @@
                    [:div.box.drug-detail-interactions
                     [:h2.subtitle "Drug Interactions"]
                     [:ul
-                     (for [{:keys [item effect]} (:drug-interactions @current-drug)]
-                       ^{:key item}
-                       [:li (str "* " item " - " effect)])]]]
+                     (for [interaction (:drug-interactions @current-drug)]
+                       ^{:key interaction}
+                       [:li (str "* " interaction)])]]]
 
                   [appointment-modal @appointment-modal-shown]
                   [personalization-modal @personalization-modal-shown]

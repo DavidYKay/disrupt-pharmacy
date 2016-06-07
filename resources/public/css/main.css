@@ -69,7 +69,20 @@ padding: 1em 3vw;
   background: #cbc;
   border-color: transparent;
 }
-
+/*top-bar logo and front page*/
+.top-logo .title{display: none}
+.top-logo a, .front-search h1.title {
+  background-image: url('/img/logo-ondark.svg');
+  background-size: contain;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.top-logo{padding: 0}
+.front-search h1.title span {visibility: hidden}
+.front-search h1.title {background-image: url('/img/logo-onpurple.svg')}
 
 /* nav drawer - default state is closed*/
 .nav-drawer, .nav-drawer-main {

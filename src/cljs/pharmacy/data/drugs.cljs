@@ -1,12 +1,12 @@
 (ns pharmacy.data.drugs)
 
-(def statin-side-effects 
-  [{:name "Muscle pain"                 :percentage "10%"}
-   {:name "Diarrhea"                    :percentage "11%"}
-   {:name "Insomnia"                    :percentage "5%"}
+(def statin-side-effects
+  [{:name "Muscle pain"                 :percentage "10% chance"}
+   {:name "Diarrhea"                    :percentage "11% chance"}
+   {:name "Insomnia"                    :percentage "5% chance"}
    {:name "Liver toxicity"              :percentage "rare"}
    {:name "Increase in blood sugars"    :percentage ""}
-   {:name "Development of new diabetes" :percentage " 1%"}])
+   {:name "Development of new diabetes" :percentage " 1% chance"}])
 
 (def interactions ["Grapefruit juice"
                    "Red yeast rice products"
@@ -34,5 +34,4 @@
             :lovastatin {:name "Lovastatin"
                            :description "Lovastatin is used to lower cholesterol, and could lower your chance of heart attack, stroke, or death."
                          :side-effects statin-side-effects
-                         :drug-interactions interactions}}) 
-
+                         :drug-interactions interactions}})

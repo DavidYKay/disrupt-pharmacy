@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, .title, .subtitle, .score-box {
 }
 .section {
 padding: 1em 3vw;
+background: transparent;
 }
 .hoverable {cursor: pointer;}
 .has-text-centered{margin: 0 auto;}
@@ -37,6 +38,17 @@ padding: 1em 3vw;
 .info-text span{
   vertical-align: middle;
 }
+.head-title{
+  background: #482a43;
+  color: #eee;
+  box-shadow: 0 1px 5px 0 #555;
+}
+.drugbible-page .head-title{
+  padding-top: 0;
+  padding-bottom: 0.2em;
+}
+.head-title h1 {color: #eee}
+.head-title .subtitle {color: #aaa}
 .debugmenu{background-color: #ccc}
 
 .join-box .box {width:75%}
@@ -376,7 +388,7 @@ padding: 1em 3vw;
 }
 .drug-detail-ctas.with-descrip {top:calc(100vh - 5em)}
 .drug-detail-descrip {
-  padding-top: 0;
+  /*padding-top: 0;*/
 }
 .drugbible-page .ctas-placeholder-bottom {height: 5em}
 .alternatives-box {

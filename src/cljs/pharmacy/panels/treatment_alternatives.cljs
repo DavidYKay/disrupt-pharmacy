@@ -28,9 +28,9 @@
       [:div
        [top-bar]
 
-       [:section.section.has-text-centered
-       [:h1.title.is-4 "Compare Therapy Options"]
-       [:h2.subtitle.is-6 "Cholesterol-lowering medications as ranked by pharmacists " [:a {:href "/#/survey/cholesterol"} " *"]]]
+       [:section.section.head-title.has-text-centered
+       [:h1.title "Compare Therapy Options"]
+       [:h2.subtitle.is-5 "Cholesterol-lowering medications as ranked by pharmacists " [:a {:href "/#/survey/cholesterol"} " *"]]]
 
        (for [{:keys [rating name brand-name cost tie description recommend-score risk]} alternatives]
          ^{:key name}

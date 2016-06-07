@@ -33,9 +33,10 @@
 
                   [top-bar]
 
+                  [:section.section.head-title
+                    [:h1.title.is-2.drug-title.has-text-centered @drug-name]]
                   [:section.section.drug-detail-descrip
                    [:div.container
-                    [:h1.title.is-2.drug-title.has-text-centered @drug-name]
                     [:h2.subtitle "What is this drug for?"]
                     [:div.content (:description @current-drug)]]]
 

@@ -28,7 +28,8 @@
                                 :on-key-down (on-enter #(callback @val))
                                 :value @val
                                 :on-change (fn [ev]
-                                             (reset! val (-> ev .-target .-value)))}]]])))
+                                             (reset! val (-> ev .-target .-value)))}]
+        [:a.button {:on-click #(callback @val)} "Submit"]]])))
 
 (defmethod response-form :multiple-choice [question callback]
   (fn []

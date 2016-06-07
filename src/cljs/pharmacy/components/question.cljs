@@ -25,7 +25,11 @@
                                 :pattern "[0-9]*" 
                                 :inputmode "numeric"
                                 :placeholder "Age"
-                                :on-key-down (on-enter #(callback @val))
+                                :on-key-down #(case (.-which %)
+                                                13 (do
+                                                     (.blur (.-currentTarget %))
+                                                     (callback @val))
+                                                nil)
                                 :value @val
                                 :on-change (fn [ev]
                                              (reset! val (-> ev .-target .-value)))}]

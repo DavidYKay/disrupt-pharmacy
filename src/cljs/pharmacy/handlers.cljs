@@ -46,3 +46,8 @@
  :personalization-modal
  (fn [db [_ show]]
    (assoc db :personalization-modal-shown show :fresh-from-google show)))
+
+(re-frame/register-handler
+ :drug-scores-modal
+ (fn [db [_ show]]
+   (assoc db :drug-scores-modal-shown show)))

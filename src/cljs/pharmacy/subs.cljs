@@ -40,6 +40,11 @@
    (reaction (:personalization-modal-shown @db))))
 
 (re-frame/register-sub
+ :drug-scores-modal-shown
+ (fn [db]
+   (reaction (:drug-scores-modal-shown @db))))
+
+(re-frame/register-sub
  :active-panel
  (fn [db _]
    (reaction (:active-panel @db))))

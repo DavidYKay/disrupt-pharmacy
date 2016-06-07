@@ -7,6 +7,7 @@
    [pharmacy.components.personalization-question :refer [personalization-question]]
    [pharmacy.components.questions-box :refer [questions-box]]
    [pharmacy.components.top-bar :refer [top-bar]]
+   [pharmacy.components.drug-scores-modal :refer [drug-scores-modal]]
    [pharmacy.components.appointment-modal :refer [appointment-modal]]
    [pharmacy.components.personalization-modal :refer [personalization-modal]]
    [pharmacy.data.questions :refer [score-risk-questions]]
@@ -18,6 +19,7 @@
 (defn component []
   (let [current-drug (subscribe [:current-drug])
         logged-in (subscribe [:logged-in])
+        drug-scores-modal-shown (subscribe [:drug-scores-modal-shown])
         appointment-modal-shown (subscribe [:appointment-modal-shown])
         personalization-modal-shown (subscribe [:personalization-modal-shown])
         drug-score (subscribe [:drug-score])
@@ -41,8 +43,9 @@
                    [:div.box..score-and-questions
                     [:div.has-text-centered
                      [drug-rating @drug-score @risk]
-                     [:p.subtitle.is-6.info-text
-                      [:i.fa.fa-question-circle] "What do these scores mean?"]]
+                     [:a {:on-click #(dispatch [:drug-scores-modal true])}
+                      [:p.subtitle.is-6.info-text
+                       [:i.fa.fa-question-circle] "What do these scores mean?"]]]
                     [questions-box score-risk-questions]]]
 
                   ;; TODO: also check for logged-in. We're not doing so right now because the login flow is messed up.
@@ -75,6 +78,7 @@
                        ^{:key interaction}
                        [:li (str "* " interaction)])]]]
 
+                  [drug-scores-modal @drug-scores-modal-shown]
                   [appointment-modal @appointment-modal-shown]
                   [personalization-modal @personalization-modal-shown]
 

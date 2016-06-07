@@ -482,3 +482,24 @@ text-align: center;
 a.search-result {
     color: inherit;
 }
+
+div.search-result {
+    padding: 12px;
+}
+
+div.search-result div.result-title {
+    font-size: 15pt;
+    color: #1a0dab;
+}
+
+span.is-ad {
+    color: #fff;
+    background: #efc439;
+    padding: 0 2px;
+    border-radius: 2px;
+    margin-right: 7px;
+}
+
+.search-result .link-text {
+    color: #006621
+}

@@ -31,4 +31,5 @@
                                                                   :response response}))]])
                       questions))
 
-        [page-indicator @pos questions]]])))
+        [:div.has-text-centered
+         [page-indicator @pos questions]]]])))

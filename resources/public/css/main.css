@@ -329,7 +329,8 @@ padding: 1em 3vw;
 }
 .drug-detail-sideFX{
   /*background-color: #e39e6b;*/
-  background: #fcf275;
+  /*background: #fcf275;*/
+  background: #fff9b3;
   /*xcolor:white;*/
   margin-top: -3vw;
 }
@@ -338,7 +339,8 @@ padding: 1em 3vw;
 }
 .drug-detail-interactions{
   /*background-color: #fce473;*/
-  background: #fcf275;
+  /*background: #fcf275;*/
+  background: #f6d0b4
 }
 .fill-rx-button{
   background: #8dd9c1;

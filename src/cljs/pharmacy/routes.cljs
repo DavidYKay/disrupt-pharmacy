@@ -6,12 +6,31 @@
               [goog.history.EventType :as EventType]
               [re-frame.core :as re-frame]))
 
+(defn handle-url-change [e]
+  ;; log the event object to console for inspection
+  (js/console.log e)
+  ;; and let's see the token
+  (js/console.log (str "Navigating: " (.-token e)))
+  ;; we are checking if this event is due to user action,
+  ;; such as click a link, a back button, etc.
+  ;; as opposed to programmatically setting the URL with the API
+  ;;(if (.-isNavigation e)
+  (if false
+    (println "was navigation")
+    (do
+      ;; in this case, we're setting it
+      (println "Token set programmatically")
+      ;; let's scroll to the top to simulate a navigation
+      (js/window.scrollTo 0 0)))
+  ;; dispatch on the token
+  (secretary/dispatch! (.-token e)))
+
 (defn hook-browser-navigation! []
   (doto (History.)
     (events/listen
      EventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
+     ;; (fn [event] (secretary/dispatch! (.-token event)))
+     handle-url-change)
     (.setEnabled true)))
 
 (defn app-routes []

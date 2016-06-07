@@ -25,9 +25,10 @@
                                                 :effect "Diahrrea"}]}
 
             :lovastatin {:name "Lovastatin"
-                           :description "Lovastatin, like other statin drugs, is used to lower cholesterol, and could lower your chance of heart attack, stroke, or death."
+                           :description "Lovastatin is used to lower cholesterol, and could lower your chance of heart attack, stroke, or death."
                          :side-effects statin-side-effects
                          :drug-interactions [{:item "Strawberries"
                                               :effect "Hives"}
                                              {:item "Pumpkin"
                                               :effect "Diahrrea"}]}}) 
+

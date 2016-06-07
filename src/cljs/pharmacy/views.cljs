@@ -5,14 +5,14 @@
               [pharmacy.panels.consult :as consult]
               [pharmacy.panels.dashboard :as dashboard]
               [pharmacy.panels.drug-detail :as drug-detail]
+              [pharmacy.panels.final-cta :as final-cta]
               [pharmacy.panels.google :as google]
               [pharmacy.panels.google-results :as google-results]
               [pharmacy.panels.home :as home]
               [pharmacy.panels.input-phn :as input-phn]
               [pharmacy.panels.join :as join]
               [pharmacy.panels.menu-drawer :as menu]
-              [pharmacy.panels.treatment-alternatives :as treatment-alternatives]
-              ))
+              [pharmacy.panels.treatment-alternatives :as treatment-alternatives]))
 
 (defmulti panels identity)
 (defmethod panels :consult-panel [] [consult/component])
@@ -30,7 +30,7 @@
 
 (defmethod panels :adaptation-email-panel [] [adaptation-email/component])
 (defmethod panels :follow-up-email-panel [] [follow-up-email/component])
-
+(defmethod panels :final-cta-panel [] [final-cta/component])
 
 (defn show-panel
   [panel-name]

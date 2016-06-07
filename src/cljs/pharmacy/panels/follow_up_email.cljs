@@ -22,8 +22,7 @@
        :type "text"}]
      [:br]
 
-     [:a.button "Submit"]
- 
+     [:a.button {:href "/#/final-cta"} "Submit"]
 
      [:p "Thank you!"]
 

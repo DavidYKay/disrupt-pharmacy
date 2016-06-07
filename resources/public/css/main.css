@@ -404,7 +404,12 @@ text-align: center;
 .question.q10{margin-top: -100pt;}
 .question.q11{margin-top: -100pt;}
 .active-question{left:0;}
-.questions-complete{height:0px;padding:0px}
+.questions-complete{
+  height:0px;
+  padding:0px;
+  overflow: hidden;
+  /*xopacity: 0;*/
+}
 
 
 

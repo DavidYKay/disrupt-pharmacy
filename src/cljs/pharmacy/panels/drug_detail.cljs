@@ -80,7 +80,7 @@
 
                   [drug-scores-modal @drug-scores-modal-shown]
                   [appointment-modal @appointment-modal-shown]
-                  [personalization-modal @personalization-modal-shown]
+                  ;; [personalization-modal @personalization-modal-shown]
 
                   [:section.section.ctas-placeholder-bottom]])]
     

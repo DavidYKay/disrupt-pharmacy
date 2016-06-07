@@ -457,3 +457,7 @@ text-align: center;
 .circle.other {
     background: #888;
 }
+
+a.search-result {
+    color: inherit;
+}

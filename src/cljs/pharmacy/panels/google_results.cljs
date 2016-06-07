@@ -14,7 +14,7 @@
               {:title "Lovastatin Side Effects in Detail - Drugs.com"
                :summary "Learn about the potential side effects of lovastatin. Includes common and rare side effects information for consumers and healthcare professionals."
                :link-text "www.drugs.com › Drugs A to Z › Lovastatin"
-               :url "www.drugs.com"}])
+               :url "http://www.drugs.com"}])
 
 (defn component []
   [:div.box
@@ -22,17 +22,10 @@
    [searchbox {:placeholder ""
                :on-search #(dispatch [:set-active-panel :google-results-panel])}]
 
-   ;; [:ul
-   ;;  [:li "All"]
-   ;;  [:li "Images"]
-   ;;  [:li "More"]]
-
    (for [{:keys [title summary link-text url]} results]
      ^{:key url}
-     [:div 
-      [:div title]
-      [:div summary]
-      [:a {:href url} link-text]])
-   
-   ;; [:img {:src "img/searchbutton.png"}]
-   ])
+     [:a.search-result {:href url} 
+      [:div 
+       [:div title]
+       [:div summary]
+       [:a.link-text {:href url} link-text]]])])

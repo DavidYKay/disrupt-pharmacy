@@ -7,7 +7,9 @@
   (make-modal modal-shown
               #(dispatch [:consult-pharmacist false])
                "Consultation Appointment Booked"
-               [:div "Please expect a phone call from pharmacist Dr. Nguyen at 3:00 pm on Wednesday June 8th, 2016.  If you need to update your contact phone number or change the appointment, please do so via the Patient Dashboard."]
+               [:div
+                [:p "With pharmacist Dr. Nguyen at 3:00 pm on Wednesday June 8th, 2016."]
+                [:p "If you need to update your contact phone number or change the appointment, please reply to this email."]]
 
                {:href "/#/adaptation-email"
                 :text "Fast Forward"}))

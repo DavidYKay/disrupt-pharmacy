@@ -50,7 +50,7 @@
                    {:class (if (and @can-fill @answered-questions?)
                              "" "questions-complete")}
                    [:div.box.alternatives-box
-                    [:div "Out of the 6 cholesterol-lowering medications, pharmacists ranked Lovastatin 6 out of 6."]
+                    [:div "Pharmacists have ranked 5 other cholesterol-lowering medications higher than Lovastatin."]
                     [:div.has-text-centered.container
                      [:a.button.is-warning {:href "#/treatment-alternatives"}
                       "See Better Options"]]]]

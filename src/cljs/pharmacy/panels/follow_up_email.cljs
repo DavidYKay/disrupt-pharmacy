@@ -17,7 +17,7 @@
      [:br]
      [:p "Please fill out the box below with anything you’ve discovered after taking atorvastatin:"]
 
-     [:input.input.is-large
+     [:input.textarea
       {:placeholder "It's been great! / I've experienced some side effects..."
        :type "text"}]
      [:br]

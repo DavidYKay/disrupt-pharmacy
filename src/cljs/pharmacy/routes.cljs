@@ -80,6 +80,9 @@
 
   (defroute follow-up-email "/follow-up-email" []
     (re-frame/dispatch [:set-active-panel :follow-up-email-panel]))
+
+  (defroute final-cta "/final-cta" []
+    (re-frame/dispatch [:set-active-panel :final-cta-panel]))
   
   ;; --------------------
   (hook-browser-navigation!))

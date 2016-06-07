@@ -503,3 +503,7 @@ span.is-ad {
 .search-result .link-text {
     color: #006621
 }
+
+#final-cta {
+    font-size: 24pt;
+}

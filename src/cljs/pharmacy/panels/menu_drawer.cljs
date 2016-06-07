@@ -16,10 +16,10 @@
    ["Join" "#/join"]])
 
 (def items
-  [["Checkout (2)" "#/checkout" "fa-shopping-cart"]
+  [["Checkout (1)" "#/checkout" "fa-shopping-cart"]
    ["Alerts" "#/alerts" "fa-bell-o"]
    ["Consult Pharmacist" "#/pharmacist" "fa-user-plus"]
-   ["Fill A Prescription / Refills" "#/prescriptions" "fa-sticky-note"]
+   ["Fill Prescription / Refills" "#/prescriptions" "fa-sticky-note"]
    ["My Active Medications" "#/prescriptions/active" "fa-medkit"]
    ["Fill & Order History" "#/prescriptions/history" "fa-history"]
    ["My Health Profile" "#/health-profile" "fa-clipboard"]
@@ -43,7 +43,7 @@
         [searchbox {:placeholder "Find a Medication"
                     :on-search #(print "searching for" %)}]]]
 
-      [:section.section
+      [:section.section.dashboard-section
        [:div.container.dashboard
         (for [[n p i] items]
           ^{:key n}

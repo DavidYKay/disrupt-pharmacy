@@ -31,6 +31,9 @@ padding: 1em 3vw;
   padding: 1em 0em;
   color: #aaa
 }
+.modal-content .box {
+  width: 80vw;
+}
 .info-text span{
   vertical-align: middle;
 }
@@ -441,6 +444,9 @@ text-align: center;
 .alt-page-score .score-box {
   margin-top:1em;
   font-size: 5vw;
+}
+.brand-name > span:nth-child(2) {
+  font-style: italic;
 }
 
 /*page indicator for questions*/

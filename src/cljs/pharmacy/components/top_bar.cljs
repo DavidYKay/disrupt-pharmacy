@@ -14,4 +14,6 @@
         [:a {:href "#"}
         [:h1.title.has-text-centered "DrugIQ"]]]
        [:div.column
-        [join-button @logged-in]]])))
+       ;;join button removed for demo
+        ;;[join-button @logged-in]
+        ]])))

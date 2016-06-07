@@ -6,11 +6,12 @@
 (defn component []
   (fn []
     [:div.box.container
-     [:h1.title "Your doctor is on board!"]
-
+     [:h1.title "Your prescription has been changed"]
+     
      [:br]
+     
      [:p "Your prescription for lovastatin has been changed to atorvastatin. "]
-
+     
      [:br]
 
      [:p "Please click here to login and fill your prescription:"]
@@ -20,5 +21,4 @@
      [:br]
      
      [:p "Sincerely,"]
-     [:p "DrugIQ"]
-     ]))
+     [:p "DrugIQ"]]))

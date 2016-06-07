@@ -21,7 +21,9 @@
       [:div
        [:div (:question question)]
        [:p.control
-        [:input.input.is-large {:type "text"
+        [:input.input.is-large {:type "number"
+                                :pattern "[0-9]*" 
+                                :inputmode "numeric"
                                 :placeholder "Age"
                                 :on-key-down (on-enter #(callback @val))
                                 :value @val

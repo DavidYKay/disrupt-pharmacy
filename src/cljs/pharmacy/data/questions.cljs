@@ -12,8 +12,8 @@
    {:question "What is your ethnicity?"
     :id :race
     :type :multiple-choice
-    :choices ["African"
-              "Caucasian"
+    :choices ["Black"
+              "White"
               "Other"]}
    {:question "Are you a smoker?"
     :id :smoker

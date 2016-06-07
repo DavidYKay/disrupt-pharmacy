@@ -4,4 +4,6 @@
   [:div.score-box.has-text-centered
    [:div.scorebox-recommend
     [:div.grade grade
-     [:span.out-of-10 "/10"]]]])
+     [:span.out-of-10 "/10"]]
+     [:div.grade-label.alt-rating "Professionals\nRecommend"]
+     ]])

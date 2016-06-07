@@ -38,7 +38,7 @@
           [:a {:href (str "/#/drug/" (lower-case name))}
            [:div.columns.is-mobile
             [:div.column.alt-page-score.is-one-third
-             [alternative-therapy-rating recommend-score risk]]
+             [alternative-therapy-rating recommend-score]]
             [:div.column.content
              [:h4.drug-name name]
              [:div.ranking "Rank:" (:current rating) [:span.tie (if tie " (tie)" "")]]

@@ -140,6 +140,7 @@ padding: 1em 3vw;
 .recently-browsed a {
   display: block;
   margin-bottom: 1em;
+  white-space: nowrap;
 }
 .recently-browsed a h2 {
   margin-left: 1em;
@@ -442,11 +443,23 @@ text-align: center;
   /*vertical-align: middle;*/
   text-align: center;}
 .alt-page-score .score-box {
-  margin-top:1em;
-  font-size: 5vw;
+  xmargin-top:1em;
+  font-size: 6vw;
 }
 .brand-name > span:nth-child(2) {
   font-style: italic;
+}
+.grade-label.alt-rating{
+  line-height: 1em;
+  margin-top: 2em;
+  font-size: 0.45em;
+}
+.alt-page-score .scorebox-recommend {
+  /*background: #aa7b94;*/
+  background: #915c83;
+}
+.alt-page-score .grade {
+  font-size: 1.7em;
 }
 
 /*page indicator for questions*/

@@ -283,9 +283,9 @@ padding: 1em 3vw;
 }
 .out-of-10{
   font-weight: 100;
-  font-size: 0.3em;
+  font-size: 0.5em;
   letter-spacing: -0.1em;
-  color: #555;
+  /*color: #555;*/
 }
 .grade-label{font-size: 0.35em;}
 
@@ -383,6 +383,7 @@ padding: 1em 3vw;
 background: linear-gradient(to bottom, #9b617e,#482a43);
 color:#fff;
 text-align: center;
+overflow: hidden;
 }
 .alternatives-box .button {
   color: #000
@@ -462,7 +463,7 @@ text-align: center;
   /*vertical-align: middle;*/
   text-align: center;}
 .alt-page-score .score-box {
-  xmargin-top:1em;
+  /*xmargin-top:1em;*/
   font-size: 6vw;
 }
 .brand-name > span:nth-child(2) {
@@ -479,6 +480,9 @@ text-align: center;
 }
 .alt-page-score .grade {
   font-size: 1.7em;
+}
+.alt-page-score .grade span {
+  color: #eee;
 }
 
 /*page indicator for questions*/

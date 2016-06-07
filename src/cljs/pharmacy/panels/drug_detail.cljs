@@ -58,7 +58,9 @@
                      [:a.button.is-warning {:href "#/treatment-alternatives"}
                       "See Better Options"]]]]
 
-                  [:section.drug-detail-ctas.has-text-centered
+                  [:section.drug-detail-ctas.has-text-centered {:class (if @can-fill "" "with-descrip")}
+                  (if @can-fill ""
+                    [:div.consult-cta-blurb "Speak to a pharmacist about " @drug-name])
                    [:div.container
                     [fill-rx-button @can-fill]
                     [consult-pharmacist-button]]]
@@ -83,7 +85,7 @@
                   ;; [personalization-modal @personalization-modal-shown]
 
                   [:section.section.ctas-placeholder-bottom]])]
-    
+
     (reagent/create-class
      {:component-did-mount #(when @fresh-from-google
                               (dispatch [:personalization-modal true]))

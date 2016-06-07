@@ -366,19 +366,17 @@ padding: 1em 3vw;
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  top:91vh;
+  top:86vh;
   top:calc(100vh - 3.5em);
   z-index: 98;
   background: rgba(255, 255, 255, 0.8);
   margin-top: -3vw;
 }
+.drug-detail-ctas.with-descrip {top:calc(100vh - 5em)}
 .drug-detail-descrip {
-  /*margin-top: -3.5em;
-  margin-bottom: -1.5em;*/
   padding-top: 0;
-  /*padding-bottom: 0;*/
 }
-.drugbible-page .ctas-placeholder-bottom {height: 3.5em}
+.drugbible-page .ctas-placeholder-bottom {height: 5em}
 .alternatives-box {
 background: linear-gradient(to bottom, #9b617e,#482a43);
 color:#fff;
@@ -386,6 +384,10 @@ text-align: center;
 }
 .alternatives-box .button {
   color: #000
+}
+.consult-cta-blurb {
+  font-size: 11pt;
+  padding-top: .5em;
 }
 
 /*Questions boxes*/

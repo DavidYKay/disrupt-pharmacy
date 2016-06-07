@@ -6,10 +6,11 @@
 (defn personalization-modal [modal-shown]
   (make-modal modal-shown
               #(dispatch [:personalization-modal false])
-               "Warning"
+               "Non-Personalized Score"
                [:div
                 [:p "This drug score has not yet been tailored to you."]
+                [:br]
                 [:p "Please answer a few questions so that we can personalize your scores."]]
 
                {:on-click #(dispatch [:personalization-modal false])
-                :text "I Understand"}))
+                :text "I understand"}))

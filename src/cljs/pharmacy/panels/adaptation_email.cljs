@@ -21,6 +21,4 @@
      
      [:p "Sincerely,"]
      [:p "DrugIQ"]
-
-     
      ]))

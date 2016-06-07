@@ -1,7 +1,7 @@
 (ns pharmacy.panels.treatment-alternatives
   (:require
    [clojure.string :refer [lower-case]]
-   [pharmacy.components.drug-rating :refer [drug-rating]]
+   [pharmacy.components.alternative-therapy-rating :refer [alternative-therapy-rating]]
    [pharmacy.components.dollar-rating :refer [dollar-rating]]
    [pharmacy.components.top-bar :refer [top-bar]]))
 
@@ -36,16 +36,14 @@
          ^{:key name}
          [:section.section.alternatives-page-drug-box
           [:a {:href (str "/#/drug/" (lower-case name))}
-          [:div.columns.is-mobile
-          [:div.column.alt-page-score.is-one-third [drug-rating recommend-score risk]]
-          [:div.column.content
-           [:h4.drug-name name]
-           [:div.ranking "Rank:" (:current rating) [:span.tie (if tie " (tie)" "")]]
-           [:div.brand-name "Also known as " brand-name ]
-
-           [dollar-rating cost 5]
-           ;;[:div description] ;;No description
-           ]]]])
+           [:div.columns.is-mobile
+            [:div.column.alt-page-score.is-one-third
+             [alternative-therapy-rating recommend-score risk]]
+            [:div.column.content
+             [:h4.drug-name name]
+             [:div.ranking "Rank:" (:current rating) [:span.tie (if tie " (tie)" "")]]
+             [:div.brand-name "Also known as " brand-name ]
+             [dollar-rating cost 5]]]]])
 
       [:section.section.alternatives-foot
        [:p "Note: For best results, any of the above therapies should be accompanied by a healthy diet and exercise"]

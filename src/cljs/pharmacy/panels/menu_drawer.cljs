@@ -26,9 +26,9 @@
    ["Account Information" "#/account" "fa-info"]])
 
 (def recent-drugs
-  [["Lovastatin" "#/drug/lovastatin"]
-   ["Atorvastatin" "#/drug/atorvastatin"]
-   ["Rosuvastatin" "#/drug/rosuvastatin"]])
+  [["Lovastatin" "#/drug/lovastatin" "80%"]
+   ["Atorvastatin" "#/drug/atorvastatin" "60%"]
+   ["Rosuvastatin" "#/drug/rosuvastatin" "40%"]])
 
 (defn component []
   (fn []
@@ -53,12 +53,12 @@
       [:section.section
        [:div.container.recently-browsed
         [:h2.subtitle "Recently Browsed"]
-        (for [[n p] recent-drugs]
-          ^{:key n}
-           [:a {:href p
-             :on-click #(dispatch [:set-menu-open false])}
-            [drug-rating 8]
-            [:h2.subtitle.is-inline n]])]]
+        (for [[name path rating] recent-drugs]
+          ^{:key name}
+          [:a {:href path
+               :on-click #(dispatch [:set-menu-open false])}
+           [drug-rating rating]
+           [:h2.subtitle.is-inline name]])]]
 
       [:section.section.debugmenu
        [:div.container

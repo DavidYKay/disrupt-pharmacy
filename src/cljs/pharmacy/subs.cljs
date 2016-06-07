@@ -81,10 +81,10 @@
  (fn [db [_]]
    (reaction
     (cond
-      (get-in @db [:questions :universal :cardiac-event]) "8"
-      (get-in @db [:questions :universal :diabetes]) "4"
-      (get-in @db [:questions :universal :smoker]) "2"
-      :else "1"))))
+      (get-in @db [:questions :universal :cardiac-event]) "80%"
+      (get-in @db [:questions :universal :diabetes]) "40%"
+      (get-in @db [:questions :universal :smoker]) "20%"
+      :else "10%"))))
 
 (re-frame/register-sub
  :fresh-from-google

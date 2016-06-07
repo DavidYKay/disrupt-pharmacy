@@ -312,6 +312,7 @@ padding: 1em 3vw;
   /*background-color: #e39e6b;*/
   background: #fcf275;
   /*xcolor:white;*/
+  margin-top: -3vw;
 }
 .drug-detail-sideFX .subtitle{
   /*color:white;*/
@@ -350,6 +351,7 @@ padding: 1em 3vw;
   top:calc(100vh - 3.5em);
   z-index: 98;
   background: rgba(255, 255, 255, 0.8);
+  margin-top: -3vw;
 }
 .drug-detail-descrip {
   /*margin-top: -3.5em;
